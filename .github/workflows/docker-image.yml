@@ -10,7 +10,9 @@ jobs:
       # Check out code
       - name: Checkout
         uses: actions/checkout@v2
-      # This is a separate action that sets up buildx runner
+      # This is a separate action that sets up buildx runner   
+      - name: Update submodules
+        run: git submodule update --init --recursive
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       # So now you can use Actions' own caching!

@@ -2,6 +2,8 @@ name: ci2
 
 on:
   push:
+    branches:
+      - 'experimental'
 
 jobs:
   docker:

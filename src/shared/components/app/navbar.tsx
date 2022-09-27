@@ -287,7 +287,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                   </NavLink>
                 </li>
               )}
-              <li className="nav-item">
+{/*              <li className="nav-item">
                 <a
                   className="nav-link"
                   title={i18n.t("support_lemmy")}
@@ -295,7 +295,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                 >
                   <Icon icon="heart" classes="small" />
                 </a>
-              </li>
+              </li>*/}
             </ul>
             <ul className="navbar-nav my-2">
               {this.amAdmin && (

@@ -3,6 +3,7 @@ name: ci2
 on:
   push:
     branches:
+      - 'main'
       - 'experiment'
 
 jobs:
@@ -12,8 +13,8 @@ jobs:
       # Check out code
       - name: Checkout
         uses: actions/checkout@v2  
-      # - name: Update submodules
-      #  run: git submodule update --init --recursive
+      - name: Update submodules
+        run: git submodule update --init --recursive
       # This is a separate action that sets up buildx runner
       # - name: Set up QEMU
       #  uses: docker/setup-qemu-action@v1 

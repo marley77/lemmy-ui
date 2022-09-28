@@ -16,9 +16,10 @@ jobs:
         
       - name: Update submodules
         # run: git submodule update --init
-        run: |
-          git submodule update --init
-          git submodule update --remote --merge
+        run: git submodule update --init --remote --merge
+#         run: |
+#           git submodule update --init
+#           git submodule update --remote --merge
         # run: git submodule update --remote --merge
         # run: git submodule update --remote --merge
         # git submodule update --init --recursive --remote --merge --force

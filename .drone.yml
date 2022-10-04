@@ -119,6 +119,21 @@ steps:
       #   - refs/heads/main
       #   - refs/tags/*
 
+  - name: yarn
+    image: node:14-alpine
+    commands:
+      - yarn
+
+  - name: yarn lint
+    image: node:14-alpine
+    commands:
+      - yarn lint
+
+  - name: yarn build:dev
+    image: node:14-alpine
+    commands:
+      - yarn build:dev      
+
   - name: publish release docker image
     image: plugins/docker
     settings:

@@ -113,9 +113,11 @@ steps:
       - git submodule update --recursive --remote
       - git fetch --tags
     when:
-      ref:
-        - refs/heads/main
-        - refs/tags/*
+      repo:
+        - marley77/lemmy-ui
+      # ref:
+      #   - refs/heads/main
+      #   - refs/tags/*
 
   - name: publish release docker image
     image: plugins/docker
@@ -129,8 +131,10 @@ steps:
       password:
         from_secret: docker_password
     when:
-      ref:
-        - refs/tags/*
+      repo:
+        - marley77/lemmy-ui
+      # ref:
+      #   - refs/tags/*
 
   - name: publish release docker manifest
     image: plugins/manifest
@@ -146,8 +150,10 @@ steps:
         - linux/arm64
       ignore_missing: true
     when:
-      ref:
-      - refs/tags/*
+      repo:
+        - marley77/lemmy-ui
+      # ref:
+      # - refs/tags/*
 
   - name: publish latest release docker manifest
     image: plugins/manifest
@@ -163,5 +169,7 @@ steps:
         - linux/arm64
       ignore_missing: true
     when:
-      ref:
-      - refs/tags/*
+      repo:
+        - marley77/lemmy-ui
+      # ref:
+      # - refs/tags/*

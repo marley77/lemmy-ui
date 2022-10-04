@@ -124,11 +124,6 @@ steps:
     commands:
       - yarn
 
-  - name: yarn lint
-    image: node:14-alpine
-    commands:
-      - yarn lint
-
   - name: yarn build:dev
     image: node:14-alpine
     commands:

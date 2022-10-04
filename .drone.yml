@@ -124,10 +124,10 @@ steps:
     commands:
       - yarn
 
-  - name: yarn build:dev
+  - name: yarn build:prod
     image: node:14-alpine
     commands:
-      - yarn build:dev      
+      - yarn build:prod      
 
   - name: publish release docker image
     image: plugins/docker

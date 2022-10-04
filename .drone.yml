@@ -50,7 +50,7 @@ steps:
     image: plugins/docker
     settings:
       dockerfile: Dockerfile
-      repo: qz77/ui2
+      repo: marley77/lemmy-ui
       auto_tag: true
       auto_tag_suffix: linux-amd64
       username:
@@ -119,21 +119,21 @@ steps:
       #   - refs/heads/main
       #   - refs/tags/*
 
-  - name: yarn
-    image: node:14-alpine
-    commands:
-      - yarn
+  # - name: yarn
+  #   image: node:14-alpine
+  #   commands:
+  #     - yarn
 
-  - name: yarn build:prod
-    image: node:14-alpine
-    commands:
-      - yarn build:prod      
+  # - name: yarn build:prod
+  #   image: node:14-alpine
+  #   commands:
+  #     - yarn build:prod      
 
   - name: publish release docker image
     image: plugins/docker
     settings:
       dockerfile: Dockerfile
-      repo: qz77/ui2
+      repo: marley77/lemmy-ui
       auto_tag: true
       auto_tag_suffix: linux-arm64
       username:
@@ -153,8 +153,8 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      target: "qz77/ui2:d2"
-      #template: "qz77/ui2:d2"
+      target: "qz77/ui2:latest"
+      # template: "qz77/ui2:d2"
       # target: "qz77/ui2:${DRONE_TAG}"
       # template: "qz77/ui2:${DRONE_TAG}-OS-ARCH"
       platforms:

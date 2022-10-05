@@ -1,9 +1,12 @@
 kind: pipeline
-type: docker
-name: go
-        
+name: arm64
+
+platform:
+  os: linux
+  arch: arm64
+
 steps:
-  
+
   - name: fetch git submodules
     image: node:14-alpine
     commands:
@@ -11,22 +14,22 @@ steps:
       - git submodule init
       - git submodule update --recursive --remote
       - git fetch --tags
-    when:
-      repo:
-        - marley77/lemmy-ui
+    # when:
+    #   ref:
+    #     - refs/heads/main
+    #     - refs/tags/*
 
-  - name: docker
+  - name: publish release docker image
     image: plugins/docker
     settings:
-      repo: marley77/lemmy-ui
       dockerfile: Dockerfile
+      repo: qz77/ui2
+      auto_tag: true
+      auto_tag_suffix: linux-arm64
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      tags:
-        - latest
-    when:
-      repo:
-        - marley77/lemmy-ui
-
+    # when:
+    #   ref:
+    #     - refs/tags/*

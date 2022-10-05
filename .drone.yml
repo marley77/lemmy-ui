@@ -24,7 +24,7 @@ steps:
     settings:
       dockerfile: Dockerfile
       repo: qz77/ui2
-      auto_tag: true
+      # auto_tag: true
       auto_tag_suffix: linux-arm64
       username:
         from_secret: docker_username

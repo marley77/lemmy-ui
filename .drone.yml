@@ -7,7 +7,7 @@ platform:
 
 steps:
 
-  - name: fetch git submodules
+  - name: fetch git submodules 
     image: node:14-alpine
     commands:
       - apk add git

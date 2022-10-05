@@ -1,10 +1,10 @@
 name: ci4
 
-on:
-  push:
-    branches:
-      - 'main'
-      - 'experiment3'
+# on:
+#   push:
+#     branches:
+#       - 'main'
+#       - 'experiment3'
 
 jobs:
   docker:

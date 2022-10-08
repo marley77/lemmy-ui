@@ -79,6 +79,7 @@ export class SortSelect extends Component<SortSelectProps, SortSelectState> {
           <Icon icon="help-circle" classes="icon-inline" />
         </a>
 */}
+        <span></span>
       </>
     );
   }

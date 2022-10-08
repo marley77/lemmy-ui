@@ -306,7 +306,7 @@ export class Home extends Component<any, HomeState> {
     );
   }
 
-/* CUT THEIR MOBILE VIEW    ================
+  /* CUT THEIR MOBILE VIEW    ================
   mobileView() {
     let siteRes = this.state.siteRes;
     return (
@@ -353,10 +353,7 @@ export class Home extends Component<any, HomeState> {
               classes="icon-inline"
             />
           </button>
-          === END OF THEIR MOBILE VIEW    ================ */
 
-
-{/*  THEIRS FOR HOME SIDEBAR ================ */}
           {this.state.showSidebarMobile && (
             <SiteSidebar
               site={siteRes.site_view.site}
@@ -373,8 +370,6 @@ export class Home extends Component<any, HomeState> {
             </div>
           )}
 
-
-{/* THEIRS FOR HOME SIDEBAR    ================ */}
           {this.state.showSubscribedMobile && (
             <div class="col-12 card border-secondary mb-3">
               <div class="card-body">{this.subscribedCommunities()}</div>
@@ -384,6 +379,10 @@ export class Home extends Component<any, HomeState> {
       </div>
     );
   }
+
+=== END OF THEIR MOBILE VIEW    ================ */
+
+  // THEIR PC SIDEBAR
 
   mySidebar() {
     let siteRes = this.state.siteRes;
@@ -399,7 +398,6 @@ export class Home extends Component<any, HomeState> {
               </div>
             </div>
 
-   {/* THEIR SIDEBAR ADDED    ================ */}
             <SiteSidebar
               site={siteRes.site_view.site}
               admins={siteRes.admins}
@@ -414,7 +412,6 @@ export class Home extends Component<any, HomeState> {
                   <div class="card-body">{this.subscribedCommunities()}</div>
                 </div>
               )}
-
           </div>
         )}
       </div>
@@ -449,7 +446,7 @@ export class Home extends Component<any, HomeState> {
           </T>
         </h5>
         <ul class="list-inline mb-0">
-          {this.state.trendingCommunities.map(cv => (
+          {this.state.trendingCommunities.map((cv) => (
             <li class="list-inline-item d-inline-block">
               <CommunityLink community={cv.community} />
             </li>
@@ -484,7 +481,7 @@ export class Home extends Component<any, HomeState> {
         </h5>
         {!this.state.subscribedCollapsed && (
           <ul class="list-inline mb-0">
-            {UserService.Instance.myUserInfo.follows.map(cfv => (
+            {UserService.Instance.myUserInfo.follows.map((cfv) => (
               <li class="list-inline-item d-inline-block">
                 <CommunityLink community={cfv.community} />
               </li>
@@ -494,6 +491,7 @@ export class Home extends Component<any, HomeState> {
       </div>
     );
   }
+  // =========== END OF THEIR PC SIDEBAR =============
 
   updateUrl(paramUpdates: UrlParams) {
     const listingTypeStr = paramUpdates.listingType || this.state.listingType;
@@ -547,12 +545,13 @@ export class Home extends Component<any, HomeState> {
     );
   }
 
+  // subscribed / local / all selector logic
   selects() {
-    let allRss = `/feeds/all.xml?sort=${this.state.sort}`;
+    // let allRss = `/feeds/all.xml?sort=${this.state.sort}`;
     let localRss = `/feeds/local.xml?sort=${this.state.sort}`;
-    let frontRss = UserService.Instance.myUserInfo
-      ? `/feeds/front/${UserService.Instance.auth}.xml?sort=${this.state.sort}`
-      : "";
+    // let frontRss = UserService.Instance.myUserInfo
+    //   ? `/feeds/front/${UserService.Instance.auth}.xml?sort=${this.state.sort}`
+    //   : "";
 
     return (
       <div className="mb-3">
@@ -562,6 +561,7 @@ export class Home extends Component<any, HomeState> {
             onChange={this.handleDataTypeChange}
           />
         </span>
+        {/* === subscribed / local / all selector vamoose 
         <span class="mr-3">
           <ListingTypeSelect
             type_={this.state.listingType}
@@ -570,6 +570,7 @@ export class Home extends Component<any, HomeState> {
             onChange={this.handleListingTypeChange}
           />
         </span>
+        */}
         <span class="mr-2">
           <SortSelect sort={this.state.sort} onChange={this.handleSortChange} />
         </span>
@@ -719,7 +720,7 @@ export class Home extends Component<any, HomeState> {
         if (this.state.listingType == ListingType.Subscribed) {
           if (
             UserService.Instance.myUserInfo.follows
-              .map(c => c.community.id)
+              .map((c) => c.community.id)
               .includes(data.post_view.community.id)
           ) {
             this.state.posts.unshift(data.post_view);
@@ -774,8 +775,8 @@ export class Home extends Component<any, HomeState> {
     } else if (op == UserOperation.BanPerson) {
       let data = wsJsonToRes<BanPersonResponse>(msg).data;
       this.state.posts
-        .filter(p => p.creator.id == data.person_view.person.id)
-        .forEach(p => (p.creator.banned = data.banned));
+        .filter((p) => p.creator.id == data.person_view.person.id)
+        .forEach((p) => (p.creator.banned = data.banned));
 
       this.setState(this.state);
     } else if (op == UserOperation.GetComments) {
@@ -800,7 +801,7 @@ export class Home extends Component<any, HomeState> {
         if (this.state.listingType == ListingType.Subscribed) {
           if (
             UserService.Instance.myUserInfo.follows
-              .map(c => c.community.id)
+              .map((c) => c.community.id)
               .includes(data.comment_view.community.id)
           ) {
             this.state.comments.unshift(data.comment_view);

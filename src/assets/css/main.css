@@ -375,6 +375,14 @@ br.big {
   border-radius: 4px;
 }
 
+.preview-lines {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 /* MY ADDITIONS ========================= */
 
 /* COMMENT NODE ================================== */

@@ -306,7 +306,7 @@ export class Home extends Component<any, HomeState> {
     );
   }
 
-{/* CUT THEIR MOBILE VIEW    ================
+/* CUT THEIR MOBILE VIEW    ================
   mobileView() {
     let siteRes = this.state.siteRes;
     return (
@@ -353,7 +353,7 @@ export class Home extends Component<any, HomeState> {
               classes="icon-inline"
             />
           </button>
-          === END OF THEIR MOBILE VIEW    ================ */}
+          === END OF THEIR MOBILE VIEW    ================ */
 
 
 {/*  THEIRS FOR HOME SIDEBAR ================ */}

@@ -305,7 +305,7 @@ export const SYMBOLS = (
 
       {/*  youtube vid icon  ================ */}
       <symbol
-        id="vid-icon"
+        id="icon-vid"
         viewBox="0 0 64 64"
         aria-labelledby="title"
         role="img"

@@ -290,7 +290,8 @@ export class Home extends Component<any, HomeState> {
           {this.state.siteRes.site_view?.site && (
             <div class="row" id="disco-area">
               <main role="main" class="col-12 col-md-8" id="disco-column">
-                <div class="d-block d-md-none">{this.mobileView()}</div>
+                {/* qz3 cut THEIR mobile view =========================================================
+                <div class="d-block d-md-none">{this.mobileView()}</div> */}
                 {this.posts()}
               </main>
               <aside class="d-none d-md-block col-md-4 sidebar-column">
@@ -305,6 +306,7 @@ export class Home extends Component<any, HomeState> {
     );
   }
 
+{/* CUT THEIR MOBILE VIEW    ================
   mobileView() {
     let siteRes = this.state.siteRes;
     return (
@@ -351,14 +353,7 @@ export class Home extends Component<any, HomeState> {
               classes="icon-inline"
             />
           </button>
-
-{/*  MINE for home side bar, delete if error  ================  
-
-          {this.state.showSubscribedMobile && (
-            <div class="col-12 card border-secondary mb-3">
-              <div class="card-body">{this.subscribedCommunities()}</div>
-            </div>
-==== */}
+          === END OF THEIR MOBILE VIEW    ================ */}
 
 
 {/*  THEIRS FOR HOME SIDEBAR ================ */}
@@ -377,12 +372,6 @@ export class Home extends Component<any, HomeState> {
               <div class="card-body">{this.trendingCommunities()}</div>
             </div>
           )}
-
-{/* MINE FOR HOME SIDEBAR, delete if error    ================
-          {this.state.showSidebarMobile && (
-            <div class="col-12 card border-secondary mb-3">
-              <div class="card-body">{this.sidebar()}</div>
-    ================ */}
 
 
 {/* THEIRS FOR HOME SIDEBAR    ================ */}
@@ -403,17 +392,6 @@ export class Home extends Component<any, HomeState> {
         {!this.state.loading && (
           <div>
             <div class="card border-secondary mb-3">
-              {/*IFRAME TEST unneeded, can delete
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/xqR12BvJYlk"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>*/}
-
               <div class="card-body">
                 {this.trendingCommunities()}
                 {this.createCommunityButton()}
@@ -436,11 +414,6 @@ export class Home extends Component<any, HomeState> {
                   <div class="card-body">{this.subscribedCommunities()}</div>
                 </div>
               )}
-  {/* MY OLD SIDEBAR I GUESS    ================ 
-            <div class="card border-secondary mb-3">
-              <div class="card-body">{this.sidebar()}</div>
-            </div>
-  */}
 
           </div>
         )}

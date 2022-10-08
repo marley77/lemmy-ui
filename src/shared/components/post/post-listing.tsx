@@ -1396,7 +1396,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
-  /*  // SUMMARY SNIPPET EXPANDER - MODULE, test - good but uses preview lines
+  /*  // MY OLD MOBILE TEXT PREVIEW - uses preview old lines - CAN DELETE
 
   showMobilePreview() {
     let post = this.props.post_view.post;

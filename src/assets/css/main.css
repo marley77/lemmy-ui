@@ -377,7 +377,7 @@ br.big {
 
 .preview-lines {
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: fade(20%);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -451,7 +451,8 @@ USER PIC PROFILE */
 }
 
 /* FONT */
-body {
+body,
+pre {
   margin: 0;
   text-align: left;
   font-family: Verdana, Geneva, sans-serif !important;

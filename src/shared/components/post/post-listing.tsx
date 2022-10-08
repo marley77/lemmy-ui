@@ -1429,7 +1429,24 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         />
   */
 
-  //USING THEIR MOBILE PREVIEW (unneeded) because mine ^^ has preview lines
+  // MY NEW MOBILE TEXT PREVIEW - forked from next block
+  showMobilePreview() {
+    let post = this.props.post_view.post;
+    return (
+      post.body &&
+      !this.showBody && (
+        <details class="topic-text-excerpt">
+          <summary>
+            <pre className="md-div mb-1 preview-lines">{post.body}</pre>
+          </summary>
+          <pre className="md-div mb-1">{post.body}</pre>
+        </details>
+      )
+    );
+  }
+
+  /*
+  //USING THEIR MOBILE TEXT PREVIEW (unneeded) because mine ^^ has preview lines
   showMobilePreview() {
     let post = this.props.post_view.post;
     return (
@@ -1439,6 +1456,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       )
     );
   }
+*/
 
   // THEIR MAIN LISTING, unneeded
   //  listing() {

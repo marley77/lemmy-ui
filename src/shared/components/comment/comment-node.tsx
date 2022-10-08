@@ -203,8 +203,11 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                   </Link>
                 </>
               )}
+
+
+{/* COLLAPSE COMMENT - qz3 ========================================================= */}
               <button
-                class="btn btn-sm text-muted"
+                class="btn btn-sm text-muted folder"
                 onClick={linkEvent(this, this.handleCommentCollapse)}
                 aria-label={this.expandText}
                 data-tippy-content={this.expandText}
@@ -216,6 +219,9 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                 )}
               </button>
               {this.linkBtn(true)}
+
+
+
               {/* This is an expanding spacer for mobile */}
               <div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>
               {showScores() && (
@@ -339,6 +345,35 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                       >
                         <Icon icon="reply1" classes="icon-inline" />
                       </button>
+
+{/* SAVE BUTTON - qz3 ========================================================= */}
+
+                          <button
+                            class="btn btn-link btn-animate text-muted"
+                            onClick={linkEvent(
+                              this,
+                              this.handleSaveCommentClick
+                            )}
+                            data-tippy-content={
+                              cv.saved ? i18n.t("unsave") : i18n.t("save")
+                            }
+                            aria-label={
+                              cv.saved ? i18n.t("unsave") : i18n.t("save")
+                            }
+                          >
+                            {this.state.saveLoading ? (
+                              this.loadingIcon
+                            ) : (
+                              <Icon
+                                icon="star"
+                                classes={`icon-inline ${
+                                  cv.saved && "text-warning"
+                                }`}
+                              />
+                            )}
+                          </button>
+
+{/* ...MORE - qz3 =========================================================   */}                   
                       {!this.state.showAdvanced ? (
                         <button
                           className="btn btn-link btn-animate text-muted"
@@ -387,30 +422,9 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                               </button>
                             </>
                           )}
-                          <button
-                            class="btn btn-link btn-animate text-muted"
-                            onClick={linkEvent(
-                              this,
-                              this.handleSaveCommentClick
-                            )}
-                            data-tippy-content={
-                              cv.saved ? i18n.t("unsave") : i18n.t("save")
-                            }
-                            aria-label={
-                              cv.saved ? i18n.t("unsave") : i18n.t("save")
-                            }
-                          >
-                            {this.state.saveLoading ? (
-                              this.loadingIcon
-                            ) : (
-                              <Icon
-                                icon="star"
-                                classes={`icon-inline ${
-                                  cv.saved && "text-warning"
-                                }`}
-                              />
-                            )}
-                          </button>
+
+
+
                           <button
                             className="btn btn-link btn-animate text-muted"
                             onClick={linkEvent(this, this.handleViewSource)}

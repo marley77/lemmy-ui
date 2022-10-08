@@ -292,14 +292,21 @@ export class Post extends Component<any, PostState> {
   render() {
     let pv = this.state.postRes?.post_view;
     return (
+
+    <div>
+{/*  ^wrapper div  -- header image   ================ */}
+      <div class="bigimg">
+      <img class="headimg" src="https://biglifeboost.com/img/palmboost2.jpeg" />
+      </div>
+
       <div class="container">
         {this.state.loading ? (
           <h5>
             <Spinner large />
           </h5>
         ) : (
-          <div class="row">
-            <div class="col-12 col-md-8 mb-3">
+          <div class="row" id="disco-area">
+            <div class="col-12 col-md-8 mb-3" id="disco-column">
               <HtmlTags
                 title={this.documentTitle}
                 path={this.context.router.route.match.url}
@@ -346,10 +353,13 @@ export class Post extends Component<any, PostState> {
               {this.state.commentViewType == CommentViewType.Chat &&
                 this.commentsFlat()}
             </div>
-            <div class="d-none d-md-block col-md-4">{this.sidebar()}</div>
+            <div class="d-none d-md-block col-md-4 sidebar-column">{this.sidebar()}</div>
           </div>
         )}
       </div>
+
+{/*  wrapper div  ================ */}
+  </div>
     );
   }
 

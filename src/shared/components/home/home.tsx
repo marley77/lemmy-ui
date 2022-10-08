@@ -273,20 +273,34 @@ export class Home extends Component<any, HomeState> {
 
   render() {
     return (
-      <div class="container">
-        <HtmlTags
-          title={this.documentTitle}
-          path={this.context.router.route.match.url}
-        />
-        {this.state.siteRes.site_view?.site && (
-          <div class="row">
-            <main role="main" class="col-12 col-md-8">
-              <div class="d-block d-md-none">{this.mobileView()}</div>
-              {this.posts()}
-            </main>
-            <aside class="d-none d-md-block col-md-4">{this.mySidebar()}</aside>
-          </div>
-        )}
+      <div>
+        {/*  ^wrapper div  -- header image module   ================ */}
+        <div class="bigimg">
+          <img
+            class="headimg"
+            src="https://biglifeboost.com/img/palmboost2.jpeg"
+          />
+        </div>
+
+        <div class="container">
+          <HtmlTags
+            title={this.documentTitle}
+            path={this.context.router.route.match.url}
+          />
+          {this.state.siteRes.site_view?.site && (
+            <div class="row" id="disco-area">
+              <main role="main" class="col-12 col-md-8" id="disco-column">
+                <div class="d-block d-md-none">{this.mobileView()}</div>
+                {this.posts()}
+              </main>
+              <aside class="d-none d-md-block col-md-4 sidebar-column">
+                {this.mySidebar()}
+              </aside>
+            </div>
+          )}
+        </div>
+
+        {/*  wrapper div  ================ */}
       </div>
     );
   }
@@ -337,6 +351,17 @@ export class Home extends Component<any, HomeState> {
               classes="icon-inline"
             />
           </button>
+
+{/*  MINE for home side bar, delete if error  ================  
+
+          {this.state.showSubscribedMobile && (
+            <div class="col-12 card border-secondary mb-3">
+              <div class="card-body">{this.subscribedCommunities()}</div>
+            </div>
+==== */}
+
+
+{/*  THEIRS FOR HOME SIDEBAR ================ */}
           {this.state.showSidebarMobile && (
             <SiteSidebar
               site={siteRes.site_view.site}
@@ -345,12 +370,22 @@ export class Home extends Component<any, HomeState> {
               online={siteRes.online}
               showLocal={showLocal(this.isoData)}
             />
+
           )}
           {this.state.showTrendingMobile && (
             <div class="col-12 card border-secondary mb-3">
               <div class="card-body">{this.trendingCommunities()}</div>
             </div>
           )}
+
+{/* MINE FOR HOME SIDEBAR, delete if error    ================
+          {this.state.showSidebarMobile && (
+            <div class="col-12 card border-secondary mb-3">
+              <div class="card-body">{this.sidebar()}</div>
+    ================ */}
+
+
+{/* THEIRS FOR HOME SIDEBAR    ================ */}
           {this.state.showSubscribedMobile && (
             <div class="col-12 card border-secondary mb-3">
               <div class="card-body">{this.subscribedCommunities()}</div>
@@ -368,6 +403,17 @@ export class Home extends Component<any, HomeState> {
         {!this.state.loading && (
           <div>
             <div class="card border-secondary mb-3">
+              {/*IFRAME TEST unneeded, can delete
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/xqR12BvJYlk"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>*/}
+
               <div class="card-body">
                 {this.trendingCommunities()}
                 {this.createCommunityButton()}
@@ -375,6 +421,7 @@ export class Home extends Component<any, HomeState> {
               </div>
             </div>
 
+   {/* THEIR SIDEBAR ADDED    ================ */}
             <SiteSidebar
               site={siteRes.site_view.site}
               admins={siteRes.admins}
@@ -389,6 +436,12 @@ export class Home extends Component<any, HomeState> {
                   <div class="card-body">{this.subscribedCommunities()}</div>
                 </div>
               )}
+  {/* MY OLD SIDEBAR I GUESS    ================ 
+            <div class="card border-secondary mb-3">
+              <div class="card-body">{this.sidebar()}</div>
+            </div>
+  */}
+
           </div>
         )}
       </div>
@@ -547,6 +600,7 @@ export class Home extends Component<any, HomeState> {
         <span class="mr-2">
           <SortSelect sort={this.state.sort} onChange={this.handleSortChange} />
         </span>
+        {/*    ================ RSS LINK VAMOOSE
         {this.state.listingType == ListingType.All && (
           <>
             <a href={allRss} rel={relTags} title="RSS">
@@ -576,6 +630,7 @@ export class Home extends Component<any, HomeState> {
               />
             </>
           )}
+         */}
       </div>
     );
   }

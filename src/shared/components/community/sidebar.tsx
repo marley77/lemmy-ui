@@ -24,6 +24,13 @@ import { CommunityForm } from "../community/community-form";
 import { CommunityLink } from "../community/community-link";
 import { PersonListing } from "../person/person-listing";
 
+
+//SIDEBAR IMPORTS
+import { SidebarEnli } from "../sidebars/sidebar-enli";
+import { SidebarChamp } from "../sidebars/sidebar-champ";
+import { SidebarRela } from "../sidebars/sidebar-rela";
+
+
 interface SidebarProps {
   community_view: CommunityView;
   moderators: CommunityModeratorView[];
@@ -57,6 +64,8 @@ export class Sidebar extends Component<SidebarProps, SidebarState> {
     this.handleEditCancel = this.handleEditCancel.bind(this);
   }
 
+
+/*THEIR SIDEBAR CAN DELETE 
   render() {
     return (
       <div>
@@ -95,6 +104,32 @@ export class Sidebar extends Component<SidebarProps, SidebarState> {
       </div>
     );
   }
+
+*/
+
+
+
+//MY SIDEBAR - module === === === 
+
+  render() {
+    let sbvar = this.props.community_view.community.title;
+    //let activeSide;
+
+    if (sbvar === "ENLIGHTENMENT") {
+          return( <SidebarEnli /> );
+    }
+
+    if (sbvar === "CHAMPION") {
+          return( <SidebarChamp /> );
+    }
+
+    if (sbvar === "RELATIONSHIPS") {
+          return( <SidebarRela /> );
+    }
+
+  }
+// === END MY SIDEBAR
+
 
   communityTitle() {
     let community = this.props.community_view.community;

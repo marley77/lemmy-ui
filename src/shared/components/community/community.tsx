@@ -237,6 +237,14 @@ export class Community extends Component<any, State> {
   render() {
     let cv = this.state.communityRes?.community_view;
     return (
+    <div>
+      {/*  ^wrapper div  -- header image   ================ */}
+      <div class="bigimg">
+        <img
+          class="headimg"
+          src="https://biglifeboost.com/img/palmboost2.jpeg"
+        />
+      </div>
       <div class="container">
         {this.state.communityLoading ? (
           <h5>
@@ -251,8 +259,10 @@ export class Community extends Component<any, State> {
               image={cv.community.icon}
             />
 
-            <div class="row">
-              <div class="col-12 col-md-8">
+            <div class="row" id="disco-area">
+              <div class="col-12 col-md-8" id="disco-column">
+                 {/* old sidebar, old mobile expand on top 
+        
                 {this.communityInfo()}
                 <div class="d-block d-md-none">
                   <button
@@ -289,6 +299,8 @@ export class Community extends Component<any, State> {
                     </>
                   )}
                 </div>
+
+                */}
                 {this.selects()}
                 {this.listings()}
                 <Paginator
@@ -296,7 +308,15 @@ export class Community extends Component<any, State> {
                   onChange={this.handlePageChange}
                 />
               </div>
-              <div class="d-none d-md-block col-md-4">
+              <div class="d-none d-md-block col-md-4 sidebar-column">
+
+{/* SIDEBAR TITLE    ================
+                <div class="mb-3">
+                  <span id="tab-title">
+                    {capitalizeFirstLetter(this.state.communityName)} Wisdom
+                  </span>
+                </div>
+           */}
                 <Sidebar
                   community_view={cv}
                   moderators={this.state.communityRes.moderators}
@@ -314,6 +334,7 @@ export class Community extends Component<any, State> {
             </div>
           </>
         )}
+        </div>
       </div>
     );
   }
@@ -376,17 +397,52 @@ export class Community extends Component<any, State> {
             type_={this.state.dataType}
             onChange={this.handleDataTypeChange}
           />
+          {/*    ================  {this.createPost()} */}
         </span>
         <span class="mr-2">
           <SortSelect sort={this.state.sort} onChange={this.handleSortChange} />
         </span>
+        {/*    ================ RSS LINK VAMOOSE
         <a href={communityRss} title="RSS" rel={relTags}>
           <Icon icon="rss" classes="text-muted small" />
         </a>
         <link rel="alternate" type="application/atom+xml" href={communityRss} />
+        */}
       </div>
     );
   }
+
+  //COPPIED IN FROM SIDEBAR.tsx
+  createPost() {
+    let community_view = this.props.community_view;
+    return (
+      <span>
+        <a
+          href={`/create_post?community_id=${community_view.community.id}`}
+          title={i18n.t("create_a_post")}
+        >
+          <button class="btn btn-secondary btn-block mb-2"></button>
+        </a>
+      </span>
+    );
+  }
+
+  //this.state.communityRes.community_view.community.id
+  // "/create_post?community_id=${community_view.community.id}"
+  //href={`https://matrix.to/#/${pv.person.matrix_user_id}`}
+  //OLD
+  // <Link
+  //   className={`btn btn-secondary btn-block mb-2 ${
+  //     community_view.community.deleted || community_view.community.removed
+  //       ? "no-click"
+  //       : ""
+  //   }`}
+  //   to={`/create_post?community_id=${community_view.community.id}`}
+  // >
+  //   {i18n.t("create_a_post")}
+  // </Link>
+
+// END COPIED ==========
 
   handlePageChange(page: number) {
     this.updateUrl({ page });

@@ -151,6 +151,8 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
     }
   }
 
+
+// THE RENDER 
   render() {
     return this.navbar();
   }
@@ -162,6 +164,9 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
     let person = myUserInfo?.local_user_view.person;
     return (
       <nav class="navbar navbar-expand-lg navbar-light shadow-sm p-0 px-3">
+
+
+    {/* THE OG NAVBAR   ================ */}
         <div class="container">
           {this.props.site_res.site_view && (
             <NavLink
@@ -182,6 +187,8 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
               {this.props.site_res.site_view.site.name}
             </NavLink>
           )}
+
+  {/* notifications if logged   ================ */}
           {this.state.isLoggedIn && (
             <>
               <ul class="navbar-nav ml-auto">
@@ -204,6 +211,9 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                   </NavLink>
                 </li>
               </ul>
+
+
+  {/*  mod admin check  ================ */}
               {UserService.Instance.myUserInfo?.moderates.length > 0 && (
                 <ul class="navbar-nav ml-1">
                   <li className="nav-item">
@@ -253,6 +263,8 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
               )}
             </>
           )}
+
+  {/*  mobile menu button  ================ */}
           <button
             class="navbar-toggler border-0 p-1"
             type="button"
@@ -265,6 +277,8 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
           <div
             className={`${!this.state.expanded && "collapse"} navbar-collapse`}
           >
+
+    {/* across navbar links   ================ */} 
             <ul class="navbar-nav my-2 mr-auto">
               <li class="nav-item">
                 <NavLink
@@ -325,6 +339,9 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                 </li>
               )}
             </ul>
+
+
+    {/* search   ================ */} 
             {!this.context.router.history.location.pathname.match(
               /^\/search/
             ) && (
@@ -358,6 +375,8 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                 </button>
               </form>
             )}
+
+  {/* (mobile) notifications if logged //   ================ */}
             {this.state.isLoggedIn ? (
               <>
                 <ul class="navbar-nav my-2">
@@ -380,6 +399,8 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                     </NavLink>
                   </li>
                 </ul>
+
+      {/*  mod admin check  ================ */} 
                 {UserService.Instance.myUserInfo?.moderates.length > 0 && (
                   <ul class="navbar-nav my-2">
                     <li className="nav-item">
@@ -427,6 +448,9 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                     </li>
                   </ul>
                 )}
+
+
+        {/*  user info dropdown -- logged in ================ */}  
                 <ul class="navbar-nav">
                   <li class="nav-item dropdown">
                     <button
@@ -492,7 +516,9 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                 </ul>
               </>
             ) : (
-              <ul class="navbar-nav my-2">
+
+
+              <ul class="navbar-nav my-2"> {/* if not logged in   ================ */}
                 <li className="nav-item">
                   <NavLink
                     to="/login"
@@ -521,6 +547,8 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
     );
   }
 
+
+// STATES AND PERMISSIONS =========
   handleToggleExpandNavbar(i: Navbar) {
     i.state.expanded = !i.state.expanded;
     i.setState(i.state);

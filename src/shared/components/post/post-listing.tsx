@@ -137,7 +137,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         {!this.state.showEdit ? (
           <>
             {this.listing()}
-            {this.state.imageExpanded && this.img}
+            {/*  {this.state.imageExpanded && this.img}  ================ */}
+
             {post.url && this.showBody && post.embed_title && (
               <MetadataCard post={post} />
             )}
@@ -174,25 +175,223 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
-  get img() {
+  // iFRAME YOUTUBE qz3 module =========================================================
+
+  get vid() {
+    let ytid = this.vidSrc;
+    let yturl = "https://www.youtube.com/embed/" + ytid;
+    console.log(yturl);
     return (
       <>
-        <div class="offset-sm-3 my-2 d-none d-sm-block">
-          <a href={this.imageSrc} class="d-inline-block">
-            <PictrsImage src={this.imageSrc} />
-          </a>
+        {/*  iframe  - PC  ================ */}
+        <div class="offset-sm-3 my-2 d-none d-sm-block" id="expanded-img">
+          {/*   <a href={this.imageSrc} class="d-inline-block">
+            <iframe src={this.vidSrc}></iframe> */}
+          <iframe src={yturl}></iframe>
+          {/* </a>================ */}
         </div>
-        <div className="my-2 d-block d-sm-none">
-          <a
-            class="d-inline-block"
-            onClick={linkEvent(this, this.handleImageExpandClick)}
-          >
-            <PictrsImage src={this.imageSrc} />
-          </a>
-        </div>
+
+        {/*    ================ 
+      // CUT MOBILE FOR NOW
+      // // iframe  - MOBILE
+      //   <div className="my-2 d-block d-sm-none">
+      //   //  <a
+      //   //    class="d-inline-block"
+      //   //    onClick={linkEvent(this, this.handleImageExpandClick)}
+      //   //  >
+      //       <iframe src={this.vidSrc} />
+      //   //  </a>
+      //   </div>
+       */}
+
+      {/*  THEIRS, unneeded =============     
+        // get img() {
+        //   return (
+        //     <>
+        //       <div class="offset-sm-3 my-2 d-none d-sm-block">
+        //         <a href={this.imageSrc} class="d-inline-block">
+        //           <PictrsImage src={this.imageSrc} />
+        //         </a>
+        //       </div>
+        //       <div className="my-2 d-block d-sm-none">
+        //         <a
+        //           class="d-inline-block"
+        //           onClick={linkEvent(this, this.handleImageExpandClick)}
+        //         >
+        //           <PictrsImage src={this.imageSrc} />
+        //         </a>
+        //       </div>
+             */}
+
       </>
     );
   }
+
+// MAKE MEGA MODULE =======
+
+  // INTERSECTION OBSERVER ON didmount FAIL
+  //  componentDidMount() {
+  //    setTimeout(() => {
+
+  //    // INTERSECTION OBERVER  - Create a new observer
+  //    const observer = new IntersectionObserver(function (entries) {
+  //      entries.forEach(function (entry) {
+
+  //        // Log if the element and if it's in the viewport
+  //        console.log(entry.target);
+  //        console.log(entry.isIntersecting);
+  //          if(entry.isIntersecting){
+
+  //            // do stuff and remove the listerner
+  //            const img=entry.target;
+  //            const src=img.getAttribute("data-src");
+
+  //            img.setAttribute("src",src);
+
+  //            observer.unobserve(entry.target);
+
+  //            // cheight();
+  //          }
+  //      });
+  //    },{rootMargin: '-100px 0px -100px 0px'});
+
+  //    // The element to observe
+  //    const gong = document.querySelector('#yt-thumbnail');
+  //    //let bang = document.querySelector('.read-next');
+
+  //    // Attach it to the observer
+  //    observer.observe(gong);
+  //    //observer.observe(bang);
+
+  //    }, 0)
+  //  }
+
+  //YOUTUBE PARSER - make module
+  youtube_parser(url) {
+    var regExp =
+      /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    if (match && match[2].length == 11) {
+      return match[2];
+    } else {
+      //error
+    }
+  }
+
+  //vidSrc
+  get vidSrc(): string {
+    let post = this.props.post_view.post;
+
+    if (post.url.includes("youtube")) {
+      let z = this.youtube_parser(post.url);
+      return z;
+    } else {
+      return post.url;
+    }
+  }
+
+  //       else if (post.thumbnail_url) {
+  //       return post.thumbnail_url;
+  //     } else {
+  //       return post.url;
+  //     }
+  //   } else if (post.thumbnail_url) {
+  //     return post.thumbnail_url;
+  //   } else {
+  //     return null;
+  //   }
+  // }
+
+  // EXPANDED image qz3 =========================================================
+  get img() {
+    let post = this.props.post_view.post;
+    var tempurl = post.url || "";
+    //console.log(tempurl);
+    const stringo = "youtube";
+    //console.log(tempurl.includes(stringo));
+    if (tempurl.includes(stringo)) {
+      var regExp =
+        /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+      var match = tempurl.match(regExp);
+      if (match && match[2].length == 11) {
+        let yturl =
+          "https://www.youtube.com/embed/" +
+          match[2] +
+          "?autoplay=1&modestbranding=1&showinfo=0&rel=0";
+        // &border=0&wmode=opaque&autohide=2
+        // "https://www.youtube-nocookie.com/embed/" +
+        // match[2] +
+        // "?autoplay=1&autohide=2&border=0&wmode=opaque&showinfo=0&rel=0";
+        //console.log(yturl);
+        return (
+          <div id="expanded-img">
+            <div class="youtube-container">
+              <div class="youtube-player">
+                {/*THE ORIGINAL YT IFRAME*/}
+                <iframe
+                  src={yturl}
+                  id="expando-iframe"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+
+                {/*THE TEST / DEFAULT YT iFRAME
+                <iframe
+                  width="560"
+                  height="315"
+                  src={yturl}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>*/}
+
+                {/*THE NEW YT iFRAME*/}
+                {/*                <iframe
+                  src={yturl}
+                  id="expando-iframe"
+                  frameborder="0"
+                  gesture="media"
+                  allow="autoplay; encrypted-media"
+                  origin="http://www.youtube.com"
+                  sandbox="allow-same-origin allow-scripts"
+                  rel="noopener external"
+                  allowfullscreen
+                ></iframe>*/}
+              </div>
+            </div>
+          </div>
+        );
+      } else {
+        console.log("not valid");
+      }
+    } else {
+      return (
+        <>
+          {/*  EXPANDED IMAGE - PC  ================ */}
+
+          <div class="offset-sm-3 my-2 d-none d-sm-block" id="expanded-img">
+            <a href={this.imageSrc} class="d-inline-block">
+              <PictrsImage src={this.imageSrc} />
+            </a>
+          </div>
+
+          {/*  EXPANDED IMAGE - MOBILE */}
+
+          <div className="my-2 d-block d-sm-none">
+            <a
+              class="d-inline-block"
+              onClick={linkEvent(this, this.handleImageExpandClick)}
+            >
+              <PictrsImage src={this.imageSrc} />
+            </a>
+          </div>
+        </>
+      );
+    }
+  }
+// END MEGA MODULE ====================
 
   imgThumb(src: string) {
     let post_view = this.props.post_view;
@@ -223,14 +422,58 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     }
   }
 
-  thumbnail() {
+  /* THEIRS, unneeded ==============
+    thumbnail() {
     let post = this.props.post_view.post;
 
     if (isImage(post.url)) {
+  =======*/
+
+  // EXPANDOS - MODULE for logic qz3 =========================================================
+
+  thumbnail() {
+    let post = this.props.post_view.post;
+    var tempurl = post.url || "";
+    //console.log(tempurl);
+    const stringo = "youtube";
+    //console.log(tempurl.includes(stringo));
+    if (tempurl.includes(stringo)) {
+      var regExp =
+        /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+      var match = tempurl.match(regExp);
+      if (match && match[2].length == 11) {
+        let yturl = "//i.ytimg.com/vi/" + match[2] + "/hqdefault.jpg";
+        // console.log(yturl);
+        return (
+          <a
+            href={yturl}
+            class="text-body d-inline-block position-relative mb-2"
+            id="expander-link"
+            data-tippy-content={i18n.t("expand_here")}
+            onClick={linkEvent(this, this.handleImageExpandClick)}
+            aria-label={i18n.t("expand_here")}
+          >
+            <img
+              class="thumbnail"
+              id="yt-thumbnail"
+              loading="lazy"
+              src={yturl}
+            ></img>
+            <span id="vid-icon">
+              <Icon icon="vid" inline />
+            </span>
+            {/*<Icon icon="image" classes="mini-overlay" />*/}
+          </a>
+        );
+      } else {
+        console.log("yt link error");
+      }
+    } else if (isImage(post.url)) {
       return (
         <a
           href={this.imageSrc}
           class="text-body d-inline-block position-relative mb-2"
+          id="expander-link"
           data-tippy-content={i18n.t("expand_here")}
           onClick={linkEvent(this, this.handleImageExpandClick)}
           aria-label={i18n.t("expand_here")}
@@ -240,6 +483,37 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         </a>
       );
     } else if (post.thumbnail_url) {
+      //YT EXPANDER -- MODULE
+      return (
+        <a
+          href={this.imageSrc}
+          class="text-body d-inline-block position-relative mb-2"
+          id="expander-link"
+          data-tippy-content={i18n.t("expand_here")}
+          onClick={linkEvent(this, this.handleImageExpandClick)}
+          aria-label={i18n.t("expand_here")}
+        >
+          {this.imgThumb(this.imageSrc)}
+          <Icon icon="image" classes="mini-overlay" />
+        </a>
+      );
+
+    // ======== ^^ END MODULE
+
+      //  MY OLD YOUTUBE EXPANDER - can delete
+      //   <a
+      //     class="text-body d-inline-block position-relative mb-2"
+      //     id="expander-link"
+      //     href={post.url}
+      //     rel={relTags}
+      //     title={post.url}
+      //   >
+      //     {this.imgThumb(this.imageSrc)}
+      //     <Icon icon="external-link" classes="mini-overlay" />
+      //   </a>
+      // );
+
+  /* THEIR EXPANDER, unneeeded
       return (
         <a
           class="text-body d-inline-block position-relative mb-2"
@@ -251,6 +525,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           <Icon icon="external-link" classes="mini-overlay" />
         </a>
       );
+ // END THEIR EXPANDER */
+
     } else if (post.url) {
       if (isVideo(post.url)) {
         return (
@@ -280,19 +556,20 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           </a>
         );
       }
-    } else {
-      return (
-        <Link
-          className="text-body"
-          to={`/post/${post.id}`}
-          title={i18n.t("comments")}
-        >
-          <div class="thumbnail rounded bg-light d-flex justify-content-center">
-            <Icon icon="message-square" classes="d-flex align-items-center" />
-          </div>
-        </Link>
-      );
     }
+    //   else {
+    //   return (
+    //     <Link
+    //       className="text-body"
+    //       to={`/post/${post.id}`}
+    //       title={i18n.t("comments")}
+    //     >
+    //       <div class="thumbnail rounded bg-light d-flex justify-content-center">
+    //         <Icon icon="message-square" classes="d-flex align-items-center" />
+    //       </div>
+    //     </Link>
+    //   );
+    // }
   }
 
   createdLine() {
@@ -348,6 +625,9 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             <MomentTime data={post_view.post} />
           </span>
         </li>
+
+        {/* BOOK ICON - qz3 ====================================================== */}
+
         {post_view.post.body && (
           <>
             <li className="list-inline-item">•</li>
@@ -429,6 +709,24 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
               {post.name}
             </Link>
           )}
+{/* MINE, which handles expansion    ================ */}
+          {(isImage(post.url) || post.thumbnail_url) &&
+            this.state.imageExpanded && (
+              <button
+                class="btn btn-link text-monospace text-muted small d-inline-block ml-2"
+                id="img-collapse"
+                data-tippy-content={i18n.t("expand_here")}
+                onClick={linkEvent(this, this.handleImageExpandClick)}
+              >
+                <Icon
+                  icon={
+                    !this.state.imageExpanded ? "plus-square" : "minus-square"
+                  }
+                  classes="icon-inline"
+                />
+              </button>
+            )}
+  {/* THEIRS, which does not ================
           {(isImage(post.url) || post.thumbnail_url) && (
             <button
               class="btn btn-link text-monospace text-muted small d-inline-block ml-2"
@@ -443,6 +741,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
               />
             </button>
           )}
+     */}
+
           {post.removed && (
             <small className="ml-2 text-muted font-italic">
               {i18n.t("removed")}
@@ -529,6 +829,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
+  // POST ACTION ICONS ROW - qz3 =========================================================
+
   postActions(mobile = false) {
     // Possible enhancement: Priority+ pattern instead of just hard coding which get hidden behind the show more button.
     // Possible enhancement: Make each button a component.
@@ -536,9 +838,18 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     return (
       <>
         {this.saveButton}
+     {/* THEIRS   ================
         {this.crossPostButton}
         {mobile && this.showMoreButton}
         {(!mobile || this.state.showAdvanced) && (
+       */}
+
+     {/*  MINE  ================ */}
+        {/* no cross post - {this.crossPostButton} */}
+
+        {/* hide more buttons - qz3 ========================================================= */}
+        {this.showMoreButton}
+        {this.state.showAdvanced && (
           <>
             {!this.myPost && (
               <>
@@ -568,7 +879,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             )}
           </>
         )}
-        {!mobile && this.showMoreButton}
+        {/*    TEST REMOVAL For double more ====    {!mobile && this.showMoreButton}  */}
       </>
     );
   }
@@ -600,7 +911,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     let tippy = showScores() ? { "data-tippy-content": this.pointsTippy } : {};
     return (
       <>
-        <div>
+        <div id="mobile-votes">
           <button
             className={`btn-animate btn py-0 px-1 ${
               this.state.my_vote == 1 ? "text-info" : "text-muted"
@@ -616,6 +927,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           </button>
           {this.props.enableDownvotes && (
             <button
+              id="dv-button"
               className={`ml-2 btn-animate btn py-0 px-1 ${
                 this.state.my_vote == -1 ? "text-danger" : "text-muted"
               }`}
@@ -646,6 +958,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     return (
       <button
         class="btn btn-link btn-animate text-muted py-0"
+        id="save-star"
         onClick={linkEvent(this, this.handleSavePostClick)}
         data-tippy-content={label}
         aria-label={label}
@@ -737,7 +1050,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         data-tippy-content={i18n.t("more")}
         aria-label={i18n.t("more")}
       >
-        <Icon icon="more-vertical" inline />
+        <Icon icon="friends" inline />
       </button>
     );
   }
@@ -1085,6 +1398,40 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
+/*  // SUMMARY SNIPPET EXPANDER - MODULE, test - good but uses preview lines
+
+  showMobilePreview() {
+    let post = this.props.post_view.post;
+    //   let count = post.body.length;
+
+    return post.body && post.body.length > 200 ? (
+      <details class="topic-text-excerpt">
+        <summary>
+          <pre
+            className="md-div mb-1"
+            dangerouslySetInnerHTML={{
+              __html: md.render(previewLines(post.body)),
+            }}
+          />
+        </summary>
+        <pre
+          className="md-div mb-1"
+          dangerouslySetInnerHTML={{
+            __html: md.render(post.body),
+          }}
+        />
+      </details>
+    ) : (
+      post.body && (
+        <div
+          className="md-div mb-1"
+          dangerouslySetInnerHTML={{
+            __html: md.render(post.body),
+          }}
+        />
+  */
+
+  //USING THEIR MOBILE PREVIEW (unneeded) because mine ^^ has preview lines
   showMobilePreview() {
     let post = this.props.post_view.post;
     return (
@@ -1095,54 +1442,184 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
+ 
+// THEIR MAIN LISTING, unneeded  
+//  listing() {
+//    return (
+//      <>
+//        {/* The mobile view*/}
+//        <div class="d-block d-sm-none">
+//          <div class="row">
+//            <div class="col-12">
+//              {this.createdLine()}
+//
+//              {/* If it has a thumbnail, do a right aligned thumbnail */}
+//              {this.mobileThumbnail()}
+//
+//              {/* Show a preview of the post body */}
+//              {this.showMobilePreview()}
+//
+//              {this.commentsLine(true)}
+//              {this.userActionsLine()}
+//              {this.duplicatesLine()}
+//              {this.removeAndBanDialogs()}
+//            </div>
+//          </div>
+//        </div>
+//
+//        {/* The larger view*/}
+//        <div class="d-none d-sm-block">
+//          <div class="row">
+//            {!this.props.viewOnly && this.voteBar()}
+//            <div class="col-sm-2 pr-0">
+//              <div class="">{this.thumbnail()}</div>
+//            </div>
+//            <div class="col-12 col-sm-9">
+//              <div class="row">
+//                <div className="col-12">
+//                  {this.postTitleLine()}
+//                  {this.createdLine()}
+//                  {this.commentsLine()}
+//                  {this.duplicatesLine()}
+//                  {this.userActionsLine()}
+//                  {this.removeAndBanDialogs()}
+//                </div>
+//              </div>
+//            </div>
+//          </div>
+//        </div>
+//      </>
+//    );
+//  }
+// END THEIR MAIN LISTING 
+
+
+
+// MY MAIN listing 2 - module - qz3 =========================================================
   listing() {
-    return (
-      <>
-        {/* The mobile view*/}
-        <div class="d-block d-sm-none">
-          <div class="row">
-            <div class="col-12">
-              {this.createdLine()}
+    let post = this.props.post_view.post;
 
-              {/* If it has a thumbnail, do a right aligned thumbnail */}
-              {this.mobileThumbnail()}
-
-              {/* Show a preview of the post body */}
-              {this.showMobilePreview()}
-
-              {this.commentsLine(true)}
-              {this.userActionsLine()}
-              {this.duplicatesLine()}
-              {this.removeAndBanDialogs()}
-            </div>
+    // IMAGE OR IFRAME POST
+    return post.thumbnail_url || isImage(post.url) ? (
+      <div class="d-block">
+        <div class="row">
+          {!this.props.viewOnly && this.voteBar()}
+          <div
+            className={`${
+              this.state.imageExpanded
+                ? "col-12 disco-wide"
+                : "col-8 disco-thin"
+            }`}
+          >
+            {this.postTitleLine()}
+            {/*  THE BIG IMAGE moved here */}
+            {this.state.imageExpanded && this.img}
+            {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+            {this.showMobilePreview()}
+            {/* post by   ================ */}
+            {this.createdLine()}
+            {this.commentsLine(true)}
+            {/*  {this.commentsLine()}   ================ */}
+            {this.userActionsLine()}
+            {this.duplicatesLine()}
+            {this.removeAndBanDialogs()}
+          </div>
+          <div class="col-4">
+            {/* Post body prev or thumbnail */}
+            {!this.state.imageExpanded && this.thumbnail()}
           </div>
         </div>
-
-        {/* The larger view*/}
-        <div class="d-none d-sm-block">
-          <div class="row">
-            {!this.props.viewOnly && this.voteBar()}
-            <div class="col-sm-2 pr-0">
-              <div class="">{this.thumbnail()}</div>
-            </div>
-            <div class="col-12 col-sm-9">
-              <div class="row">
-                <div className="col-12">
-                  {this.postTitleLine()}
-                  {this.createdLine()}
-                  {this.commentsLine()}
-                  {this.duplicatesLine()}
-                  {this.userActionsLine()}
-                  {this.removeAndBanDialogs()}
-                </div>
-              </div>
-            </div>
+      </div>
+    ) : (
+      <div class="d-block">
+        <div class="row">
+          {/* TEXT POST   ================ */}
+          {!this.props.viewOnly && this.voteBar()}
+          <div className="col-12" id="text-post">
+            {this.postTitleLine()}
+            {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+            {this.showMobilePreview()}
+            {/* post by   ================ */}
+            {this.createdLine()}
+            {this.commentsLine(true)}
+            {/* {this.commentsLine()}*/}
+            {this.userActionsLine()}
+            {this.duplicatesLine()}
+            {this.removeAndBanDialogs()}
           </div>
         </div>
-      </>
+      </div>
     );
   }
 
+// ======== END MY LISTING
+
+  // MY OLD MAIN listing (CAN DELETE) - qz3 =========================================================
+  //   listing() {
+  //     return (
+  //       <>
+  //         {/* The mobile view*/}
+  //         <div class="d-block d-sm-none">
+  //           <div class="row">
+  //             <div class="col-12">
+
+  //               {/* POST TITLE, right aligned thumbnail */}
+  //               {this.mobileThumbnail()}
+
+  //     {/*  THE BIG IMAGE moved here from 'render'  ================ */}
+  //               {this.state.imageExpanded && this.img}
+
+  //               {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+  //               {this.showMobilePreview()}
+
+  //     {/* qz3 ================ moved created line   ================ */}
+  //               {this.createdLine()}
+
+  //               {this.commentsLine(true)}
+  //               {this.userActionsLine()}
+  //               {this.duplicatesLine()}
+  //               {this.removeAndBanDialogs()}
+
+  //             </div>
+  //           </div>
+  //         </div>
+
+  //         {/* The larger view*/}
+  //         <div class="d-none d-sm-block">
+  //           <div class="row">
+  //             {!this.props.viewOnly && this.voteBar()}
+
+  //             <div class="col-12 col-sm-8" id="disco">
+  //               <div class="row">
+  //                 <div className="col-12">
+  //                   {this.postTitleLine()}
+  //                   {this.createdLine()}
+
+  //           {/* SNIPPET and text - PC */}
+  //               {this.showMobilePreview()}
+
+  //                   {this.commentsLine()}
+  //                   {this.duplicatesLine()}
+  //                   {this.userActionsLine()}
+  //                   {this.removeAndBanDialogs()}
+  //                 </div>
+  //               </div>
+  //             </div>
+  //     {/* EXPANDO to right qz3 ========================================================= */}
+  //             <div class="col-sm-3 pr-0" id="expander">
+  //               <div class="">{this.thumbnail()}</div>
+  //             </div>
+
+  //           </div>
+  //           <div class="row">
+  //               {/*  THE BIG IMAGE moved here from 'render', this whole row is new created, could bump back up above "comments line"  ================ */}
+  //                   {this.state.imageExpanded && this.img}
+  //           </div>
+  //         </div>
+  //       </>
+  //     );
+  //   }
+//================= END MY OLD MAIN LISTING can delete
   private get myPost(): boolean {
     return (
       UserService.Instance.myUserInfo &&

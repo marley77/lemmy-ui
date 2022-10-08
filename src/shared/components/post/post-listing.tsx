@@ -204,8 +204,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       //   </div>
        */}
 
-      {/*  THEIRS, unneeded =============     
-        // get img() {
+        {/*  THEIRS, unneeded =============     
+        //  get img() {
         //   return (
         //     <>
         //       <div class="offset-sm-3 my-2 d-none d-sm-block">
@@ -222,12 +222,11 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         //         </a>
         //       </div>
              */}
-
       </>
     );
   }
 
-// MAKE MEGA MODULE =======
+  // MAKE MEGA MODULE =======
 
   // INTERSECTION OBSERVER ON didmount FAIL
   //  componentDidMount() {
@@ -391,7 +390,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       );
     }
   }
-// END MEGA MODULE ====================
+  // END MEGA MODULE ====================
 
   imgThumb(src: string) {
     let post_view = this.props.post_view;
@@ -498,7 +497,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         </a>
       );
 
-    // ======== ^^ END MODULE
+      // ======== ^^ END MODULE
 
       //  MY OLD YOUTUBE EXPANDER - can delete
       //   <a
@@ -513,7 +512,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       //   </a>
       // );
 
-  /* THEIR EXPANDER, unneeeded
+      /* THEIR EXPANDER, unneeeded
       return (
         <a
           class="text-body d-inline-block position-relative mb-2"
@@ -526,7 +525,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         </a>
       );
  // END THEIR EXPANDER */
-
     } else if (post.url) {
       if (isVideo(post.url)) {
         return (
@@ -709,7 +707,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
               {post.name}
             </Link>
           )}
-{/* MINE, which handles expansion    ================ */}
+          {/* MINE, which handles expansion    ================ */}
           {(isImage(post.url) || post.thumbnail_url) &&
             this.state.imageExpanded && (
               <button
@@ -726,7 +724,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
                 />
               </button>
             )}
-  {/* THEIRS, which does not ================
+          {/* THEIRS, which does not ================
           {(isImage(post.url) || post.thumbnail_url) && (
             <button
               class="btn btn-link text-monospace text-muted small d-inline-block ml-2"
@@ -792,7 +790,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             <li className="list-inline-item mr-2">
               {i18n.t("cross_posted_to")}
             </li>
-            {dupes.map(pv => (
+            {dupes.map((pv) => (
               <li className="list-inline-item mr-2">
                 <Link to={`/post/${pv.post.id}`}>
                   {pv.community.local
@@ -838,13 +836,13 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     return (
       <>
         {this.saveButton}
-     {/* THEIRS   ================
+        {/* THEIRS   ================
         {this.crossPostButton}
         {mobile && this.showMoreButton}
         {(!mobile || this.state.showAdvanced) && (
        */}
 
-     {/*  MINE  ================ */}
+        {/*  MINE  ================ */}
         {/* no cross post - {this.crossPostButton} */}
 
         {/* hide more buttons - qz3 ========================================================= */}
@@ -1398,7 +1396,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
-/*  // SUMMARY SNIPPET EXPANDER - MODULE, test - good but uses preview lines
+  /*  // SUMMARY SNIPPET EXPANDER - MODULE, test - good but uses preview lines
 
   showMobilePreview() {
     let post = this.props.post_view.post;
@@ -1442,60 +1440,57 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
- 
-// THEIR MAIN LISTING, unneeded  
-//  listing() {
-//    return (
-//      <>
-//        {/* The mobile view*/}
-//        <div class="d-block d-sm-none">
-//          <div class="row">
-//            <div class="col-12">
-//              {this.createdLine()}
-//
-//              {/* If it has a thumbnail, do a right aligned thumbnail */}
-//              {this.mobileThumbnail()}
-//
-//              {/* Show a preview of the post body */}
-//              {this.showMobilePreview()}
-//
-//              {this.commentsLine(true)}
-//              {this.userActionsLine()}
-//              {this.duplicatesLine()}
-//              {this.removeAndBanDialogs()}
-//            </div>
-//          </div>
-//        </div>
-//
-//        {/* The larger view*/}
-//        <div class="d-none d-sm-block">
-//          <div class="row">
-//            {!this.props.viewOnly && this.voteBar()}
-//            <div class="col-sm-2 pr-0">
-//              <div class="">{this.thumbnail()}</div>
-//            </div>
-//            <div class="col-12 col-sm-9">
-//              <div class="row">
-//                <div className="col-12">
-//                  {this.postTitleLine()}
-//                  {this.createdLine()}
-//                  {this.commentsLine()}
-//                  {this.duplicatesLine()}
-//                  {this.userActionsLine()}
-//                  {this.removeAndBanDialogs()}
-//                </div>
-//              </div>
-//            </div>
-//          </div>
-//        </div>
-//      </>
-//    );
-//  }
-// END THEIR MAIN LISTING 
+  // THEIR MAIN LISTING, unneeded
+  //  listing() {
+  //    return (
+  //      <>
+  //        {/* The mobile view*/}
+  //        <div class="d-block d-sm-none">
+  //          <div class="row">
+  //            <div class="col-12">
+  //              {this.createdLine()}
+  //
+  //              {/* If it has a thumbnail, do a right aligned thumbnail */}
+  //              {this.mobileThumbnail()}
+  //
+  //              {/* Show a preview of the post body */}
+  //              {this.showMobilePreview()}
+  //
+  //              {this.commentsLine(true)}
+  //              {this.userActionsLine()}
+  //              {this.duplicatesLine()}
+  //              {this.removeAndBanDialogs()}
+  //            </div>
+  //          </div>
+  //        </div>
+  //
+  //        {/* The larger view*/}
+  //        <div class="d-none d-sm-block">
+  //          <div class="row">
+  //            {!this.props.viewOnly && this.voteBar()}
+  //            <div class="col-sm-2 pr-0">
+  //              <div class="">{this.thumbnail()}</div>
+  //            </div>
+  //            <div class="col-12 col-sm-9">
+  //              <div class="row">
+  //                <div className="col-12">
+  //                  {this.postTitleLine()}
+  //                  {this.createdLine()}
+  //                  {this.commentsLine()}
+  //                  {this.duplicatesLine()}
+  //                  {this.userActionsLine()}
+  //                  {this.removeAndBanDialogs()}
+  //                </div>
+  //              </div>
+  //            </div>
+  //          </div>
+  //        </div>
+  //      </>
+  //    );
+  //  }
+  // END THEIR MAIN LISTING
 
-
-
-// MY MAIN listing 2 - module - qz3 =========================================================
+  // MY MAIN listing 2 - module - qz3 =========================================================
   listing() {
     let post = this.props.post_view.post;
 
@@ -1552,7 +1547,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
-// ======== END MY LISTING
+  // ======== END MY LISTING
 
   // MY OLD MAIN listing (CAN DELETE) - qz3 =========================================================
   //   listing() {
@@ -1619,7 +1614,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   //       </>
   //     );
   //   }
-//================= END MY OLD MAIN LISTING can delete
+  //================= END MY OLD MAIN LISTING can delete
   private get myPost(): boolean {
     return (
       UserService.Instance.myUserInfo &&
@@ -1632,7 +1627,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     return (
       this.props.moderators &&
       isMod(
-        this.props.moderators.map(m => m.moderator.id),
+        this.props.moderators.map((m) => m.moderator.id),
         this.props.post_view.creator.id
       )
     );
@@ -1642,7 +1637,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     return (
       this.props.admins &&
       isMod(
-        this.props.admins.map(a => a.person.id),
+        this.props.admins.map((a) => a.person.id),
         this.props.post_view.creator.id
       )
     );
@@ -1655,8 +1650,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   get canMod(): boolean {
     if (this.props.admins && this.props.moderators) {
       let adminsThenMods = this.props.admins
-        .map(a => a.person.id)
-        .concat(this.props.moderators.map(m => m.moderator.id));
+        .map((a) => a.person.id)
+        .concat(this.props.moderators.map((m) => m.moderator.id));
 
       return canMod(
         UserService.Instance.myUserInfo,
@@ -1675,8 +1670,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   get canModOnSelf(): boolean {
     if (this.props.admins && this.props.moderators) {
       let adminsThenMods = this.props.admins
-        .map(a => a.person.id)
-        .concat(this.props.moderators.map(m => m.moderator.id));
+        .map((a) => a.person.id)
+        .concat(this.props.moderators.map((m) => m.moderator.id));
 
       return canMod(
         UserService.Instance.myUserInfo,
@@ -1694,7 +1689,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       this.props.admins &&
       canMod(
         UserService.Instance.myUserInfo,
-        this.props.admins.map(a => a.person.id),
+        this.props.admins.map((a) => a.person.id),
         this.props.post_view.creator.id
       )
     );

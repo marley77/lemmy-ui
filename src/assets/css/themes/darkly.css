@@ -7126,10 +7126,6 @@ button.bg-dark:hover {
   border-radius: .3rem !important
 }
 
-.rounded-circle {
-  border-radius: 50% !important
-}
-
 .rounded-pill {
   border-radius: 50rem !important
 }
@@ -10882,7 +10878,9 @@ post-listing EXPANDO positioning
   align-items: center
 }
 
-
+.rounded-circle {
+  border-radius: 25% !important;
+}
 
 /*replaced #444 med-gray with var(--mariner-dark) */
 /*replace #dee2e6 light white with var(--mariner-light) */

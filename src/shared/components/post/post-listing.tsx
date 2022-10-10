@@ -139,9 +139,10 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             {this.listing()}
             {/*  {this.state.imageExpanded && this.img}  ================ */}
 
+            {/* link card vamoose. -- duplicate body card vamoose    ================ 
             {post.url && this.showBody && post.embed_title && (
               <MetadataCard post={post} />
-            )}
+            )} */}
             {this.showBody && post.body && this.body()}
           </>
         ) : (
@@ -159,21 +160,21 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
-  body() {
-    let post = this.props.post_view.post;
-    return (
-      <div class="col-12 card my-2 p-2">
-        {this.state.viewSource ? (
-          <pre>{post.body}</pre>
-        ) : (
-          <div
-            className="md-div"
-            dangerouslySetInnerHTML={mdToHtml(post.body)}
-          />
-        )}
-      </div>
-    );
-  }
+  // body() {
+  //   let post = this.props.post_view.post;
+  //   return (
+  //     <div class="col-12 card my-2 p-2">
+  //       {this.state.viewSource ? (
+  //         <pre>{post.body}</pre>
+  //       ) : (
+  //         <div
+  //           className="md-div"
+  //           dangerouslySetInnerHTML={mdToHtml(post.body)}
+  //         />
+  //       )}
+  //     </div>
+  //   );
+  // }
 
   // iFRAME YOUTUBE qz3 module =========================================================
 
@@ -624,7 +625,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           </span>
         </li>
 
-        {/* BOOK ICON - qz3 ====================================================== */}
+        {/* BOOK ICON VAMOOSE - qz3 ======================================================
 
         {post_view.post.body && (
           <>
@@ -641,6 +642,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             </li>
           </>
         )}
+           ================ */}
       </ul>
     );
   }

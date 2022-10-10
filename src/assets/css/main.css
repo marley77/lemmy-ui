@@ -178,13 +178,6 @@ blockquote {
   overflow-y: auto;
 }
 
-.thumbnail {
-  object-fit: cover;
-  min-height: 60px;
-  max-height: 80px;
-  width: 100%;
-}
-
 .thumbnail svg {
   height: 1.25rem;
   width: 1.25rem;
@@ -748,7 +741,7 @@ h2.post-card-title {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  border: 2px solid #b8fdff;
+  border: 2px solid var(--mariner-med);
   z-index: 9999;
 }
 
@@ -980,8 +973,9 @@ h2.post-card-title {
 .thumbnail {
   max-height: 100%;
   min-height: 95px !important;
-  width: 200px;
+  width: 100%; /*was 200 px*/
   max-width: 100%;
+  object-fit: cover;
 }
 
 #expander {
@@ -1306,7 +1300,7 @@ summary > pre > p {
 
 /*no collapse arrow*/
 details > summary {
-  list-style: none;
+  list-style: none !important;
 }
 
 /*custom format open/closed*/
@@ -1524,31 +1518,24 @@ div.play-button {
 
 @media (min-width: 767px) {
   .disco-thin {
-    padding-left: 0px;
+    padding-left: 0px !important;
   }
 }
 
 .disco-thin {
-  padding-right: 2px;
+  padding-right: 2px !important;
 }
 
 #expando-box {
   padding-left: 2px;
 }
 
-@media (min-width: 767px) {
+@media (max-width: 767px) {
   #disco-column {
     padding-left: 1vw;
   }
 }
 
-/*PROFILE PICS*/
-#avi {
-  border-radius: 12%;
-}
-.rounded-circle {
-  border-radius: 25% !important;
-}
 .avatar-pushup {
   margin-top: -90px;
   border: 1px solid var(--mariner-dark);
@@ -1557,17 +1544,19 @@ div.play-button {
   border: 1px solid var(--mariner-dark);
 }
 
-/*TEST OPTION BUUTONS qz3 =========================================================*/
-
-.custom-select > option {
-  background-color: white !important;
-  background: white !important;
-  color: black !important;
-}
-
 /*# dulled colors of days, bulletpoints, link in description */
 .dull,
 .dull > a,
 .dull > span {
   color: black;
 }
+
+/*DID NOT WORK qz3 ========================================================= */
+
+/*TEST OPTION BUUTONS qz3 =========================================================*/
+/*
+.custom-select > option {
+  background-color: white !important;
+  background: white !important;
+  color: black !important;
+}*/

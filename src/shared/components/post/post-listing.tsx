@@ -602,10 +602,10 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             </span>
           )}
         </li>
-        <li className="list-inline-item">•</li>
+        <li className="list-inline-item dull">•</li>
         {post_view.post.url && !(hostname(post_view.post.url) == externalHost) && (
           <>
-            <li className="list-inline-item">
+            <li className="list-inline-item dull">
               <a
                 className="text-muted font-italic"
                 href={post_view.post.url}
@@ -615,10 +615,10 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
                 {hostname(post_view.post.url)}
               </a>
             </li>
-            <li className="list-inline-item">•</li>
+            <li className="list-inline-item dull">•</li>
           </>
         )}
-        <li className="list-inline-item">
+        <li className="list-inline-item dull">
           <span>
             <MomentTime data={post_view.post} />
           </span>
@@ -1537,7 +1537,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             {this.duplicatesLine()}
             {this.removeAndBanDialogs()}
           </div>
-          <div class="col-4">
+          <div class="col-4" id="expando-box">
             {/* Post body prev or thumbnail */}
             {!this.state.imageExpanded && this.thumbnail()}
           </div>

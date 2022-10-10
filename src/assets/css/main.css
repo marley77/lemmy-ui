@@ -838,7 +838,7 @@ h2.post-card-title {
   #darkfill {
     background-color: rgba(0, 0, 42, 0.88);
     position: relative;
-    height: 50vw;
+    height: 80vw;
   }
   #topastro {
     text-align: center;
@@ -1289,8 +1289,8 @@ hr {
   display: block;
   margin: 0;
   overflow: hidden;
-  background-color: #070019 !important;
-  border: 1px solid var(--mariner-med);
+  /*  background-color: #070019 !important;
+  border: 1px solid var(--mariner-med);*/
   border-radius: 0.25rem;
 }
 
@@ -1337,9 +1337,9 @@ details > summary {
 label.btn,
 select,
 #page-buttons > .btn {
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-family: Verdana, Geneva, sans-serif !important;
-  font-size: 1.5rem !important;
+  /*  font-size: 1.5rem !important;*/
   font-weight: 300 !important;
   color: #b9f2ff !important;
   padding-top: 0.2rem !important;
@@ -1456,19 +1456,6 @@ img.youtube-thumb {
   height: auto;
 }
 
-/* old play button
-div.play-button {
-  height: 72px;
-  width: 72px;
-  left: 50%;
-  top: 50%;
-  margin-left: -36px;
-  margin-top: -36px;
-  position: absolute;
-  background: url("https://4.bp.blogspot.com/-Me01YYEE7nU/Vx_UViCgJkI/AAAAAAAABe0/IDEvL5vov8gq5qwLELNEcwKVzcLKaLJbwCLcB/s1600/TxzC70f.png")
-    no-repeat;
-} */
-
 #youtube-iframe {
   width: 1px;
   min-width: 100%;
@@ -1514,4 +1501,73 @@ div.play-button {
   margin-left: -32px;
   margin-top: -32px;
   position: absolute;
+}
+
+/* TRASH =============  */
+
+/* old play button
+div.play-button {
+  height: 72px;
+  width: 72px;
+  left: 50%;
+  top: 50%;
+  margin-left: -36px;
+  margin-top: -36px;
+  position: absolute;
+  background: url("https://4.bp.blogspot.com/-Me01YYEE7nU/Vx_UViCgJkI/AAAAAAAABe0/IDEvL5vov8gq5qwLELNEcwKVzcLKaLJbwCLcB/s1600/TxzC70f.png")
+    no-repeat;
+} */
+
+/*NEW ONES qz3 ========================================================= */
+
+/*NEW PC ADJUSTMENTS*/
+
+@media (min-width: 767px) {
+  .disco-thin {
+    padding-left: 0px;
+  }
+}
+
+.disco-thin {
+  padding-right: 2px;
+}
+
+#expando-box {
+  padding-left: 2px;
+}
+
+@media (min-width: 767px) {
+  #disco-column {
+    padding-left: 1vw;
+  }
+}
+
+/*PROFILE PICS*/
+#avi {
+  border-radius: 12%;
+}
+.rounded-circle {
+  border-radius: 25% !important;
+}
+.avatar-pushup {
+  margin-top: -90px;
+  border: 1px solid var(--mariner-dark);
+}
+.banner {
+  border: 1px solid var(--mariner-dark);
+}
+
+/*TEST OPTION BUUTONS qz3 =========================================================*/
+
+.custom-select > option {
+  background-color: white !important;
+  background: white !important;
+  color: black !important;
+}
+
+/*# dulled colors of days, bulletpoints, link in description */
+.dull,
+.dull > a,
+.dull > span {
+  color: black;
 }

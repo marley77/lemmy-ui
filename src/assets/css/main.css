@@ -740,7 +740,7 @@ h2.post-card-title {
   right: -5px;
   width: 70px;
   height: 70px;
-  border-radius: 100%;
+  border-radius: 8%;
   border: 2px solid var(--mariner-med);
   z-index: 9999;
 }
@@ -1546,9 +1546,13 @@ div.play-button {
 
 /*# dulled colors of days, bulletpoints, link in description */
 .dull,
-.dull > a,
-.dull > span {
+.dull > span,
+#post-link {
   color: black;
+}
+
+#poster-line {
+  font-size: 15px;
 }
 
 /*DID NOT WORK qz3 ========================================================= */

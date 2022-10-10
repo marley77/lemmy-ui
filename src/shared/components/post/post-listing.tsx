@@ -160,6 +160,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
+  // MY OLD DUPLICATE BODY - CAN DELETE ==================
   // body() {
   //   let post = this.props.post_view.post;
   //   return (
@@ -525,6 +526,9 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           <Icon icon="external-link" classes="mini-overlay" />
         </a>
       );
+
+
+
  // END THEIR EXPANDER */
     } else if (post.url) {
       if (isVideo(post.url)) {
@@ -556,6 +560,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         );
       }
     }
+    // MY junk can delete
     //   else {
     //   return (
     //     <Link
@@ -575,7 +580,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     let post_view = this.props.post_view;
     return (
       <ul class="list-inline mb-1 text-muted small">
-        <li className="list-inline-item">
+        <li className="list-inline-item" id="#poster-line">
           <PersonListing person={post_view.creator} />
 
           {this.creatorIsMod && (
@@ -609,6 +614,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             <li className="list-inline-item dull">
               <a
                 className="text-muted font-italic"
+                id="post-link"
                 href={post_view.post.url}
                 title={post_view.post.url}
                 rel={relTags}

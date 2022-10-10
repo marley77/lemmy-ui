@@ -1303,6 +1303,26 @@ details > summary {
   list-style: none !important;
 }
 
+/* THESE ATTEMPTS ADDED to vamoose arrow ================*/
+
+details > summary {
+  list-style-type: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary::before {
+  content: "";
+}
+
+details[open] > summary::before {
+  content: "";
+}
+
+/* ^^^ end vamoose arrow ATTEMPTS ^^^ ================*/
+
 /*custom format open/closed*/
 /*  .topic-text-excerpt[open] {}
   .topic-text-excerpt[open] summary {}*/
@@ -1546,13 +1566,18 @@ div.play-button {
 
 /*# dulled colors of days, bulletpoints, link in description */
 .dull,
-.dull > span,
-#post-link {
+.dull > span {
   color: black;
 }
 
+/*youtube link*/
+#post-link {
+  color: black !important;
+}
+
+/*username and community in post listing */
 #poster-line {
-  font-size: 15px;
+  font-size: 15px !important;
 }
 
 /*DID NOT WORK qz3 ========================================================= */

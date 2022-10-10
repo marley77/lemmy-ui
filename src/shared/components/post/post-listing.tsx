@@ -580,7 +580,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     let post_view = this.props.post_view;
     return (
       <ul class="list-inline mb-1 text-muted small">
-        <li className="list-inline-item" id="#poster-line">
+        <li className="list-inline-item" id="poster-line">
           <PersonListing person={post_view.creator} />
 
           {this.creatorIsMod && (

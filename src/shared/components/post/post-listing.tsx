@@ -1396,127 +1396,127 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
 */
 
   // THEIR MAIN LISTING, unneeded
-  //  listing() {
-  //    return (
-  //      <>
-  //        {/* The mobile view*/}
-  //        <div class="d-block d-sm-none">
-  //          <div class="row">
-  //            <div class="col-12">
-  //              {this.createdLine()}
-  //
-  //              {/* If it has a thumbnail, do a right aligned thumbnail */}
-  //              {this.mobileThumbnail()}
-  //
-  //              {/* Show a preview of the post body */}
-  //              {this.showMobilePreview()}
-  //
-  //              {this.commentsLine(true)}
-  //              {this.userActionsLine()}
-  //              {this.duplicatesLine()}
-  //              {this.removeAndBanDialogs()}
-  //            </div>
-  //          </div>
-  //        </div>
-  //
-  //        {/* The larger view*/}
-  //        <div class="d-none d-sm-block">
-  //          <div class="row">
-  //            {!this.props.viewOnly && this.voteBar()}
-  //            <div class="col-sm-2 pr-0">
-  //              <div class="">{this.thumbnail()}</div>
-  //            </div>
-  //            <div class="col-12 col-sm-9">
-  //              <div class="row">
-  //                <div className="col-12">
-  //                  {this.postTitleLine()}
-  //                  {this.createdLine()}
-  //                  {this.commentsLine()}
-  //                  {this.duplicatesLine()}
-  //                  {this.userActionsLine()}
-  //                  {this.removeAndBanDialogs()}
-  //                </div>
-  //              </div>
-  //            </div>
-  //          </div>
-  //        </div>
-  //      </>
-  //    );
-  //  }
-  // END THEIR MAIN LISTING
-
-  // MY listing 2 - module - qz3 =========================================================
   listing() {
-    let post = this.props.post_view.post;
+    return (
+      <>
+        {/* The mobile view*/}
+        <div class="d-block d-sm-none">
+          <div class="row">
+            <div class="col-12">
+              {this.createdLine()}
 
-    // IMAGE OR IFRAME POST
-    return post.thumbnail_url || isImage(post.url) ? (
-      <div class="d-block">
-        <div class="row">
-          {!this.props.viewOnly && this.voteBar()}
+              {/* If it has a thumbnail, do a right aligned thumbnail */}
+              {this.mobileThumbnail()}
 
-          {/*NEW TEST = full image mobile =========
-          mobile ? (
-            <div className="col-12 disco-wide">
-          ) : (
-            <div
-              className={`${
-                this.state.imageExpanded
-                  ? "col-12 disco-wide"
-                  : "col-8 disco-thin"
-              }`}
-            >
-          );
-          */}
+              {/* Show a preview of the post body */}
+              {this.showMobilePreview()}
 
-          <div
-            className={`${
-              this.state.imageExpanded
-                ? "col-12 disco-wide"
-                : "col-8 disco-thin"
-            }`}
-          >
-            {this.postTitleLine()}
-            {/*  THE BIG IMAGE moved here */}
-            {this.state.imageExpanded && this.img}
-            {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
-            {this.showMobilePreview()}
-            {/* post by   ================ */}
-            {this.createdLine()}
-            {this.commentsLine(true)}
-            {/*  {this.commentsLine()}   ================ */}
-            {this.userActionsLine()}
-            {this.duplicatesLine()}
-            {this.removeAndBanDialogs()}
-          </div>
-          <div class="col-4" id="expando-box">
-            {/* Post body prev or thumbnail */}
-            {!this.state.imageExpanded && this.thumbnail()}
+              {this.commentsLine(true)}
+              {this.userActionsLine()}
+              {this.duplicatesLine()}
+              {this.removeAndBanDialogs()}
+            </div>
           </div>
         </div>
-      </div>
-    ) : (
-      <div class="d-block">
-        <div class="row">
-          {/* TEXT POST   ================ */}
-          {!this.props.viewOnly && this.voteBar()}
-          <div className="col-12" id="text-post">
-            {this.postTitleLine()}
-            {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
-            {this.showMobilePreview()}
-            {/* post by   ================ */}
-            {this.createdLine()}
-            {this.commentsLine(true)}
-            {/* {this.commentsLine()}*/}
-            {this.userActionsLine()}
-            {this.duplicatesLine()}
-            {this.removeAndBanDialogs()}
+
+        {/* The larger view*/}
+        <div class="d-none d-sm-block">
+          <div class="row">
+            {!this.props.viewOnly && this.voteBar()}
+            <div class="col-sm-2 pr-0">
+              <div class="">{this.thumbnail()}</div>
+            </div>
+            <div class="col-12 col-sm-9">
+              <div class="row">
+                <div className="col-12">
+                  {this.postTitleLine()}
+                  {this.createdLine()}
+                  {this.commentsLine()}
+                  {this.duplicatesLine()}
+                  {this.userActionsLine()}
+                  {this.removeAndBanDialogs()}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
-  // ======== END MY LISTING
+  // END THEIR MAIN LISTING
+
+  // // MY listing 2 - module - qz3 =========================================================
+  // listing() {
+  //   let post = this.props.post_view.post;
+
+  //   // IMAGE OR IFRAME POST
+  //   return post.thumbnail_url || isImage(post.url) ? (
+  //     <div class="d-block">
+  //       <div class="row">
+  //         {!this.props.viewOnly && this.voteBar()}
+
+  //         {/*NEW TEST = full image mobile =========
+  //         mobile ? (
+  //           <div className="col-12 disco-wide">
+  //         ) : (
+  //           <div
+  //             className={`${
+  //               this.state.imageExpanded
+  //                 ? "col-12 disco-wide"
+  //                 : "col-8 disco-thin"
+  //             }`}
+  //           >
+  //         );
+  //         */}
+
+  //         <div
+  //           className={`${
+  //             this.state.imageExpanded
+  //               ? "col-12 disco-wide"
+  //               : "col-8 disco-thin"
+  //           }`}
+  //         >
+  //           {this.postTitleLine()}
+  //           {/*  THE BIG IMAGE moved here */}
+  //           {this.state.imageExpanded && this.img}
+  //           {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+  //           {this.showMobilePreview()}
+  //           {/* post by   ================ */}
+  //           {this.createdLine()}
+  //           {this.commentsLine(true)}
+  //           {/*  {this.commentsLine()}   ================ */}
+  //           {this.userActionsLine()}
+  //           {this.duplicatesLine()}
+  //           {this.removeAndBanDialogs()}
+  //         </div>
+  //         <div class="col-4" id="expando-box">
+  //           {/* Post body prev or thumbnail */}
+  //           {!this.state.imageExpanded && this.thumbnail()}
+  //         </div>
+  //       </div>
+  //     </div>
+  //   ) : (
+  //     <div class="d-block">
+  //       <div class="row">
+  //         {/* TEXT POST   ================ */}
+  //         {!this.props.viewOnly && this.voteBar()}
+  //         <div className="col-12" id="text-post">
+  //           {this.postTitleLine()}
+  //           {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+  //           {this.showMobilePreview()}
+  //           {/* post by   ================ */}
+  //           {this.createdLine()}
+  //           {this.commentsLine(true)}
+  //           {/* {this.commentsLine()}*/}
+  //           {this.userActionsLine()}
+  //           {this.duplicatesLine()}
+  //           {this.removeAndBanDialogs()}
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+  // // ======== END MY LISTING
 
   private get myPost(): boolean {
     return (

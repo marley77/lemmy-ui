@@ -139,10 +139,11 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             {this.listing()}
             {/*  {this.state.imageExpanded && this.img}  ================ */}
 
-            {/* link card vamoose. -- duplicate body card vamoose    ================ 
+            {/* link card vamoose. -- youtube link info - TEST 2 - CAN DELETE   ================ 
             {post.url && this.showBody && post.embed_title && (
               <MetadataCard post={post} />
             )} */}
+
             {this.showBody && post.body && this.body()}
           </>
         ) : (
@@ -160,7 +161,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
-  // MY OLD DUPLICATE BODY - CAN DELETE ==================
+  // POST BODY display
   body() {
     let post = this.props.post_view.post;
     return (
@@ -205,25 +206,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       //   //  </a>
       //   </div>
        */}
-
-        {/*  THEIRS, unneeded =============     
-        //  get img() {
-        //   return (
-        //     <>
-        //       <div class="offset-sm-3 my-2 d-none d-sm-block">
-        //         <a href={this.imageSrc} class="d-inline-block">
-        //           <PictrsImage src={this.imageSrc} />
-        //         </a>
-        //       </div>
-        //       <div className="my-2 d-block d-sm-none">
-        //         <a
-        //           class="d-inline-block"
-        //           onClick={linkEvent(this, this.handleImageExpandClick)}
-        //         >
-        //           <PictrsImage src={this.imageSrc} />
-        //         </a>
-        //       </div>
-             */}
       </>
     );
   }
@@ -388,6 +370,25 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
               <PictrsImage src={this.imageSrc} />
             </a>
           </div>
+
+          {/*  THEIRS CHECKED, MATCH = unneeded =============     
+        //  get img() {
+        //   return (
+        //     <>
+        //       <div class="offset-sm-3 my-2 d-none d-sm-block">
+        //         <a href={this.imageSrc} class="d-inline-block">
+        //           <PictrsImage src={this.imageSrc} />
+        //         </a>
+        //       </div>
+        //       <div className="my-2 d-block d-sm-none">
+        //         <a
+        //           class="d-inline-block"
+        //           onClick={linkEvent(this, this.handleImageExpandClick)}
+        //         >
+        //           <PictrsImage src={this.imageSrc} />
+        //         </a>
+        //       </div>
+             */}
         </>
       );
     }
@@ -470,6 +471,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         console.log("yt link error");
       }
     } else if (isImage(post.url)) {
+      // theirs, match confirmed
       return (
         <a
           href={this.imageSrc}
@@ -484,7 +486,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         </a>
       );
     } else if (post.thumbnail_url) {
-      //YT EXPANDER -- MODULE
+      //YT EXPANDER -- MODULE -- uses image as link, instead of url to site as in theirs
       return (
         <a
           href={this.imageSrc}
@@ -560,7 +562,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         );
       }
     }
-    // MY junk can delete
+    // THEIR gray message square svg thumbnail
     //   else {
     //   return (
     //     <Link
@@ -631,7 +633,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           </span>
         </li>
 
-        {/* BOOK ICON VAMOOSE - qz3 ======================================================
+        {/* BOOK ICON VAMOOSE - TEST 1 - CAN DELETE - qz3 ======================================================
 
         {post_view.post.body && (
           <>

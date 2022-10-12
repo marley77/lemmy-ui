@@ -1454,8 +1454,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       <div class="d-block">
         <div class="row">
           {!this.props.viewOnly && this.voteBar()}
-          
-          {/*NEW*/}
+
+          {/*NEW TEST = full image mobile =========
           mobile ? (
             <div className="col-12 disco-wide">
           ) : (
@@ -1467,16 +1467,15 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
               }`}
             >
           );
+          */}
 
-          {/*ORIGINAL
           <div
             className={`${
               this.state.imageExpanded
                 ? "col-12 disco-wide"
                 : "col-8 disco-thin"
             }`}
-          >*/}
-
+          >
             {this.postTitleLine()}
             {/*  THE BIG IMAGE moved here */}
             {this.state.imageExpanded && this.img}

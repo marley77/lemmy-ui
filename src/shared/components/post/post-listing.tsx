@@ -139,7 +139,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             {this.listing()}
             {/*  {this.state.imageExpanded && this.img}  ================ */}
 
-            {/* link card vamoose. -- youtube link info - TEST 2 - CAN DELETE   ================ 
+            {/* THEIR link card vamoose -- youtube link info   ================ 
             {post.url && this.showBody && post.embed_title && (
               <MetadataCard post={post} />
             )} */}
@@ -175,38 +175,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           />
         )}
       </div>
-    );
-  }
-
-  // iFRAME YOUTUBE qz3 module =========================================================
-
-  get vid() {
-    let ytid = this.vidSrc;
-    let yturl = "https://www.youtube.com/embed/" + ytid;
-    console.log(yturl);
-    return (
-      <>
-        {/*  iframe  - PC  ================ */}
-        <div class="offset-sm-3 my-2 d-none d-sm-block" id="expanded-img">
-          {/*   <a href={this.imageSrc} class="d-inline-block">
-            <iframe src={this.vidSrc}></iframe> */}
-          <iframe src={yturl}></iframe>
-          {/* </a>================ */}
-        </div>
-
-        {/*    ================ 
-      // CUT MOBILE FOR NOW
-      // // iframe  - MOBILE
-      //   <div className="my-2 d-block d-sm-none">
-      //   //  <a
-      //   //    class="d-inline-block"
-      //   //    onClick={linkEvent(this, this.handleImageExpandClick)}
-      //   //  >
-      //       <iframe src={this.vidSrc} />
-      //   //  </a>
-      //   </div>
-       */}
-      </>
     );
   }
 
@@ -249,39 +217,43 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   //    }, 0)
   //  }
 
-  //YOUTUBE PARSER - make module
-  youtube_parser(url) {
-    var regExp =
-      /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    var match = url.match(regExp);
-    if (match && match[2].length == 11) {
-      return match[2];
-    } else {
-      //error
-    }
-  }
+  // iFRAME YOUTUBE qz3 module - all mine =========================================================
 
-  //vidSrc
-  get vidSrc(): string {
-    let post = this.props.post_view.post;
+  // get vid() {
+  //   let ytid = this.vidSrc;
+  //   let yturl = "https://www.youtube.com/embed/" + ytid;
+  //   console.log(yturl);
+  //   return (
+  //     <>
+  //       {/*  iframe  - PC  ================ */}
+  //       <div class="offset-sm-3 my-2 d-none d-sm-block" id="expanded-img">
+  //         <iframe src={yturl}></iframe>
+  //       </div>
+  //     </>
+  //   );
+  // }
 
-    if (post.url.includes("youtube")) {
-      let z = this.youtube_parser(post.url);
-      return z;
-    } else {
-      return post.url;
-    }
-  }
-
-  //       else if (post.thumbnail_url) {
-  //       return post.thumbnail_url;
-  //     } else {
-  //       return post.url;
-  //     }
-  //   } else if (post.thumbnail_url) {
-  //     return post.thumbnail_url;
+  // //YOUTUBE PARSER - make module
+  // youtube_parser(url) {
+  //   var regExp =
+  //     /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  //   var match = url.match(regExp);
+  //   if (match && match[2].length == 11) {
+  //     return match[2];
   //   } else {
-  //     return null;
+  //     //error
+  //   }
+  // }
+
+  // //vidSrc = MINE
+  // get vidSrc(): string {
+  //   let post = this.props.post_view.post;
+
+  //   if (post.url.includes("youtube")) {
+  //     let z = this.youtube_parser(post.url);
+  //     return z;
+  //   } else {
+  //     return post.url;
   //   }
   // }
 
@@ -301,11 +273,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           "https://www.youtube.com/embed/" +
           match[2] +
           "?autoplay=1&modestbranding=1&showinfo=0&rel=0";
-        // &border=0&wmode=opaque&autohide=2
-        // "https://www.youtube-nocookie.com/embed/" +
-        // match[2] +
-        // "?autoplay=1&autohide=2&border=0&wmode=opaque&showinfo=0&rel=0";
-        //console.log(yturl);
         return (
           <div id="expanded-img">
             <div class="youtube-container">
@@ -317,31 +284,9 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
-                ></iframe>
-
-                {/*THE TEST / DEFAULT YT iFRAME
-                <iframe
-                  width="560"
-                  height="315"
-                  src={yturl}
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>*/}
-
-                {/*THE NEW YT iFRAME*/}
-                {/*                <iframe
-                  src={yturl}
-                  id="expando-iframe"
-                  frameborder="0"
-                  gesture="media"
-                  allow="autoplay; encrypted-media"
-                  origin="http://www.youtube.com"
-                  sandbox="allow-same-origin allow-scripts"
                   rel="noopener external"
-                  allowfullscreen
-                ></iframe>*/}
+                  gesture="media"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -371,7 +316,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             </a>
           </div>
 
-          {/*  THEIRS CHECKED, MATCH = unneeded =============     
+          {/*  THEIR image CHECKED, MATCH = unneeded =============     
         //  get img() {
         //   return (
         //     <>
@@ -424,13 +369,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     }
   }
 
-  /* THEIRS, unneeded ==============
-    thumbnail() {
-    let post = this.props.post_view.post;
-
-    if (isImage(post.url)) {
-  =======*/
-
   // EXPANDOS - MODULE for logic qz3 =========================================================
 
   thumbnail() {
@@ -471,7 +409,11 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         console.log("yt link error");
       }
     } else if (isImage(post.url)) {
-      // theirs, match confirmed
+      /* THEIRS, match confirmed = unneeded ==============
+    thumbnail() {
+    let post = this.props.post_view.post;
+    if (isImage(post.url)) {
+  =======*/
       return (
         <a
           href={this.imageSrc}
@@ -503,19 +445,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
 
       // ======== ^^ END MODULE
 
-      //  MY OLD YOUTUBE EXPANDER - can delete
-      //   <a
-      //     class="text-body d-inline-block position-relative mb-2"
-      //     id="expander-link"
-      //     href={post.url}
-      //     rel={relTags}
-      //     title={post.url}
-      //   >
-      //     {this.imgThumb(this.imageSrc)}
-      //     <Icon icon="external-link" classes="mini-overlay" />
-      //   </a>
-      // );
-
       /* THEIR EXPANDER, unneeeded
       return (
         <a
@@ -528,7 +457,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           <Icon icon="external-link" classes="mini-overlay" />
         </a>
       );
-
 
 
  // END THEIR EXPANDER */
@@ -562,7 +490,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         );
       }
     }
-    // THEIR gray message square svg thumbnail
+    // THEIR gray message square svg thumbnail = unneeded
     //   else {
     //   return (
     //     <Link
@@ -633,7 +561,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           </span>
         </li>
 
-        {/* BOOK ICON VAMOOSE - TEST 1 - CAN DELETE - qz3 ======================================================
+        {/* THEIR BOOK ICON VAMOOSE - UNNEEDED confirmed - qz3 ======================================================
 
         {post_view.post.body && (
           <>
@@ -851,9 +779,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         {mobile && this.showMoreButton}
         {(!mobile || this.state.showAdvanced) && (
        */}
-
-        {/*  MINE  ================ */}
-        {/* no cross post - {this.crossPostButton} */}
 
         {/* hide more buttons - qz3 ========================================================= */}
         {this.showMoreButton}
@@ -1456,7 +1381,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   }
 
   /*
-  //USING THEIR MOBILE TEXT PREVIEW (unneeded) because mine ^^ has preview lines
+  // THEIR MOBILE TEXT PREVIEW (unneeded)
   showMobilePreview() {
     let post = this.props.post_view.post;
     return (
@@ -1574,75 +1499,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       </div>
     );
   }
-
   // ======== END MY LISTING
 
-  // MY OLD MAIN listing (CAN DELETE) - qz3 =========================================================
-  //   listing() {
-  //     return (
-  //       <>
-  //         {/* The mobile view*/}
-  //         <div class="d-block d-sm-none">
-  //           <div class="row">
-  //             <div class="col-12">
-
-  //               {/* POST TITLE, right aligned thumbnail */}
-  //               {this.mobileThumbnail()}
-
-  //     {/*  THE BIG IMAGE moved here from 'render'  ================ */}
-  //               {this.state.imageExpanded && this.img}
-
-  //               {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
-  //               {this.showMobilePreview()}
-
-  //     {/* qz3 ================ moved created line   ================ */}
-  //               {this.createdLine()}
-
-  //               {this.commentsLine(true)}
-  //               {this.userActionsLine()}
-  //               {this.duplicatesLine()}
-  //               {this.removeAndBanDialogs()}
-
-  //             </div>
-  //           </div>
-  //         </div>
-
-  //         {/* The larger view*/}
-  //         <div class="d-none d-sm-block">
-  //           <div class="row">
-  //             {!this.props.viewOnly && this.voteBar()}
-
-  //             <div class="col-12 col-sm-8" id="disco">
-  //               <div class="row">
-  //                 <div className="col-12">
-  //                   {this.postTitleLine()}
-  //                   {this.createdLine()}
-
-  //           {/* SNIPPET and text - PC */}
-  //               {this.showMobilePreview()}
-
-  //                   {this.commentsLine()}
-  //                   {this.duplicatesLine()}
-  //                   {this.userActionsLine()}
-  //                   {this.removeAndBanDialogs()}
-  //                 </div>
-  //               </div>
-  //             </div>
-  //     {/* EXPANDO to right qz3 ========================================================= */}
-  //             <div class="col-sm-3 pr-0" id="expander">
-  //               <div class="">{this.thumbnail()}</div>
-  //             </div>
-
-  //           </div>
-  //           <div class="row">
-  //               {/*  THE BIG IMAGE moved here from 'render', this whole row is new created, could bump back up above "comments line"  ================ */}
-  //                   {this.state.imageExpanded && this.img}
-  //           </div>
-  //         </div>
-  //       </>
-  //     );
-  //   }
-  //================= END MY OLD MAIN LISTING can delete
   private get myPost(): boolean {
     return (
       UserService.Instance.myUserInfo &&

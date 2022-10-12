@@ -237,7 +237,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       <div class="d-block">
         <div class="row">
           {!this.props.viewOnly && this.voteBar()}
-          {mobile && !this.props.viewOnly ? (
+          {mobile && (
             <div className="col-12 disco-wide tiesto">
               {this.postTitleLine()}
               {/*  THE BIG IMAGE moved here */}
@@ -252,7 +252,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
               {this.duplicatesLine()}
               {this.removeAndBanDialogs()}
             </div>
-          ) : (
+          )}
+          {!mobile && (
             <>
               <div
                 className={`${

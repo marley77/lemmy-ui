@@ -219,7 +219,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
 
   //  ^^^======== END MEGA MODULE
 
-  // iFRAME YOUTUBE qz3 module - all mine =========================================================
+  // YOUTUBE breakdown to modules - OLD, need update if to be used - all mine =========================================================
 
   // get vid() {
   //   let ytid = this.vidSrc;
@@ -1445,7 +1445,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   //  }
   // END THEIR MAIN LISTING
 
-  // MY MAIN listing 2 - module - qz3 =========================================================
+  // MY listing 2 - module - qz3 =========================================================
   listing() {
     let post = this.props.post_view.post;
 
@@ -1454,13 +1454,29 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       <div class="d-block">
         <div class="row">
           {!this.props.viewOnly && this.voteBar()}
+          
+          {/*NEW*/}
+          mobile ? (
+            <div className="col-12 disco-wide">
+          ) : (
+            <div
+              className={`${
+                this.state.imageExpanded
+                  ? "col-12 disco-wide"
+                  : "col-8 disco-thin"
+              }`}
+            >
+          );
+
+          {/*ORIGINAL
           <div
             className={`${
               this.state.imageExpanded
                 ? "col-12 disco-wide"
                 : "col-8 disco-thin"
             }`}
-          >
+          >*/}
+
             {this.postTitleLine()}
             {/*  THE BIG IMAGE moved here */}
             {this.state.imageExpanded && this.img}

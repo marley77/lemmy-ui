@@ -139,10 +139,10 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             {this.listing()}
             {/*  {this.state.imageExpanded && this.img}  ================ */}
 
-            {/* link card vamoose. -- duplicate body card vamoose    ================ 
+            {/* link card vamoose. -- duplicate body card vamoose    ================ */}
             {post.url && this.showBody && post.embed_title && (
               <MetadataCard post={post} />
-            )} */}
+            )}
             {this.showBody && post.body && this.body()}
           </>
         ) : (
@@ -631,7 +631,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           </span>
         </li>
 
-        {/* BOOK ICON VAMOOSE - qz3 ==========================           ================ */}
+        {/* BOOK ICON VAMOOSE - qz3 ======================================================
 
         {post_view.post.body && (
           <>
@@ -643,11 +643,12 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
                 data-tippy-allowHtml={true}
                 onClick={linkEvent(this, this.handleShowBody)}
               >
-                {/*<Icon icon="book-open" classes="icon-inline mr-1" />*/}
+                <Icon icon="book-open" classes="icon-inline mr-1" />
               </button>
             </li>
           </>
         )}
+           ================ */}
       </ul>
     );
   }

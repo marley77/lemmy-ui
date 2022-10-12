@@ -6,8 +6,7 @@ platform:
   arch: arm64
 
 steps:
-
-  - name: fetch git submodules 
+  - name: fetch git submodules
     image: node:14-alpine
     commands:
       - apk add git
@@ -23,7 +22,7 @@ steps:
     image: plugins/docker
     settings:
       dockerfile: Dockerfile
-      repo: qz77/ui2
+      repo: qz77/ui3
       # auto_tag: true
       auto_tag_suffix: linux-arm64
       username:

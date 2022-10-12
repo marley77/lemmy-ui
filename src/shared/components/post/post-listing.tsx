@@ -161,7 +161,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
-  // POST BODY display
+  // POST BODY display, matches their confirmed
   body() {
     let post = this.props.post_view.post;
     return (

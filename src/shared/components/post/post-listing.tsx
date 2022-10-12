@@ -178,8 +178,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     );
   }
 
-  // MAKE MEGA MODULE =======
-
   // INTERSECTION OBSERVER ON didmount FAIL
   //  componentDidMount() {
   //    setTimeout(() => {
@@ -217,7 +215,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   //    }, 0)
   //  }
 
-  //  ^^^======== END MEGA MODULE
+  //  ^^^======== END IO
 
   // YOUTUBE breakdown to modules - OLD, need update if to be used - all mine =========================================================
 
@@ -459,9 +457,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           <Icon icon="external-link" classes="mini-overlay" />
         </a>
       );
-
-
- // END THEIR EXPANDER */
+      // END THEIR EXPANDER */
     } else if (post.url) {
       if (isVideo(post.url)) {
         return (
@@ -507,6 +503,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     //   );
     // }
   }
+
+  // ============ END EXPANDO
 
   createdLine() {
     let post_view = this.props.post_view;

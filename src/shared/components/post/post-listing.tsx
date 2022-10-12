@@ -217,6 +217,8 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   //    }, 0)
   //  }
 
+  //  ^^^======== END MEGA MODULE
+
   // iFRAME YOUTUBE qz3 module - all mine =========================================================
 
   // get vid() {
@@ -270,9 +272,9 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       var match = tempurl.match(regExp);
       if (match && match[2].length == 11) {
         let yturl =
-          "https://www.youtube.com/embed/" +
+          "https://www.youtube-nocookie.com/embed/" +
           match[2] +
-          "?autoplay=1&modestbranding=1&showinfo=0&rel=0";
+          "?autoplay=1&modestbranding=1&rel=0";
         return (
           <div id="expanded-img">
             <div class="youtube-container">

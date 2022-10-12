@@ -241,7 +241,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             <div class="col-12 disco-wide">
               {this.postTitleLine()}
               {/*  THE BIG IMAGE moved here */}
-              {this.img}
+              {this.thumbnail()}
               {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
               {this.showMobilePreview()}
               {/* post by   ================ */}

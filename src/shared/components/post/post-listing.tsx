@@ -1395,128 +1395,195 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   }
 */
 
-  // THEIR MAIN LISTING, unneeded
+  // MY OLD MAIN listing (CAN DELETE) - qz3 =========================================================
+  //   listing() {
+  //     return (
+  //       <>
+  //         {/* The mobile view*/}
+  //         <div class="d-block d-sm-none">
+  //           <div class="row">
+  //             <div class="col-12">
+
+  //               {/* POST TITLE, right aligned thumbnail */}
+  //               {this.mobileThumbnail()}
+
+  //     {/*  THE BIG IMAGE moved here from 'render'  ================ */}
+  //               {this.state.imageExpanded && this.img}
+
+  //               {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+  //               {this.showMobilePreview()}
+
+  //     {/* qz3 ================ moved created line   ================ */}
+  //               {this.createdLine()}
+
+  //               {this.commentsLine(true)}
+  //               {this.userActionsLine()}
+  //               {this.duplicatesLine()}
+  //               {this.removeAndBanDialogs()}
+
+  //             </div>
+  //           </div>
+  //         </div>
+
+  //         {/* The larger view*/}
+  //         <div class="d-none d-sm-block">
+  //           <div class="row">
+  //             {!this.props.viewOnly && this.voteBar()}
+
+  //             <div class="col-12 col-sm-8" id="disco">
+  //               <div class="row">
+  //                 <div className="col-12">
+  //                   {this.postTitleLine()}
+  //                   {this.createdLine()}
+
+  //           {/* SNIPPET and text - PC */}
+  //               {this.showMobilePreview()}
+
+  //                   {this.commentsLine()}
+  //                   {this.duplicatesLine()}
+  //                   {this.userActionsLine()}
+  //                   {this.removeAndBanDialogs()}
+  //                 </div>
+  //               </div>
+  //             </div>
+  //     {/* EXPANDO to right qz3 ========================================================= */}
+  //             <div class="col-sm-3 pr-0" id="expander">
+  //               <div class="">{this.thumbnail()}</div>
+  //             </div>
+
+  //           </div>
+  //           <div class="row">
+  //               {/*  THE BIG IMAGE moved here from 'render', this whole row is new created, could bump back up above "comments line"  ================ */}
+  //                   {this.state.imageExpanded && this.img}
+  //           </div>
+  //         </div>
+  //       </>
+  //     );
+  //   }
+  //================= END MY OLD MAIN LISTING can delete
+
+  // MY listing 2 - module - qz3 =========================================================
   listing() {
-    return (
-      <>
-        {/* The mobile view*/}
-        <div class="d-block d-sm-none">
-          <div class="row">
-            <div class="col-12">
-              {this.createdLine()}
+    let post = this.props.post_view.post;
 
-              {/* If it has a thumbnail, do a right aligned thumbnail */}
-              {this.mobileThumbnail()}
+    // IMAGE OR IFRAME POST
+    return post.thumbnail_url || isImage(post.url) ? (
+      <div class="d-block">
+        <div class="row">
+          {!this.props.viewOnly && this.voteBar()}
 
-              {/* Show a preview of the post body */}
-              {this.showMobilePreview()}
+          {/*NEW TEST = full image mobile =========
+          mobile ? (
+            <div className="col-12 disco-wide">
+          ) : (
+            <div
+              className={`${
+                this.state.imageExpanded
+                  ? "col-12 disco-wide"
+                  : "col-8 disco-thin"
+              }`}
+            >
+          );
+          */}
 
-              {this.commentsLine(true)}
-              {this.userActionsLine()}
-              {this.duplicatesLine()}
-              {this.removeAndBanDialogs()}
-            </div>
+          <div
+            className={`${
+              this.state.imageExpanded
+                ? "col-12 disco-wide"
+                : "col-8 disco-thin"
+            }`}
+          >
+            {this.postTitleLine()}
+            {/*  THE BIG IMAGE moved here */}
+            {this.state.imageExpanded && this.img}
+            {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+            {this.showMobilePreview()}
+            {/* post by   ================ */}
+            {this.createdLine()}
+            {this.commentsLine(true)}
+            {/*  {this.commentsLine()}   ================ */}
+            {this.userActionsLine()}
+            {this.duplicatesLine()}
+            {this.removeAndBanDialogs()}
+          </div>
+          <div class="col-4" id="expando-box">
+            {/* Post body prev or thumbnail */}
+            {!this.state.imageExpanded && this.thumbnail()}
           </div>
         </div>
-
-        {/* The larger view*/}
-        <div class="d-none d-sm-block">
-          <div class="row">
-            {!this.props.viewOnly && this.voteBar()}
-            <div class="col-sm-2 pr-0">
-              <div class="">{this.thumbnail()}</div>
-            </div>
-            <div class="col-12 col-sm-9">
-              <div class="row">
-                <div className="col-12">
-                  {this.postTitleLine()}
-                  {this.createdLine()}
-                  {this.commentsLine()}
-                  {this.duplicatesLine()}
-                  {this.userActionsLine()}
-                  {this.removeAndBanDialogs()}
-                </div>
-              </div>
-            </div>
+      </div>
+    ) : (
+      <div class="d-block">
+        <div class="row">
+          {/* TEXT POST   ================ */}
+          {!this.props.viewOnly && this.voteBar()}
+          <div className="col-12" id="text-post">
+            {this.postTitleLine()}
+            {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+            {this.showMobilePreview()}
+            {/* post by   ================ */}
+            {this.createdLine()}
+            {this.commentsLine(true)}
+            {/* {this.commentsLine()}*/}
+            {this.userActionsLine()}
+            {this.duplicatesLine()}
+            {this.removeAndBanDialogs()}
           </div>
         </div>
-      </>
+      </div>
     );
   }
-  // END THEIR MAIN LISTING
+  // ======== END MY LISTING
 
-  // // MY listing 2 - module - qz3 =========================================================
+  // // THEIR LISTING - MAIN, unneeded
   // listing() {
-  //   let post = this.props.post_view.post;
+  //   return (
+  //     <>
+  //       {/* The mobile view*/}
+  //       <div class="d-block d-sm-none">
+  //         <div class="row">
+  //           <div class="col-12">
+  //             {this.createdLine()}
 
-  //   // IMAGE OR IFRAME POST
-  //   return post.thumbnail_url || isImage(post.url) ? (
-  //     <div class="d-block">
-  //       <div class="row">
-  //         {!this.props.viewOnly && this.voteBar()}
+  //             {/* If it has a thumbnail, do a right aligned thumbnail */}
+  //             {this.mobileThumbnail()}
 
-  //         {/*NEW TEST = full image mobile =========
-  //         mobile ? (
-  //           <div className="col-12 disco-wide">
-  //         ) : (
-  //           <div
-  //             className={`${
-  //               this.state.imageExpanded
-  //                 ? "col-12 disco-wide"
-  //                 : "col-8 disco-thin"
-  //             }`}
-  //           >
-  //         );
-  //         */}
+  //             {/* Show a preview of the post body */}
+  //             {this.showMobilePreview()}
 
-  //         <div
-  //           className={`${
-  //             this.state.imageExpanded
-  //               ? "col-12 disco-wide"
-  //               : "col-8 disco-thin"
-  //           }`}
-  //         >
-  //           {this.postTitleLine()}
-  //           {/*  THE BIG IMAGE moved here */}
-  //           {this.state.imageExpanded && this.img}
-  //           {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
-  //           {this.showMobilePreview()}
-  //           {/* post by   ================ */}
-  //           {this.createdLine()}
-  //           {this.commentsLine(true)}
-  //           {/*  {this.commentsLine()}   ================ */}
-  //           {this.userActionsLine()}
-  //           {this.duplicatesLine()}
-  //           {this.removeAndBanDialogs()}
-  //         </div>
-  //         <div class="col-4" id="expando-box">
-  //           {/* Post body prev or thumbnail */}
-  //           {!this.state.imageExpanded && this.thumbnail()}
+  //             {this.commentsLine(true)}
+  //             {this.userActionsLine()}
+  //             {this.duplicatesLine()}
+  //             {this.removeAndBanDialogs()}
+  //           </div>
   //         </div>
   //       </div>
-  //     </div>
-  //   ) : (
-  //     <div class="d-block">
-  //       <div class="row">
-  //         {/* TEXT POST   ================ */}
-  //         {!this.props.viewOnly && this.voteBar()}
-  //         <div className="col-12" id="text-post">
-  //           {this.postTitleLine()}
-  //           {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
-  //           {this.showMobilePreview()}
-  //           {/* post by   ================ */}
-  //           {this.createdLine()}
-  //           {this.commentsLine(true)}
-  //           {/* {this.commentsLine()}*/}
-  //           {this.userActionsLine()}
-  //           {this.duplicatesLine()}
-  //           {this.removeAndBanDialogs()}
+
+  //       {/* The larger view*/}
+  //       <div class="d-none d-sm-block">
+  //         <div class="row">
+  //           {!this.props.viewOnly && this.voteBar()}
+  //           <div class="col-sm-2 pr-0">
+  //             <div class="">{this.thumbnail()}</div>
+  //           </div>
+  //           <div class="col-12 col-sm-9">
+  //             <div class="row">
+  //               <div className="col-12">
+  //                 {this.postTitleLine()}
+  //                 {this.createdLine()}
+  //                 {this.commentsLine()}
+  //                 {this.duplicatesLine()}
+  //                 {this.userActionsLine()}
+  //                 {this.removeAndBanDialogs()}
+  //               </div>
+  //             </div>
+  //           </div>
   //         </div>
   //       </div>
-  //     </div>
+  //     </>
   //   );
   // }
-  // // ======== END MY LISTING
+  // // END THEIR MAIN LISTING
 
   private get myPost(): boolean {
     return (

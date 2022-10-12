@@ -237,7 +237,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       <div class="d-block">
         <div class="row">
           {!this.props.viewOnly && this.voteBar()}
-          {mobile ? (
+          {mobile && !this.props.viewOnly ? (
             <div className="col-12 disco-wide tiesto">
               {this.postTitleLine()}
               {/*  THE BIG IMAGE moved here */}

@@ -234,58 +234,36 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
 
     // IMAGE OR IFRAME POST
     return post.thumbnail_url || isImage(post.url) ? (
-      <>
-        {/* The mobile view*/}
-        <div class="d-block d-sm-none">
-          <div class="row">
-            <div class="col-12 disco-wide">
-              {this.postTitleLine()}
-              {/*  THE BIG IMAGE moved here */}
-              {this.thumbnail()}
-              {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
-              {this.showMobilePreview()}
-              {/* post by   ================ */}
-              {this.createdLine()}
-              {this.commentsLine(true)}
-              {/*  {this.commentsLine()}   ================ */}
-              {this.userActionsLine()}
-              {this.duplicatesLine()}
-              {this.removeAndBanDialogs()}
-            </div>
-          </div>
-        </div>
+      <div class="d-block">
+        <div class="row">
+          {!this.props.viewOnly && this.voteBar()}
 
-        {/* The PC view*/}
-        <div class="d-none d-sm-block">
-          <div class="row">
-            {!this.props.viewOnly && this.voteBar()}
-            <div
-              className={`${
-                this.state.imageExpanded
-                  ? "col-12 disco-wide"
-                  : "col-8 disco-thin"
-              }`}
-            >
-              {this.postTitleLine()}
-              {/*  THE BIG IMAGE moved here */}
-              {this.state.imageExpanded && this.img}
-              {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
-              {this.showMobilePreview()}
-              {/* post by   ================ */}
-              {this.createdLine()}
-              {this.commentsLine(true)}
-              {/*  {this.commentsLine()}   ================ */}
-              {this.userActionsLine()}
-              {this.duplicatesLine()}
-              {this.removeAndBanDialogs()}
-            </div>
-            <div class="col-4" id="expando-box">
-              {/* Post body prev or thumbnail */}
-              {!this.state.imageExpanded && this.thumbnail()}
-            </div>
+          <div
+            className={`${
+              this.state.imageExpanded
+                ? "col-12 disco-wide"
+                : "col-8 disco-thin"
+            }`}
+          >
+            {this.postTitleLine()}
+            {/*  THE BIG IMAGE moved here */}
+            {this.state.imageExpanded && this.img}
+            {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+            {this.showMobilePreview()}
+            {/* post by   ================ */}
+            {this.createdLine()}
+            {this.commentsLine(true)}
+            {/*  {this.commentsLine()}   ================ */}
+            {this.userActionsLine()}
+            {this.duplicatesLine()}
+            {this.removeAndBanDialogs()}
+          </div>
+          <div class="col-4" id="expando-box">
+            {/* Post body prev or thumbnail */}
+            {!this.state.imageExpanded && this.thumbnail()}
           </div>
         </div>
-      </>
+      </div>
     ) : (
       <div class="d-block">
         <div class="row">

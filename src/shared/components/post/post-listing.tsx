@@ -497,7 +497,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   // }
 
   // EXPANDED image qz3 =========================================================
-  img() {
+  the img() {
     let post = this.props.post_view.post;
     var tempurl = post.url || "";
     //console.log(tempurl);
@@ -610,7 +610,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
 
   // EXPANDOS - MODULE for logic qz3 =========================================================
 
-  thumbnail() {
+  get thumbnail() {
     let post = this.props.post_view.post;
     var tempurl = post.url || "";
     //console.log(tempurl);

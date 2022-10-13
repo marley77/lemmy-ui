@@ -268,7 +268,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             >
               {this.postTitleLine()}
               {/*  THE BIG IMAGE moved here */}
-              {this.state.imageExpanded && this.imgcheck()}
+              {this.state.imageExpanded && this.img}
               {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
               {this.showMobilePreview()}
               {/* post by   ================ */}
@@ -497,8 +497,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   // }
 
   // EXPANDED image qz3 =========================================================
-  
-  imgcheck() {
+  get img() {
     let post = this.props.post_view.post;
     var tempurl = post.url || "";
     //console.log(tempurl);
@@ -535,12 +534,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
         console.log("not valid");
       }
     } else {
-      return ({this.img})
-    }
-  }
-
-
-  get img() {
       return (
         <>
           {/*  EXPANDED IMAGE - PC  ================ */}
@@ -636,7 +629,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             class="text-body d-inline-block position-relative mb-2"
             id="expander-link"
             data-tippy-content={i18n.t("expand_here")}
-            onClick={linkEvent(this, this.img)}
+            onClick={linkEvent(this, this.handleImageExpandClick)}
             aria-label={i18n.t("expand_here")}
           >
             <img

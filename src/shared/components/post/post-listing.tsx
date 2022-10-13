@@ -454,7 +454,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       )
     );
   }
-*/
+  */
 
   // YOUTUBE breakdown to modules - OLD, need update if to be used - all mine =========================================================
 
@@ -497,7 +497,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   // }
 
   // EXPANDED image qz3 =========================================================
-  get img() {
+  img() {
     let post = this.props.post_view.post;
     var tempurl = post.url || "";
     //console.log(tempurl);

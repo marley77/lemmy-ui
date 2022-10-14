@@ -137,6 +137,24 @@ export class Signup extends Component<any, State> {
 
   registerForm() {
     return (
+      <div>y</div>
+      <div>y</div>
+      <div>y</div>
+      {/*    login ================ */}
+      <div><a id="dm1" href="/login" title="login">LOGIN</a></div>
+
+{/* login experiment    ================ 
+
+      <NavLink
+        to="/login"
+        className=""
+        onMouseUp={linkEvent(this, this.handleHideExpandNavbar)}
+        title={i18n.t("login")}
+      >
+        <Icon icon="settings" />
+      </NavLink>
+ */}
+
       <form onSubmit={linkEvent(this, this.handleRegisterSubmit)}>
         <h5>{this.titleName}</h5>
 

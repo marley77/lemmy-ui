@@ -1423,10 +1423,17 @@ a#dm-title {
   .vote-bar {
     display: none;
   }
-  .disco-thin,
-  #expando-box {
-    width: 100%;
-    max-width: 100%;
+  .disco-thin {
+    flex: 0 0 100%;
+    max-width: 98%;
+  }
+  .thumbnail {
+    max-width: 96vw;
+  }
+
+  /*MAYBE WONT NEED - only on post page, community page*/
+  #disco-column {
+    padding-left: 1vw;
   }
 }
 
@@ -1545,20 +1552,13 @@ div.play-button {
   .disco-thin {
     padding-left: 0px !important;
   }
+  #expando-box {
+    padding-left: 2px;
+  }
 }
 
 .disco-thin {
   padding-right: 2px !important;
-}
-
-#expando-box {
-  padding-left: 2px;
-}
-
-@media (max-width: 767px) {
-  #disco-column {
-    padding-left: 1vw;
-  }
 }
 
 .avatar-pushup {

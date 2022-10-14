@@ -247,7 +247,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           >
             {this.postTitleLine()}
             {/* MOBILE THUMBNAIL ONLY */}
-            <div class="col-12 mobile-thumb" id="expando-box">
+            <div id="mobile-thumb">
               {/* Post body prev or thumbnail */}
               {!this.state.imageExpanded && this.thumbnail()}
             </div>
@@ -263,7 +263,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             {this.duplicatesLine()}
             {this.removeAndBanDialogs()}
           </div>
-          <div class="col-4" id="expando-box">
+          <div class="col-4" id="pc-expando">
             {/* Post body prev or thumbnail */}
             {!this.state.imageExpanded && this.thumbnail()}
           </div>

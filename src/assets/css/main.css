@@ -1507,31 +1507,37 @@ img.youtube-thumb {
     margin-top: -4px;
   }
 
+  #disco-column {
+    padding-left: 1vw;
+  }
+
   #mobile-votes {
     display: block;
   }
   .vote-bar {
     display: none;
   }
+
   .disco-thin {
     flex: 0 0 100% !important;
     max-width: 98% !important;
   }
+
+  #pc-expando {
+    display: none !important;
+  }
+
   .thumbnail {
     width: 96vw;
   }
-  #expando-box {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
 
-  /*MAYBE WONT NEED - only on post page, community page*/
-  #disco-column {
-    padding-left: 1vw;
+  #mobile-thumb {
+    /*flex: 0 0 100% !important;*/
+    width: 100%;
   }
 }
 
-/*NEW PC ADJUSTMENTS*/
+/*NEW PC ADJUSTMENTS ========= */
 
 @media (min-width: 767px) {
   #mobile-votes {
@@ -1557,7 +1563,7 @@ img.youtube-thumb {
     max-width: 92% !important;
   }
 
-  .mobile-thumb {
+  #mobile-thumb {
     display: none !important;
   }
 
@@ -1565,7 +1571,7 @@ img.youtube-thumb {
     padding-left: 0px !important;
   }
 
-  #expando-box {
+  #pc-expando {
     padding-left: 2px;
   }
 }

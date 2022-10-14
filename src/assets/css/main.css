@@ -1424,11 +1424,15 @@ a#dm-title {
     display: none;
   }
   .disco-thin {
-    flex: 0 0 100%;
-    max-width: 98%;
+    flex: 0 0 100% !important;
+    max-width: 98% !important;
   }
   .thumbnail {
-    max-width: 96vw;
+    width: 96vw;
+  }
+  #expando-box {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 
   /*MAYBE WONT NEED - only on post page, community page*/

@@ -246,6 +246,11 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             }`}
           >
             {this.postTitleLine()}
+            {/* MOBILE THUMBNAIL ONLY */}
+            <div class="col-12 mobile-thumb" id="expando-box">
+              {/* Post body prev or thumbnail */}
+              {!this.state.imageExpanded && this.thumbnail()}
+            </div>
             {/*  THE BIG IMAGE moved here */}
             {this.state.imageExpanded && this.img}
             {/* SNIPPET + TEXT mobile - Show a preview of the post body */}

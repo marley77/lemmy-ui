@@ -1414,6 +1414,10 @@ a#dm-title {
     flex: 0 0 92% !important;
     max-width: 92% !important;
   }
+
+  .mobile-thumb {
+    display: none !important;
+  }
 }
 
 @media (max-width: 767px) {

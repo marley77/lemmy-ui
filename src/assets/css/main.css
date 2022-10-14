@@ -1423,6 +1423,11 @@ a#dm-title {
   .vote-bar {
     display: none;
   }
+  .disco-thin,
+  #expando-box {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 #expanded-img {

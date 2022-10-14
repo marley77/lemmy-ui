@@ -141,10 +141,7 @@ export class Signup extends Component<any, State> {
         <div>y</div>
         <div>y</div>
         <div>y</div>
-        {/*    login ================ */}
-        <div><a id="dm1" href="/login" title="login">LOGIN</a></div>
-      </>
-{/* login experiment    ================ 
+        {/* login experiment    ================ 
 
       <NavLink
         to="/login"
@@ -155,214 +152,226 @@ export class Signup extends Component<any, State> {
         <Icon icon="settings" />
       </NavLink>
  */}
-
-      <form onSubmit={linkEvent(this, this.handleRegisterSubmit)}>
-        <h5>{this.titleName}</h5>
-
-        {this.isLemmyMl && (
-          <div class="form-group row">
-            <div class="mt-2 mb-0 alert alert-warning" role="alert">
-              <T i18nKey="lemmy_ml_registration_message">
-                #<a href={joinLemmyUrl}>#</a>
-              </T>
-            </div>
-          </div>
-        )}
-
-        <div class="form-group row">
-          <label class="col-sm-2 col-form-label" htmlFor="register-username">
-            {i18n.t("username")}
-          </label>
-
-          <div class="col-sm-10">
-            <input
-              type="text"
-              id="register-username"
-              class="form-control"
-              value={this.state.registerForm.username}
-              onInput={linkEvent(this, this.handleRegisterUsernameChange)}
-              required
-              minLength={3}
-              pattern="[a-zA-Z0-9_]+"
-              title={i18n.t("community_reqs")}
-            />
-          </div>
+        <div>
+          <a id="dm1" href="/login" title="login">
+            LOGIN
+          </a>
         </div>
 
-        <div class="form-group row">
-          <label class="col-sm-2 col-form-label" htmlFor="register-email">
-            {i18n.t("email")}
-          </label>
-          <div class="col-sm-10">
-            <input
-              type="email"
-              id="register-email"
-              class="form-control"
-              placeholder={
-                this.state.site_view.site.require_email_verification
-                  ? i18n.t("required")
-                  : i18n.t("optional")
-              }
-              value={this.state.registerForm.email}
-              autoComplete="email"
-              onInput={linkEvent(this, this.handleRegisterEmailChange)}
-              required={this.state.site_view.site.require_email_verification}
-              minLength={3}
-            />
-            {!this.state.site_view.site.require_email_verification &&
-              !validEmail(this.state.registerForm.email) && (
-                <div class="mt-2 mb-0 alert alert-warning" role="alert">
-                  <Icon icon="alert-triangle" classes="icon-inline mr-2" />
-                  {i18n.t("no_password_reset")}
-                </div>
-              )}
-          </div>
-        </div>
+        <form onSubmit={linkEvent(this, this.handleRegisterSubmit)}>
+          <h5>{this.titleName}</h5>
 
-        <div class="form-group row">
-          <label class="col-sm-2 col-form-label" htmlFor="register-password">
-            {i18n.t("password")}
-          </label>
-          <div class="col-sm-10">
-            <input
-              type="password"
-              id="register-password"
-              value={this.state.registerForm.password}
-              autoComplete="new-password"
-              onInput={linkEvent(this, this.handleRegisterPasswordChange)}
-              minLength={10}
-              maxLength={60}
-              class="form-control"
-              required
-            />
-            {this.state.registerForm.password && (
-              <div class={this.passwordColorClass}>
-                {i18n.t(this.passwordStrength as I18nKeys)}
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label
-            class="col-sm-2 col-form-label"
-            htmlFor="register-verify-password"
-          >
-            {i18n.t("verify_password")}
-          </label>
-          <div class="col-sm-10">
-            <input
-              type="password"
-              id="register-verify-password"
-              value={this.state.registerForm.password_verify}
-              autoComplete="new-password"
-              onInput={linkEvent(this, this.handleRegisterPasswordVerifyChange)}
-              maxLength={60}
-              class="form-control"
-              required
-            />
-          </div>
-        </div>
-
-        {this.state.site_view.site.require_application && (
-          <>
+          {this.isLemmyMl && (
             <div class="form-group row">
-              <div class="offset-sm-2 col-sm-10">
-                <div class="mt-2 alert alert-warning" role="alert">
-                  <Icon icon="alert-triangle" classes="icon-inline mr-2" />
-                  {i18n.t("fill_out_application")}
-                </div>
-                <div
-                  className="md-div"
-                  dangerouslySetInnerHTML={mdToHtml(
-                    this.state.site_view.site.application_question || ""
-                  )}
-                />
+              <div class="mt-2 mb-0 alert alert-warning" role="alert">
+                <T i18nKey="lemmy_ml_registration_message">
+                  #<a href={joinLemmyUrl}>#</a>
+                </T>
               </div>
             </div>
+          )}
 
-            <div class="form-group row">
-              <label
-                class="col-sm-2 col-form-label"
-                htmlFor="application_answer"
-              >
-                {i18n.t("answer")}
-              </label>
-              <div class="col-sm-10">
-                <MarkdownTextArea
-                  onContentChange={this.handleAnswerChange}
-                  hideNavigationWarnings
-                />
-              </div>
-            </div>
-          </>
-        )}
-
-        {this.state.captcha && (
           <div class="form-group row">
-            <label class="col-sm-2" htmlFor="register-captcha">
-              <span class="mr-2">{i18n.t("enter_code")}</span>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                onClick={linkEvent(this, this.handleRegenCaptcha)}
-                aria-label={i18n.t("captcha")}
-              >
-                <Icon icon="refresh-cw" classes="icon-refresh-cw" />
-              </button>
+            <label class="col-sm-2 col-form-label" htmlFor="register-username">
+              {i18n.t("username")}
             </label>
-            {this.showCaptcha()}
-            <div class="col-sm-6">
+
+            <div class="col-sm-10">
               <input
                 type="text"
+                id="register-username"
                 class="form-control"
-                id="register-captcha"
-                value={this.state.registerForm.captcha_answer}
+                value={this.state.registerForm.username}
+                onInput={linkEvent(this, this.handleRegisterUsernameChange)}
+                required
+                minLength={3}
+                pattern="[a-zA-Z0-9_]+"
+                title={i18n.t("community_reqs")}
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" htmlFor="register-email">
+              {i18n.t("email")}
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="email"
+                id="register-email"
+                class="form-control"
+                placeholder={
+                  this.state.site_view.site.require_email_verification
+                    ? i18n.t("required")
+                    : i18n.t("optional")
+                }
+                value={this.state.registerForm.email}
+                autoComplete="email"
+                onInput={linkEvent(this, this.handleRegisterEmailChange)}
+                required={this.state.site_view.site.require_email_verification}
+                minLength={3}
+              />
+              {!this.state.site_view.site.require_email_verification &&
+                !validEmail(this.state.registerForm.email) && (
+                  <div class="mt-2 mb-0 alert alert-warning" role="alert">
+                    <Icon icon="alert-triangle" classes="icon-inline mr-2" />
+                    {i18n.t("no_password_reset")}
+                  </div>
+                )}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" htmlFor="register-password">
+              {i18n.t("password")}
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="password"
+                id="register-password"
+                value={this.state.registerForm.password}
+                autoComplete="new-password"
+                onInput={linkEvent(this, this.handleRegisterPasswordChange)}
+                minLength={10}
+                maxLength={60}
+                class="form-control"
+                required
+              />
+              {this.state.registerForm.password && (
+                <div class={this.passwordColorClass}>
+                  {i18n.t(this.passwordStrength as I18nKeys)}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label
+              class="col-sm-2 col-form-label"
+              htmlFor="register-verify-password"
+            >
+              {i18n.t("verify_password")}
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="password"
+                id="register-verify-password"
+                value={this.state.registerForm.password_verify}
+                autoComplete="new-password"
                 onInput={linkEvent(
                   this,
-                  this.handleRegisterCaptchaAnswerChange
+                  this.handleRegisterPasswordVerifyChange
                 )}
+                maxLength={60}
+                class="form-control"
                 required
               />
             </div>
           </div>
-        )}
-        {this.state.site_view.site.enable_nsfw && (
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  id="register-show-nsfw"
-                  type="checkbox"
-                  checked={this.state.registerForm.show_nsfw}
-                  onChange={linkEvent(this, this.handleRegisterShowNsfwChange)}
-                />
-                <label class="form-check-label" htmlFor="register-show-nsfw">
-                  {i18n.t("show_nsfw")}
+
+          {this.state.site_view.site.require_application && (
+            <>
+              <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                  <div class="mt-2 alert alert-warning" role="alert">
+                    <Icon icon="alert-triangle" classes="icon-inline mr-2" />
+                    {i18n.t("fill_out_application")}
+                  </div>
+                  <div
+                    className="md-div"
+                    dangerouslySetInnerHTML={mdToHtml(
+                      this.state.site_view.site.application_question || ""
+                    )}
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label
+                  class="col-sm-2 col-form-label"
+                  htmlFor="application_answer"
+                >
+                  {i18n.t("answer")}
                 </label>
+                <div class="col-sm-10">
+                  <MarkdownTextArea
+                    onContentChange={this.handleAnswerChange}
+                    hideNavigationWarnings
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
+          {this.state.captcha && (
+            <div class="form-group row">
+              <label class="col-sm-2" htmlFor="register-captcha">
+                <span class="mr-2">{i18n.t("enter_code")}</span>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onClick={linkEvent(this, this.handleRegenCaptcha)}
+                  aria-label={i18n.t("captcha")}
+                >
+                  <Icon icon="refresh-cw" classes="icon-refresh-cw" />
+                </button>
+              </label>
+              {this.showCaptcha()}
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="register-captcha"
+                  value={this.state.registerForm.captcha_answer}
+                  onInput={linkEvent(
+                    this,
+                    this.handleRegisterCaptchaAnswerChange
+                  )}
+                  required
+                />
               </div>
             </div>
+          )}
+          {this.state.site_view.site.enable_nsfw && (
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    id="register-show-nsfw"
+                    type="checkbox"
+                    checked={this.state.registerForm.show_nsfw}
+                    onChange={linkEvent(
+                      this,
+                      this.handleRegisterShowNsfwChange
+                    )}
+                  />
+                  <label class="form-check-label" htmlFor="register-show-nsfw">
+                    {i18n.t("show_nsfw")}
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+          <input
+            tabIndex={-1}
+            autoComplete="false"
+            name="a_password"
+            type="text"
+            class="form-control honeypot"
+            id="register-honey"
+            value={this.state.registerForm.honeypot}
+            onInput={linkEvent(this, this.handleHoneyPotChange)}
+          />
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-secondary">
+                {this.state.registerLoading ? <Spinner /> : this.titleName}
+              </button>
+            </div>
           </div>
-        )}
-        <input
-          tabIndex={-1}
-          autoComplete="false"
-          name="a_password"
-          type="text"
-          class="form-control honeypot"
-          id="register-honey"
-          value={this.state.registerForm.honeypot}
-          onInput={linkEvent(this, this.handleHoneyPotChange)}
-        />
-        <div class="form-group row">
-          <div class="col-sm-10">
-            <button type="submit" class="btn btn-secondary">
-              {this.state.registerLoading ? <Spinner /> : this.titleName}
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </>
     );
   }
 

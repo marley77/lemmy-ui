@@ -137,12 +137,13 @@ export class Signup extends Component<any, State> {
 
   registerForm() {
     return (
-      <div>y</div>
-      <div>y</div>
-      <div>y</div>
-      {/*    login ================ */}
-      <div><a id="dm1" href="/login" title="login">LOGIN</a></div>
-
+      <>
+        <div>y</div>
+        <div>y</div>
+        <div>y</div>
+        {/*    login ================ */}
+        <div><a id="dm1" href="/login" title="login">LOGIN</a></div>
+      </>
 {/* login experiment    ================ 
 
       <NavLink

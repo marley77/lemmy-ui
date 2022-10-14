@@ -554,7 +554,7 @@ export class Home extends Component<any, HomeState> {
     //   : "";
 
     return (
-      <div className="mb-3">
+      <div className="mb-3" id="select-row">
         <span class="mr-3">
           <DataTypeSelect
             type_={this.state.dataType}

@@ -380,7 +380,7 @@ br.big {
 
 /* MOVE COLLAPSE BUTTON TO RIGHT */
 button#comment-collapse {
-  top: -5px;
+  margin-top: -5px;
   position: absolute;
   right: 10px;
 
@@ -433,7 +433,8 @@ USER PIC PROFILE */
 }
 
 /* FONT */
-body {
+body,
+pre {
   margin: 0;
   text-align: left;
   font-family: Verdana, Geneva, sans-serif !important;
@@ -443,6 +444,12 @@ body {
   /*     line-height: 1.3em !important; 
     white-space: pre-wrap !important; 
     margin-bottom: .8rem !important; */
+  /*THESE TWO ADDED*/
+  text-align: left;
+  line-height: 1.5;
+}
+
+body {
   background-color: #231e3c !important;
 }
 
@@ -708,7 +715,7 @@ h2.post-card-title {
 #deskmenu a {
   font-family: Verdana, Geneva, sans-serif !important;
   color: var(--title-teal) !important;
-  font-size: 18px;
+  font-size: 15px;
   width: auto;
   min-width: 100px;
   padding-bottom: 7px;
@@ -727,9 +734,9 @@ h2.post-card-title {
   top: -10px;
   right: -5px;
   width: 70px;
-  height: 70px;
-  border-radius: 8%;
-  border: 2px solid var(--mariner-med);
+  height: 70px; /*was 70*/
+  /*border-radius: 8%; */
+  border: 1px solid var(--mariner-med);
   z-index: 9999;
 }
 
@@ -783,6 +790,11 @@ h2.post-card-title {
     width: 50px;
     display: inline-block;
     text-align: center;
+  }
+
+  span#boosticon {
+    font-size: 15px;
+    margin-bottom: 3px;
   }
 
   /* BOOST MENU - new add to mobile */
@@ -954,6 +966,8 @@ h2.post-card-title {
   width: 100%; /*was 200 px*/
   max-width: 100%;
   object-fit: cover;
+  aspect-ratio: 2.02 / 1;
+  border: 1px solid var(--mariner-teal);
 }
 
 #expander {
@@ -1372,7 +1386,7 @@ img.youtube-thumb {
 }
 
 #img-collapse {
-  top: -5px;
+  margin-top: -5px;
   position: absolute;
   right: 10px;
 }
@@ -1554,6 +1568,10 @@ img.youtube-thumb {
   #pc-expando {
     padding-left: 2px;
   }
+
+  #text-post {
+    padding-left: 0px;
+  }
 }
 
 .disco-thin {
@@ -1574,3 +1592,5 @@ img.youtube-thumb {
   margin-bottom: 5px !important;
   margin-top: 5px !important;
 }
+
+.thumbnail;

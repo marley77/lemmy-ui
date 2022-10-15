@@ -378,19 +378,6 @@ br.big {
 
 /* MY ADDITIONS ========================= */
 
-/* COMMENT NODE ================================== */
-
-/* MOVE COLLAPSE BUTTON TO RIGHT 
-div.d-flex.flex-wrap.align-items-center.text-muted.small > button
- {
-    position: absolute !important;
-    right: -5px !important;
-    margin-top:  -5px !important;
-   font-size: 1.5rem !important;
-   padding: 0px !important;
-}
-*/
-
 /* MOVE COLLAPSE BUTTON TO RIGHT */
 button#comment-collapse {
   top: -5px;
@@ -446,8 +433,7 @@ USER PIC PROFILE */
 }
 
 /* FONT */
-body,
-pre {
+body {
   margin: 0;
   text-align: left;
   font-family: Verdana, Geneva, sans-serif !important;
@@ -457,7 +443,7 @@ pre {
   /*     line-height: 1.3em !important; 
     white-space: pre-wrap !important; 
     margin-bottom: .8rem !important; */
-  background-color: #080022 !important;
+  background-color: #231e3c !important;
 }
 
 /*  space between buttons */
@@ -1105,7 +1091,8 @@ hr {
   padding-right: 1vw;
   border-right: 1px solid;
   border-left: 1px solid;
-  background-color: rgba(0, 0, 32, 0.91);
+  background-color: #080022;
+  /*  background-color: rgba(0, 0, 32, 0.91);*/
 }
 
 /*MAIN APP WIDTH*/
@@ -1143,18 +1130,6 @@ hr {
   -o-background-size: cover;
   background-size: cover;
 }*/
-
-.container {
-  background-color: rgba(88, 88, 88, 0.59);
-  /*  background-blend-mode: multiply;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-}
 
 #disco-area {
   padding-left: 1vw;

@@ -204,20 +204,6 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                 </>
               )}
 
-              {/* COLLAPSE COMMENT - qz3 ========================================================= */}
-              <button
-                class="btn btn-sm text-muted"
-                id="comment-collapse"
-                onClick={linkEvent(this, this.handleCommentCollapse)}
-                aria-label={this.expandText}
-                data-tippy-content={this.expandText}
-              >
-                {this.state.collapsed ? (
-                  <Icon icon="plus-square" classes="icon-inline" />
-                ) : (
-                  <Icon icon="minus-square" classes="icon-inline" />
-                )}
-              </button>
               {this.linkBtn(true)}
 
               {/* This is an expanding spacer for mobile */}
@@ -245,6 +231,20 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
               <span>
                 <MomentTime data={cv.comment} />
               </span>
+              {/* COLLAPSE COMMENT - qz3 ========================================================= */}
+              <button
+                class="btn btn-sm text-muted"
+                id="comment-collapse"
+                onClick={linkEvent(this, this.handleCommentCollapse)}
+                aria-label={this.expandText}
+                data-tippy-content={this.expandText}
+              >
+                {this.state.collapsed ? (
+                  <Icon icon="plus-square" classes="icon-inline" />
+                ) : (
+                  <Icon icon="minus-square" classes="icon-inline" />
+                )}
+              </button>
             </div>
             {/* end of user row */}
             {this.state.showEdit && (

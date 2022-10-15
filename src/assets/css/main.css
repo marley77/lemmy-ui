@@ -393,8 +393,8 @@ div.d-flex.flex-wrap.align-items-center.text-muted.small > button
 
 /* MOVE COLLAPSE BUTTON TO RIGHT */
 button#comment-collapse {
-  position: absolute !important;
-  right: -5px !important;
+  /*  position: absolute !important;
+  right: -5px !important;*/
   margin-top: -5px !important;
   font-size: 1.5rem !important;
   padding: 0px !important;

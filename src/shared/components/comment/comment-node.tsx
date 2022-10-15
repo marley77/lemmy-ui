@@ -204,10 +204,10 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                 </>
               )}
 
-
-{/* COLLAPSE COMMENT - qz3 ========================================================= */}
+              {/* COLLAPSE COMMENT - qz3 ========================================================= */}
               <button
-                class="btn btn-sm text-muted folder"
+                class="btn btn-sm text-muted"
+                id="comment-collapse"
                 onClick={linkEvent(this, this.handleCommentCollapse)}
                 aria-label={this.expandText}
                 data-tippy-content={this.expandText}
@@ -219,8 +219,6 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                 )}
               </button>
               {this.linkBtn(true)}
-
-
 
               {/* This is an expanding spacer for mobile */}
               <div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>
@@ -346,34 +344,31 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                         <Icon icon="reply1" classes="icon-inline" />
                       </button>
 
-{/* SAVE BUTTON - qz3 ========================================================= */}
+                      {/* SAVE BUTTON - qz3 ========================================================= */}
 
-                          <button
-                            class="btn btn-link btn-animate text-muted"
-                            onClick={linkEvent(
-                              this,
-                              this.handleSaveCommentClick
-                            )}
-                            data-tippy-content={
-                              cv.saved ? i18n.t("unsave") : i18n.t("save")
-                            }
-                            aria-label={
-                              cv.saved ? i18n.t("unsave") : i18n.t("save")
-                            }
-                          >
-                            {this.state.saveLoading ? (
-                              this.loadingIcon
-                            ) : (
-                              <Icon
-                                icon="star"
-                                classes={`icon-inline ${
-                                  cv.saved && "text-warning"
-                                }`}
-                              />
-                            )}
-                          </button>
+                      <button
+                        class="btn btn-link btn-animate text-muted"
+                        onClick={linkEvent(this, this.handleSaveCommentClick)}
+                        data-tippy-content={
+                          cv.saved ? i18n.t("unsave") : i18n.t("save")
+                        }
+                        aria-label={
+                          cv.saved ? i18n.t("unsave") : i18n.t("save")
+                        }
+                      >
+                        {this.state.saveLoading ? (
+                          this.loadingIcon
+                        ) : (
+                          <Icon
+                            icon="star"
+                            classes={`icon-inline ${
+                              cv.saved && "text-warning"
+                            }`}
+                          />
+                        )}
+                      </button>
 
-{/* ...MORE - qz3 =========================================================   */}                   
+                      {/* ...MORE - qz3 =========================================================   */}
                       {!this.state.showAdvanced ? (
                         <button
                           className="btn btn-link btn-animate text-muted"
@@ -422,8 +417,6 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                               </button>
                             </>
                           )}
-
-
 
                           <button
                             className="btn btn-link btn-animate text-muted"
@@ -905,7 +898,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
     return (
       this.props.moderators &&
       isMod(
-        this.props.moderators.map(m => m.moderator.id),
+        this.props.moderators.map((m) => m.moderator.id),
         this.props.node.comment_view.creator.id
       )
     );
@@ -915,7 +908,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
     return (
       this.props.admins &&
       isMod(
-        this.props.admins.map(a => a.person.id),
+        this.props.admins.map((a) => a.person.id),
         this.props.node.comment_view.creator.id
       )
     );
@@ -928,8 +921,8 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
   get canMod(): boolean {
     if (this.props.admins && this.props.moderators) {
       let adminsThenMods = this.props.admins
-        .map(a => a.person.id)
-        .concat(this.props.moderators.map(m => m.moderator.id));
+        .map((a) => a.person.id)
+        .concat(this.props.moderators.map((m) => m.moderator.id));
 
       return canMod(
         UserService.Instance.myUserInfo,
@@ -946,7 +939,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
       this.props.admins &&
       canMod(
         UserService.Instance.myUserInfo,
-        this.props.admins.map(a => a.person.id),
+        this.props.admins.map((a) => a.person.id),
         this.props.node.comment_view.creator.id
       )
     );

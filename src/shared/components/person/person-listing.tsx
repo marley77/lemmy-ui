@@ -25,7 +25,7 @@ export class PersonListing extends Component<PersonListingProps, any> {
     let apubName: string, link: string;
 
     if (local) {
-      apubName = `@${person.name}`;
+      apubName = `${person.name}`;
       link = `/u/${person.name}`;
     } else {
       let domain = hostname(person.actor_id);

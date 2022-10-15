@@ -734,7 +734,7 @@ h2.post-card-title {
   top: -10px;
   right: -5px;
   width: 70px;
-  height: 70px; /*was 70*/
+  height: 55px; /*was 70*/
   /*border-radius: 8%; */
   border: 1px solid var(--mariner-med);
   z-index: 9999;
@@ -786,15 +786,16 @@ h2.post-card-title {
   .fa-user-astronaut {
     color: #4fe0ab !important;
   }
+
   #boosticon {
     width: 50px;
     display: inline-block;
     text-align: center;
   }
 
-  span#boosticon {
-    font-size: 15px;
-    margin-bottom: 3px;
+  #boosticon > svg {
+    size: 15px;
+    margin-top: -3px;
   }
 
   /* BOOST MENU - new add to mobile */
@@ -962,18 +963,19 @@ h2.post-card-title {
 
 .thumbnail {
   max-height: 100%;
-  min-height: 95px !important;
-  width: 100%; /*was 200 px*/
   max-width: 100%;
+  flex: 1;
   object-fit: cover;
   aspect-ratio: 2.02 / 1;
   border: 1px solid var(--mariner-teal);
 }
 
+/*OLD ONe can delete
 #expander {
   padding-left: 0px;
   padding-right: 15px;
 }
+*/
 
 #save-star > .icon {
   font-size: 20px;
@@ -996,6 +998,11 @@ h2.post-card-title {
 
 #expander-link {
   margin-bottom: 0px;
+  display: flex !important;
+  /*  flex-direction: row;
+  overflow:hidden;
+  flex: 1; 
+  ^^ maybe dont need */
 }
 
 a:visited {
@@ -1090,8 +1097,8 @@ hr {
   padding-right: 20px;
 }
 
-#dm1 {
-  padding-left: 4px;
+a#dm1 {
+  padding-right: 9px;
 }
 
 #dabell {

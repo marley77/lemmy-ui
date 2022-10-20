@@ -440,11 +440,6 @@ body {
   background-color: #231e3c !important;
 }
 
-/*  space between buttons */
-div > div.d-flex.flex-wrap.align-items-center.text-muted.small > div {
-  margin-right: 0px !important;
-}
-
 /* youtube card */
 /*div.post-listing > div.card.border-secondary.mt-3.mb-2
 {display:none !important;}*/
@@ -1608,7 +1603,13 @@ button#comment-collapse {
   padding: 0px !important;*/
 }
 
+/*  space between buttons
+div > div.d-flex.flex-wrap.align-items-center.text-muted.small > div {
+  margin-right: 0px !important;
+}
+ */
+
 .badge-light {
   color: var(--mariner-med);
-  .background-color: var(--mariner-dark);
+  background-color: var(--mariner-dark);
 }

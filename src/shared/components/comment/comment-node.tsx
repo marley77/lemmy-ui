@@ -163,94 +163,96 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
           <div
             class={`${!this.props.noIndent && cv.comment.parent_id && "ml-2"}`}
           >
-            <span
-              class="d-flex flex-wrap align-items-center text-muted small"
-              id="node-title"
-            >
-              <span class="mr-2">
-                <PersonListing person={cv.creator} />
-              </span>
-
-              {this.isMod && (
-                <div className="badge badge-light d-none d-sm-inline mr-2">
-                  {i18n.t("mod")}
-                </div>
-              )}
-              {this.isAdmin && (
-                <div className="badge badge-light d-none d-sm-inline mr-2">
-                  {i18n.t("admin")}
-                </div>
-              )}
-              {this.isPostCreator && (
-                <div className="badge badge-light d-none d-sm-inline mr-2">
-                  {i18n.t("creator")}
-                </div>
-              )}
-              {cv.creator.bot_account && (
-                <div className="badge badge-light d-none d-sm-inline mr-2">
-                  {i18n.t("bot_account").toLowerCase()}
-                </div>
-              )}
-              {(cv.creator_banned_from_community || isBanned(cv.creator)) && (
-                <div className="badge badge-danger mr-2">
-                  {i18n.t("banned")}
-                </div>
-              )}
-              {this.props.showCommunity && (
-                <>
-                  <span class="mx-1">{i18n.t("to")}</span>
-                  <CommunityLink community={cv.community} />
-                  <span class="mx-2">•</span>
-                  <Link className="mr-2" to={`/post/${cv.post.id}`}>
-                    {cv.post.name}
-                  </Link>
-                </>
-              )}
-
-              {this.linkBtn(true)}
-
-              {/* This is an expanding spacer for mobile */}
-              <div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>
-              {showScores() && (
-                <>
-                  <a
-                    className={`unselectable pointer ${this.scoreColor}`}
-                    onClick={linkEvent(node, this.handleCommentUpvote)}
-                    data-tippy-content={this.pointsTippy}
-                  >
-                    <span
-                      class="mr-1 font-weight-bold"
-                      aria-label={i18n.t("number_of_points", {
-                        count: this.state.score,
-                        formattedCount: this.state.score,
-                      })}
-                    >
-                      {numToSI(this.state.score)}
-                    </span>
-                  </a>
-                  <span className="mr-1">•</span>
-                </>
-              )}
-              <span>
-                <MomentTime data={cv.comment} />
-              </span>
-            </span>
-            {/* COLLAPSE COMMENT - qz3 ========================================================= */}
-            <span id="collapse-flex">
-              <button
-                class="btn btn-sm text-muted"
-                id="comment-collapse"
-                onClick={linkEvent(this, this.handleCommentCollapse)}
-                aria-label={this.expandText}
-                data-tippy-content={this.expandText}
+            <div class="d-flex">
+              <span
+                class="d-flex flex-wrap align-items-center text-muted small"
+                id="node-title"
               >
-                {this.state.collapsed ? (
-                  <Icon icon="plus-square" classes="icon-inline" />
-                ) : (
-                  <Icon icon="minus-square" classes="icon-inline" />
+                <span class="mr-2">
+                  <PersonListing person={cv.creator} />
+                </span>
+
+                {this.isMod && (
+                  <div className="badge badge-light d-none d-sm-inline mr-2">
+                    {i18n.t("mod")}
+                  </div>
                 )}
-              </button>
-            </span>
+                {this.isAdmin && (
+                  <div className="badge badge-light d-none d-sm-inline mr-2">
+                    {i18n.t("admin")}
+                  </div>
+                )}
+                {this.isPostCreator && (
+                  <div className="badge badge-light d-none d-sm-inline mr-2">
+                    {i18n.t("creator")}
+                  </div>
+                )}
+                {cv.creator.bot_account && (
+                  <div className="badge badge-light d-none d-sm-inline mr-2">
+                    {i18n.t("bot_account").toLowerCase()}
+                  </div>
+                )}
+                {(cv.creator_banned_from_community || isBanned(cv.creator)) && (
+                  <div className="badge badge-danger mr-2">
+                    {i18n.t("banned")}
+                  </div>
+                )}
+                {this.props.showCommunity && (
+                  <>
+                    <span class="mx-1">{i18n.t("to")}</span>
+                    <CommunityLink community={cv.community} />
+                    <span class="mx-2">•</span>
+                    <Link className="mr-2" to={`/post/${cv.post.id}`}>
+                      {cv.post.name}
+                    </Link>
+                  </>
+                )}
+
+                {this.linkBtn(true)}
+
+                {/* This is an expanding spacer for mobile */}
+                <div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>
+                {showScores() && (
+                  <>
+                    <a
+                      className={`unselectable pointer ${this.scoreColor}`}
+                      onClick={linkEvent(node, this.handleCommentUpvote)}
+                      data-tippy-content={this.pointsTippy}
+                    >
+                      <span
+                        class="mr-1 font-weight-bold"
+                        aria-label={i18n.t("number_of_points", {
+                          count: this.state.score,
+                          formattedCount: this.state.score,
+                        })}
+                      >
+                        {numToSI(this.state.score)}
+                      </span>
+                    </a>
+                    <span className="mr-1">•</span>
+                  </>
+                )}
+                <span>
+                  <MomentTime data={cv.comment} />
+                </span>
+              </span>
+              {/* COLLAPSE COMMENT - qz3 ========================================================= */}
+              <span id="collapse-flex">
+                <button
+                  class="btn btn-sm text-muted"
+                  id="comment-collapse"
+                  onClick={linkEvent(this, this.handleCommentCollapse)}
+                  aria-label={this.expandText}
+                  data-tippy-content={this.expandText}
+                >
+                  {this.state.collapsed ? (
+                    <Icon icon="plus-square" classes="icon-inline" />
+                  ) : (
+                    <Icon icon="minus-square" classes="icon-inline" />
+                  )}
+                </button>
+              </span>
+            </div>
 
             {/* end of user row */}
             {this.state.showEdit && (

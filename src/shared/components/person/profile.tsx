@@ -147,7 +147,7 @@ export class Profile extends Component<any, ProfileState> {
 
   setPersonBlock() {
     this.state.personBlocked = UserService.Instance.myUserInfo?.person_blocks
-      .map(a => a.target.id)
+      .map((a) => a.target.id)
       .includes(this.state.personRes?.person_view.person.id);
   }
 
@@ -502,15 +502,15 @@ export class Profile extends Component<any, ProfileState> {
               {i18n.t("joined")}{" "}
               <MomentTime data={pv.person} showAgo ignoreUpdated />
             </div>
-          {/*CAKE DAY VAMOOSE*/}
+            {/*CAKE DAY VAMOOSE*/}
             {/*<div className="d-flex align-items-center text-muted mb-2">
               <Icon icon="cake" />
               <span className="ml-2">
                 {i18n.t("cake_day_title")}{" "}
                 {moment.utc(pv.person.published).local().format("MMM DD, YYYY")}
               </span>
-            </div>
-          </div>*/}
+            </div>*/}
+          </div>
         </div>
       </div>
     );
@@ -600,7 +600,7 @@ export class Profile extends Component<any, ProfileState> {
             <div class="card-body">
               <h5>{i18n.t("moderates")}</h5>
               <ul class="list-unstyled mb-0">
-                {this.state.personRes.moderates.map(cmv => (
+                {this.state.personRes.moderates.map((cmv) => (
                   <li>
                     <CommunityLink community={cmv.community} />
                   </li>
@@ -622,7 +622,7 @@ export class Profile extends Component<any, ProfileState> {
             <div class="card-body">
               <h5>{i18n.t("subscribed")}</h5>
               <ul class="list-unstyled mb-0">
-                {follows.map(cfv => (
+                {follows.map((cfv) => (
                   <li>
                     <CommunityLink community={cfv.community} />
                   </li>
@@ -655,7 +655,7 @@ export class Profile extends Component<any, ProfileState> {
       this.state.siteRes?.admins &&
       canMod(
         UserService.Instance.myUserInfo,
-        this.state.siteRes.admins.map(a => a.person.id),
+        this.state.siteRes.admins.map((a) => a.person.id),
         this.state.personRes?.person_view.person.id
       )
     );
@@ -665,7 +665,7 @@ export class Profile extends Component<any, ProfileState> {
     return (
       this.state.siteRes?.admins &&
       isMod(
-        this.state.siteRes.admins.map(a => a.person.id),
+        this.state.siteRes.admins.map((a) => a.person.id),
         this.state.personRes?.person_view.person.id
       )
     );
@@ -804,11 +804,11 @@ export class Profile extends Component<any, ProfileState> {
     } else if (op == UserOperation.BanPerson) {
       let data = wsJsonToRes<BanPersonResponse>(msg).data;
       this.state.personRes.comments
-        .filter(c => c.creator.id == data.person_view.person.id)
-        .forEach(c => (c.creator.banned = data.banned));
+        .filter((c) => c.creator.id == data.person_view.person.id)
+        .forEach((c) => (c.creator.banned = data.banned));
       this.state.personRes.posts
-        .filter(c => c.creator.id == data.person_view.person.id)
-        .forEach(c => (c.creator.banned = data.banned));
+        .filter((c) => c.creator.id == data.person_view.person.id)
+        .forEach((c) => (c.creator.banned = data.banned));
       let pv = this.state.personRes.person_view;
 
       if (pv.person.id == data.person_view.person.id) {

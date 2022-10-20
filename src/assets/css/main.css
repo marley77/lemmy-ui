@@ -1121,7 +1121,7 @@ hr {
   background-color: #080022;
   padding-left: 0.5vw !important;
   padding-right: 0.5vw !important;
-  background-color: rgba(0, 0, 32, 0.91);
+  /*  background-color: rgba(0, 0, 32, 0.91);*/
 }
 
 /* REMOVED because bg image causes slow scroll

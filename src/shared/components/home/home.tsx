@@ -66,6 +66,7 @@ import { SortSelect } from "../common/sort-select";
 import { CommunityLink } from "../community/community-link";
 import { PostListings } from "../post/post-listings";
 import { SiteSidebar } from "./site-sidebar";
+import { TopImg } from "../common/top-img";
 
 interface HomeState {
   trendingCommunities: CommunityView[];
@@ -275,12 +276,7 @@ export class Home extends Component<any, HomeState> {
     return (
       <div>
         {/*  ^wrapper div  -- header image module   ================ */}
-        <div class="bigimg">
-          <img
-            class="headimg"
-            src="https://biglifeboost.com/img/palmboost2.jpeg"
-          />
-        </div>
+        <TopImg />
 
         <div class="container">
           <HtmlTags

@@ -5449,10 +5449,10 @@ a.badge-danger:focus {
   box-shadow: 0 0 0 .2rem rgba(231, 76, 60, .5)
 }
 
-.badge-light {
+/*.badge-light {
   color: #fff;
   background-color: #303030
-}
+}*/
 
 a.badge-light:focus,
 a.badge-light:hover {

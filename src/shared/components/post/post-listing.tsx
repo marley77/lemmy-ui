@@ -239,6 +239,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           {!this.props.viewOnly && this.voteBar()}
           {/*          <div>
             {this.postTitleLine()}*/}
+          {this.postTitleLine()}
           <div
             className={`${
               this.state.imageExpanded
@@ -246,7 +247,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
                 : "col-8 disco-thin"
             }`}
           >
-            {this.postTitleLine()}
+            {/*{this.postTitleLine()}*/}
             {/* MOBILE THUMBNAIL ONLY */}
             <div id="mobile-thumb">
               {/* Post body prev or thumbnail */}

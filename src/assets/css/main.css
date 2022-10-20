@@ -733,11 +733,6 @@ h2.post-card-title {
   .mobile-app-icon-bar {
     display: none !important;
   }
-
-  #dabell {
-    top: 55px;
-    right: 0px;
-  }
 }
 
 /* MOBILE only =============== ================ */
@@ -871,45 +866,6 @@ h2.post-card-title {
 }
 
 /*END TOP MENU qz3 ========================================================= */
-
-#dabell {
-  background-color: #000030;
-  border: 1px solid #b8fdff;
-  position: fixed;
-  bottom: 55px;
-  right: 2vw;
-  color: #b8fdff;
-  z-index: 99999;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-}
-
-.fa-bell {
-  height: 24px;
-}
-.fa-bell {
-  color: #b8fdff;
-}
-
-#notif {
-  position: absolute;
-  background: #4fe0ab;
-  color: #141f1f;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 2px 4px 3px;
-  line-height: 1em;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 0 1px #141f1f;
-  box-shadow: 0 0 0 1px #141f1f;
-  min-width: 16px;
-  height: 16px;
-  text-align: center;
-  margin-left: -9px;
-  margin-top: -5px;
-} /* <-- display: none; in final form */
 
 /* DISCOS PAGE use for home*/
 
@@ -1048,11 +1004,6 @@ hr {
   padding-right: 9px;
 }
 
-#dabell {
-  right: 55px;
-  top: 4px;
-}
-
 /*TESTING NEW 2 COLUMN =========*/
 
 /*MAIN APP WIDTH*/
@@ -1128,6 +1079,7 @@ hr {
   position: fixed;
   top: 0px;
   margin-top: 0px;
+  overflow: hidden;
   z-index: 998;
   height: 49px !important;
   border-bottom: 1px solid;
@@ -1416,7 +1368,7 @@ img.youtube-thumb {
 .dull,
 .dull > span,
 #post-link {
-  color: var(--mariner-dark);
+  color: var(--mariner-dark) !important;
 }
 
 /*username and community in post listing */
@@ -1610,3 +1562,51 @@ div > div.d-flex.flex-wrap.align-items-center.text-muted.small > div {
   color: var(--mariner-teal);
   background-color: var(--mariner-dark);
 }
+
+/*MOST TEXT*/
+.text-muted {
+  color: var(--mariner-light) !important;
+}
+
+button:disabled {
+  display: none !important;
+}
+
+/*DA BELL */
+
+#dabell {
+  top: 46px;
+  right: 64px;
+  background-color: #000030;
+  border: 1px solid #b8fdff;
+  position: fixed;
+  color: #b8fdff;
+  z-index: 99999;
+  border-radius: 0%;
+  text-align: center;
+  width: 64px;
+  height: 36px;
+}
+
+.fa-bell {
+  height: 17px;
+  color: #b8fdff;
+}
+
+#notif {
+  position: absolute;
+  background: #4fe0ab;
+  color: #141f1f;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 4px 3px;
+  line-height: 1em;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 0 1px #141f1f;
+  box-shadow: 0 0 0 1px #141f1f;
+  min-width: 16px;
+  height: 16px;
+  text-align: center;
+  margin-left: -9px;
+  margin-top: -5px;
+} /* <-- display: none; in final form */

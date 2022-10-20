@@ -1506,6 +1506,10 @@ img.youtube-thumb {
   }
 }
 
+/*.disco-thin {
+  padding-right: 2px !important;
+}*/
+
 /*listings top options selector row*/
 #select-row {
   margin-top: 10px !important;

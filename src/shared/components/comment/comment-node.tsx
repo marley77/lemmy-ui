@@ -163,7 +163,10 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
           <div
             class={`${!this.props.noIndent && cv.comment.parent_id && "ml-2"}`}
           >
-            <div class="d-flex flex-wrap align-items-center text-muted small">
+            <div
+              class="d-flex flex-wrap align-items-center text-muted small"
+              id="node-title"
+            >
               <span class="mr-2">
                 <PersonListing person={cv.creator} />
               </span>
@@ -231,7 +234,9 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
               <span>
                 <MomentTime data={cv.comment} />
               </span>
-              {/* COLLAPSE COMMENT - qz3 ========================================================= */}
+            </div>
+            {/* COLLAPSE COMMENT - qz3 ========================================================= */}
+            <div id="collapse-flex">
               <button
                 class="btn btn-sm text-muted"
                 id="comment-collapse"
@@ -246,6 +251,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                 )}
               </button>
             </div>
+
             {/* end of user row */}
             {this.state.showEdit && (
               <CommentForm

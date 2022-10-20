@@ -233,7 +233,7 @@ export class Profile extends Component<any, ProfileState> {
           </h5>
         ) : (
           <div class="row">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8" id="disco-column">
               <>
                 <HtmlTags
                   title={this.documentTitle}
@@ -498,18 +498,19 @@ export class Profile extends Component<any, ProfileState> {
                 </li>
               </ul>
             </div>
-            <div class="text-muted">
+            <div class="text-muted dull">
               {i18n.t("joined")}{" "}
               <MomentTime data={pv.person} showAgo ignoreUpdated />
             </div>
-            <div className="d-flex align-items-center text-muted mb-2">
+          {/*CAKE DAY VAMOOSE*/}
+            {/*<div className="d-flex align-items-center text-muted mb-2">
               <Icon icon="cake" />
               <span className="ml-2">
                 {i18n.t("cake_day_title")}{" "}
                 {moment.utc(pv.person.published).local().format("MMM DD, YYYY")}
               </span>
             </div>
-          </div>
+          </div>*/}
         </div>
       </div>
     );

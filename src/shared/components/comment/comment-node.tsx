@@ -163,7 +163,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
           <div
             class={`${!this.props.noIndent && cv.comment.parent_id && "ml-2"}`}
           >
-            <div
+            <span
               class="d-flex flex-wrap align-items-center text-muted small"
               id="node-title"
             >
@@ -234,9 +234,9 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
               <span>
                 <MomentTime data={cv.comment} />
               </span>
-            </div>
+            </span>
             {/* COLLAPSE COMMENT - qz3 ========================================================= */}
-            <div id="collapse-flex">
+            <span id="collapse-flex">
               <button
                 class="btn btn-sm text-muted"
                 id="comment-collapse"
@@ -250,7 +250,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                   <Icon icon="minus-square" classes="icon-inline" />
                 )}
               </button>
-            </div>
+            </span>
 
             {/* end of user row */}
             {this.state.showEdit && (

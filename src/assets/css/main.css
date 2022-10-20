@@ -1481,8 +1481,9 @@ img.youtube-thumb {
   }
 
   .disco-thin {
-    flex: 0 0 59.667% !important;
-    max-width: 59.667% !important;
+    /*    flex: 0 0 59.667% !important;
+    max-width: 59.667% !important;*/
+    padding-left: 0px !important;
   }
 
   #text-post,
@@ -1493,10 +1494,6 @@ img.youtube-thumb {
 
   #mobile-thumb {
     display: none !important;
-  }
-
-  .disco-thin {
-    padding-left: 0px !important;
   }
 
   #pc-expando {
@@ -1593,12 +1590,15 @@ button:disabled {
   justify-content: space-evenly;
 }
 
-/*
-FONT SPACE FIX
+/*FONT SPACE FIX*/
 #dabell > a {
   font-size: 2px;
-  display: flex;
-}*/
+}
+
+a#starlink > svg {
+  width: 17px;
+  height: 17px;
+}
 
 .fa-bell {
   height: 17px;

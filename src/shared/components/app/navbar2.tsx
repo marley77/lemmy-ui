@@ -306,6 +306,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                 </a>
                 <a
                   href={`/u/${UserService.Instance.myUserInfo.local_user_view.person.name}/view/Saved/sort/New/page/1`}
+                  id="starlink"
                 >
                   <Icon icon="star" inline />
                 </a>

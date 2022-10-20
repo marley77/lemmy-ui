@@ -239,7 +239,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           {!this.props.viewOnly && this.voteBar()}
           {/*          <div>
             {this.postTitleLine()}*/}
-          <div>
+          <div id="listing-block">
             {this.postTitleLine()}
             <div
               className={`${
@@ -851,7 +851,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   postTitleLine() {
     let post = this.props.post_view.post;
     return (
-      <span className="post-title overflow-hidden">
+      <div className="post-title overflow-hidden">
         <h5>
           {this.showBody && post.url ? (
             <a
@@ -940,7 +940,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             </small>
           )}
         </h5>
-      </span>
+      </div>
     );
   }
 

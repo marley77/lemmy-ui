@@ -1588,11 +1588,17 @@ button:disabled {
   height: 20px;
 }
 
-/*FONT SPACE FIX*/
+#dabell {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*
+FONT SPACE FIX
 #dabell > a {
   font-size: 2px;
   display: flex;
-}
+}*/
 
 .fa-bell {
   height: 17px;
@@ -1616,3 +1622,8 @@ button:disabled {
   margin-left: -9px;
   margin-top: -5px;
 } /* <-- display: none; in final form */
+
+#listing-block {
+  width: 93%;
+  display: flex;
+}

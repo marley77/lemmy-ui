@@ -232,10 +232,10 @@ export class Post extends Component<any, PostState> {
   // TODO this needs some re-work
   markScrolledAsRead(commentId: number) {
     let found = this.state.postRes.comments.find(
-      c => c.comment.id == commentId
+      (c) => c.comment.id == commentId
     );
     let parent = this.state.postRes.comments.find(
-      c => found.comment.parent_id == c.comment.id
+      (c) => found.comment.parent_id == c.comment.id
     );
     let parent_person_id = parent
       ? parent.creator.id
@@ -292,74 +292,73 @@ export class Post extends Component<any, PostState> {
   render() {
     let pv = this.state.postRes?.post_view;
     return (
+      <div>
+        {/*  ^wrapper div  -- header image   ================ */}
+        <TopImg />
 
-    <div>
-{/*  ^wrapper div  -- header image   ================ */}
-      <div class="bigimg">
-      <img class="headimg" src="https://biglifeboost.com/img/palmboost2.jpeg" />
-      </div>
-
-      <div class="container">
-        {this.state.loading ? (
-          <h5>
-            <Spinner large />
-          </h5>
-        ) : (
-          <div class="row" id="disco-area">
-            <div class="col-12 col-md-8 mb-3" id="disco-column">
-              <HtmlTags
-                title={this.documentTitle}
-                path={this.context.router.route.match.url}
-                image={this.imageTag}
-                description={this.descriptionTag}
-              />
-              <PostListing
-                post_view={pv}
-                duplicates={this.state.crossPosts}
-                showBody
-                showCommunity
-                moderators={this.state.postRes.moderators}
-                admins={this.state.siteRes.admins}
-                enableDownvotes={
-                  this.state.siteRes.site_view.site.enable_downvotes
-                }
-                enableNsfw={this.state.siteRes.site_view.site.enable_nsfw}
-              />
-              <div ref={this.state.commentSectionRef} className="mb-2" />
-              <CommentForm
-                postId={this.state.postId}
-                disabled={pv.post.locked}
-              />
-              <div class="d-block d-md-none">
-                <button
-                  class="btn btn-secondary d-inline-block mb-2 mr-3"
-                  onClick={linkEvent(this, this.handleShowSidebarMobile)}
-                >
-                  {i18n.t("sidebar")}{" "}
-                  <Icon
-                    icon={
-                      this.state.showSidebarMobile
-                        ? `minus-square`
-                        : `plus-square`
-                    }
-                    classes="icon-inline"
-                  />
-                </button>
-                {this.state.showSidebarMobile && this.sidebar()}
+        <div class="container">
+          {this.state.loading ? (
+            <h5>
+              <Spinner large />
+            </h5>
+          ) : (
+            <div class="row" id="disco-area">
+              <div class="col-12 col-md-8 mb-3" id="disco-column">
+                <HtmlTags
+                  title={this.documentTitle}
+                  path={this.context.router.route.match.url}
+                  image={this.imageTag}
+                  description={this.descriptionTag}
+                />
+                <PostListing
+                  post_view={pv}
+                  duplicates={this.state.crossPosts}
+                  showBody
+                  showCommunity
+                  moderators={this.state.postRes.moderators}
+                  admins={this.state.siteRes.admins}
+                  enableDownvotes={
+                    this.state.siteRes.site_view.site.enable_downvotes
+                  }
+                  enableNsfw={this.state.siteRes.site_view.site.enable_nsfw}
+                />
+                <div ref={this.state.commentSectionRef} className="mb-2" />
+                <CommentForm
+                  postId={this.state.postId}
+                  disabled={pv.post.locked}
+                />
+                <div class="d-block d-md-none">
+                  <button
+                    class="btn btn-secondary d-inline-block mb-2 mr-3"
+                    onClick={linkEvent(this, this.handleShowSidebarMobile)}
+                  >
+                    {i18n.t("sidebar")}{" "}
+                    <Icon
+                      icon={
+                        this.state.showSidebarMobile
+                          ? `minus-square`
+                          : `plus-square`
+                      }
+                      classes="icon-inline"
+                    />
+                  </button>
+                  {this.state.showSidebarMobile && this.sidebar()}
+                </div>
+                {this.state.postRes.comments.length > 0 && this.sortRadios()}
+                {this.state.commentViewType == CommentViewType.Tree &&
+                  this.commentsTree()}
+                {this.state.commentViewType == CommentViewType.Chat &&
+                  this.commentsFlat()}
               </div>
-              {this.state.postRes.comments.length > 0 && this.sortRadios()}
-              {this.state.commentViewType == CommentViewType.Tree &&
-                this.commentsTree()}
-              {this.state.commentViewType == CommentViewType.Chat &&
-                this.commentsFlat()}
+              <div class="d-none d-md-block col-md-4 sidebar-column">
+                {this.sidebar()}
+              </div>
             </div>
-            <div class="d-none d-md-block col-md-4 sidebar-column">{this.sidebar()}</div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
 
-{/*  wrapper div  ================ */}
-  </div>
+        {/*  wrapper div  ================ */}
+      </div>
     );
   }
 
@@ -556,7 +555,7 @@ export class Post extends Component<any, PostState> {
 
       // Don't get comments from the post room, if the creator is blocked
       let creatorBlocked = UserService.Instance.myUserInfo?.person_blocks
-        .map(pb => pb.target.id)
+        .map((pb) => pb.target.id)
         .includes(data.comment_view.creator.id);
 
       // Necessary since it might be a user reply, which has the recipients, to avoid double
@@ -614,8 +613,8 @@ export class Post extends Component<any, PostState> {
     } else if (op == UserOperation.BanFromCommunity) {
       let data = wsJsonToRes<BanFromCommunityResponse>(msg).data;
       this.state.postRes.comments
-        .filter(c => c.creator.id == data.person_view.person.id)
-        .forEach(c => (c.creator_banned_from_community = data.banned));
+        .filter((c) => c.creator.id == data.person_view.person.id)
+        .forEach((c) => (c.creator_banned_from_community = data.banned));
       if (
         this.state.postRes.post_view.creator.id == data.person_view.person.id
       ) {
@@ -630,8 +629,8 @@ export class Post extends Component<any, PostState> {
     } else if (op == UserOperation.BanPerson) {
       let data = wsJsonToRes<BanPersonResponse>(msg).data;
       this.state.postRes.comments
-        .filter(c => c.creator.id == data.person_view.person.id)
-        .forEach(c => (c.creator.banned = data.banned));
+        .filter((c) => c.creator.id == data.person_view.person.id)
+        .forEach((c) => (c.creator.banned = data.banned));
       if (
         this.state.postRes.post_view.creator.id == data.person_view.person.id
       ) {
@@ -645,7 +644,7 @@ export class Post extends Component<any, PostState> {
     } else if (op == UserOperation.Search) {
       let data = wsJsonToRes<SearchResponse>(msg).data;
       this.state.crossPosts = data.posts.filter(
-        p => p.post.id != Number(this.props.match.params.id)
+        (p) => p.post.id != Number(this.props.match.params.id)
       );
       this.setState(this.state);
     } else if (op == UserOperation.LeaveAdmin) {

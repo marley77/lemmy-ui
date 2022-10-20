@@ -237,31 +237,26 @@ export class Community extends Component<any, State> {
   render() {
     let cv = this.state.communityRes?.community_view;
     return (
-    <div>
-      {/*  ^wrapper div  -- header image   ================ */}
-      <div class="bigimg">
-        <img
-          class="headimg"
-          src="https://biglifeboost.com/img/palmboost2.jpeg"
-        />
-      </div>
-      <div class="container">
-        {this.state.communityLoading ? (
-          <h5>
-            <Spinner large />
-          </h5>
-        ) : (
-          <>
-            <HtmlTags
-              title={this.documentTitle}
-              path={this.context.router.route.match.url}
-              description={cv.community.description}
-              image={cv.community.icon}
-            />
+      <div>
+        {/*  ^wrapper div  -- header image   ================ */}
+        <TopImg />
+        <div class="container">
+          {this.state.communityLoading ? (
+            <h5>
+              <Spinner large />
+            </h5>
+          ) : (
+            <>
+              <HtmlTags
+                title={this.documentTitle}
+                path={this.context.router.route.match.url}
+                description={cv.community.description}
+                image={cv.community.icon}
+              />
 
-            <div class="row" id="disco-area">
-              <div class="col-12 col-md-8" id="disco-column">
-                 {/* old sidebar, old mobile expand on top 
+              <div class="row" id="disco-area">
+                <div class="col-12 col-md-8" id="disco-column">
+                  {/* old sidebar, old mobile expand on top 
         
                 {this.communityInfo()}
                 <div class="d-block d-md-none">
@@ -301,39 +296,38 @@ export class Community extends Component<any, State> {
                 </div>
 
                 */}
-                {this.selects()}
-                {this.listings()}
-                <Paginator
-                  page={this.state.page}
-                  onChange={this.handlePageChange}
-                />
-              </div>
-              <div class="d-none d-md-block col-md-4 sidebar-column">
-
-{/* SIDEBAR TITLE    ================
+                  {this.selects()}
+                  {this.listings()}
+                  <Paginator
+                    page={this.state.page}
+                    onChange={this.handlePageChange}
+                  />
+                </div>
+                <div class="d-none d-md-block col-md-4 sidebar-column">
+                  {/* SIDEBAR TITLE    ================
                 <div class="mb-3">
                   <span id="tab-title">
                     {capitalizeFirstLetter(this.state.communityName)} Wisdom
                   </span>
                 </div>
            */}
-                <Sidebar
-                  community_view={cv}
-                  moderators={this.state.communityRes.moderators}
-                  admins={this.state.siteRes.admins}
-                  online={this.state.communityRes.online}
-                  enableNsfw={this.state.siteRes.site_view.site.enable_nsfw}
-                />
-                {!cv.community.local && this.state.communityRes.site && (
-                  <SiteSidebar
-                    site={this.state.communityRes.site}
-                    showLocal={showLocal(this.isoData)}
+                  <Sidebar
+                    community_view={cv}
+                    moderators={this.state.communityRes.moderators}
+                    admins={this.state.siteRes.admins}
+                    online={this.state.communityRes.online}
+                    enableNsfw={this.state.siteRes.site_view.site.enable_nsfw}
                   />
-                )}
+                  {!cv.community.local && this.state.communityRes.site && (
+                    <SiteSidebar
+                      site={this.state.communityRes.site}
+                      showLocal={showLocal(this.isoData)}
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
         </div>
       </div>
     );
@@ -442,7 +436,7 @@ export class Community extends Component<any, State> {
   //   {i18n.t("create_a_post")}
   // </Link>
 
-// END COPIED ==========
+  // END COPIED ==========
 
   handlePageChange(page: number) {
     this.updateUrl({ page });
@@ -583,8 +577,8 @@ export class Community extends Component<any, State> {
 
       // TODO this might be incorrect
       this.state.posts
-        .filter(p => p.creator.id == data.person_view.person.id)
-        .forEach(p => (p.creator_banned_from_community = data.banned));
+        .filter((p) => p.creator.id == data.person_view.person.id)
+        .forEach((p) => (p.creator_banned_from_community = data.banned));
 
       this.setState(this.state);
     } else if (op == UserOperation.GetComments) {

@@ -1575,17 +1575,23 @@ button:disabled {
 /*DA BELL */
 
 #dabell {
-  top: 46px;
-  right: 64px;
+  top: 44px;
+  right: 4px;
+  width: 47px;
   background-color: #000030;
   border: 1px solid #b8fdff;
   position: fixed;
   color: #b8fdff;
-  z-index: 99999;
+  /*  z-index: 99999;*/
   border-radius: 0%;
   text-align: center;
   width: 64px;
-  height: 36px;
+  height: 20px;
+}
+
+/*FONT SPACE FIX*/
+#dabell > a {
+  font-size: 2px;
 }
 
 .fa-bell {

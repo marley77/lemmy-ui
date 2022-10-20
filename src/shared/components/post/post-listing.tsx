@@ -850,7 +850,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   postTitleLine() {
     let post = this.props.post_view.post;
     return (
-      <div className="post-title overflow-hidden">
+      <span className="post-title overflow-hidden">
         <h5>
           {this.showBody && post.url ? (
             <a
@@ -939,7 +939,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
             </small>
           )}
         </h5>
-      </div>
+      </span>
     );
   }
 

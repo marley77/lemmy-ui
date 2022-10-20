@@ -1585,13 +1585,13 @@ button:disabled {
   /*  z-index: 99999;*/
   border-radius: 0%;
   text-align: center;
-  width: 64px;
   height: 20px;
 }
 
 /*FONT SPACE FIX*/
 #dabell > a {
   font-size: 2px;
+  display: flex;
 }
 
 .fa-bell {

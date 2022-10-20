@@ -65,6 +65,7 @@ import { HtmlTags } from "../common/html-tags";
 import { Icon, Spinner } from "../common/icon";
 import { Sidebar } from "../community/sidebar";
 import { PostListing } from "./post-listing";
+import { TopImg } from "../common/top-img";
 
 const commentsShownInterval = 15;
 

@@ -239,37 +239,38 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
           {!this.props.viewOnly && this.voteBar()}
           {/*          <div>
             {this.postTitleLine()}*/}
-          {this.postTitleLine()}
-          <div
-            className={`${
-              this.state.imageExpanded
-                ? "col-12 disco-wide"
-                : "col-8 disco-thin"
-            }`}
-          >
-            {/*{this.postTitleLine()}*/}
-            {/* MOBILE THUMBNAIL ONLY */}
-            <div id="mobile-thumb">
+          <div>
+            {this.postTitleLine()}
+            <div
+              className={`${
+                this.state.imageExpanded
+                  ? "col-12 disco-wide"
+                  : "col-8 disco-thin"
+              }`}
+            >
+              {/*{this.postTitleLine()}*/}
+              {/* MOBILE THUMBNAIL ONLY */}
+              <div id="mobile-thumb">
+                {/* Post body prev or thumbnail */}
+                {!this.state.imageExpanded && this.thumbnail()}
+              </div>
+              {/*  THE BIG IMAGE moved here */}
+              {this.state.imageExpanded && this.img}
+              {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
+              {this.showMobilePreview()}
+              {/* post by   ================ */}
+              {this.createdLine()}
+              {this.commentsLine(true)}
+              {/*  {this.commentsLine()}   ================ */}
+              {this.userActionsLine()}
+              {this.duplicatesLine()}
+              {this.removeAndBanDialogs()}
+            </div>
+            <div class="col-4" id="pc-expando">
               {/* Post body prev or thumbnail */}
               {!this.state.imageExpanded && this.thumbnail()}
             </div>
-            {/*  THE BIG IMAGE moved here */}
-            {this.state.imageExpanded && this.img}
-            {/* SNIPPET + TEXT mobile - Show a preview of the post body */}
-            {this.showMobilePreview()}
-            {/* post by   ================ */}
-            {this.createdLine()}
-            {this.commentsLine(true)}
-            {/*  {this.commentsLine()}   ================ */}
-            {this.userActionsLine()}
-            {this.duplicatesLine()}
-            {this.removeAndBanDialogs()}
           </div>
-          <div class="col-4" id="pc-expando">
-            {/* Post body prev or thumbnail */}
-            {!this.state.imageExpanded && this.thumbnail()}
-          </div>
-          {/*</div>*/}
         </div>
       </div>
     ) : (

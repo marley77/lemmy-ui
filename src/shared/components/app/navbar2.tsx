@@ -304,8 +304,6 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                     </span>
                   )}
                 </a>
-              </span>
-              <span>
                 <a
                   href={`/u/${UserService.Instance.myUserInfo.local_user_view.person.name}/view/Saved/sort/New/page/1`}
                 >

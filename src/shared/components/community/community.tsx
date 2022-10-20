@@ -27,6 +27,7 @@ import { DataType, InitialFetchRequest } from "../../interfaces";
 import { UserService, WebSocketService } from "../../services";
 import {
   authField,
+  capitalizeFirstLetter,
   commentsToFlatNodes,
   communityRSSUrl,
   createCommentLikeRes,
@@ -64,6 +65,7 @@ import { Sidebar } from "../community/sidebar";
 import { SiteSidebar } from "../home/site-sidebar";
 import { PostListings } from "../post/post-listings";
 import { CommunityLink } from "./community-link";
+import { TopImg } from "../common/top-img";
 
 interface State {
   communityRes: GetCommunityResponse;
@@ -304,13 +306,13 @@ export class Community extends Component<any, State> {
                   />
                 </div>
                 <div class="d-none d-md-block col-md-4 sidebar-column">
-                  {/* SIDEBAR TITLE    ================
-                <div class="mb-3">
-                  <span id="tab-title">
-                    {capitalizeFirstLetter(this.state.communityName)} Wisdom
-                  </span>
-                </div>
-           */}
+                  {/* SIDEBAR TITLE    ================           */}
+                  <div class="mb-3">
+                    <span id="tab-title">
+                      {capitalizeFirstLetter(this.state.communityName)} Wisdom
+                    </span>
+                  </div>
+
                   <Sidebar
                     community_view={cv}
                     moderators={this.state.communityRes.moderators}
@@ -387,6 +389,10 @@ export class Community extends Component<any, State> {
     return (
       <div class="mb-3">
         <span class="mr-3">
+          {/* DISCUSSIONS TITLE    ================           */}
+          <span id="tab-title">
+            {capitalizeFirstLetter(this.state.communityName)} Discussions
+          </span>
           <DataTypeSelect
             type_={this.state.dataType}
             onChange={this.handleDataTypeChange}

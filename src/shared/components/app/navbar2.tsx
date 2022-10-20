@@ -276,6 +276,12 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
             <>
               <span id="dabell">
                 <a
+                  href={`/u/${UserService.Instance.myUserInfo.local_user_view.person.name}/view/Saved/sort/New/page/1`}
+                  id="starlink"
+                >
+                  <Icon icon="star" inline />
+                </a>
+                <a
                   href="/inbox"
                   title={i18n.t("unread_messages", {
                     count: this.state.unreadInboxCount,
@@ -303,12 +309,6 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                       {numToSI(this.state.unreadInboxCount)}
                     </span>
                   )}
-                </a>
-                <a
-                  href={`/u/${UserService.Instance.myUserInfo.local_user_view.person.name}/view/Saved/sort/New/page/1`}
-                  id="starlink"
-                >
-                  <Icon icon="star" inline />
                 </a>
               </span>
             </>

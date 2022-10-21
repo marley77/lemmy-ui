@@ -1024,17 +1024,6 @@ hr {
   top: auto;
 }
 
-/*MAIN DISCO */
-
-#disco-column {
-  padding-right: 1vw;
-  border-right: 1px solid;
-  border-left: 1px solid;
-  border-color: var(--mariner-dark);
-  max-width: 65.7%;
-  background-color: #080022;
-  /*  background-color: rgba(0, 0, 32, 0.91);*/
-}
 .sidebar-column {
   border-right: 1px solid;
   border-left: 1px solid;
@@ -1441,7 +1430,6 @@ img.youtube-thumb {
     border-bottom: 1px solid;
     border-radius: 5px;
     margin-top: -4px;
-    padding-left: 1vw;
   }
 
   #mobile-votes {
@@ -1467,50 +1455,6 @@ img.youtube-thumb {
   #mobile-thumb {
     /*flex: 0 0 100% !important;*/
     width: 100%;
-  }
-}
-
-/*NEW PC ADJUSTMENTS ========= */
-
-@media (min-width: 767px) {
-  #mobile-votes {
-    display: none;
-  }
-  .vote-bar {
-    display: block;
-    flex: 0 0 7% !important;
-    max-width: 7% !important;
-    padding-left: 1vw !important;
-    padding-right: 1vw !important;
-  }
-
-  .disco-thin {
-    /*    flex: 0 0 59.667% !important;
-    max-width: 59.667% !important;*/
-    padding-left: 0px !important;
-    padding-right: 2px !important;
-  }
-
-  #text-post {
-    flex: 0 0 92% !important;
-    max-width: 92% !important;
-  }
-
-  .disco-wide {
-    padding-left: 0px !important;
-    padding-right: 1vw !important;
-  }
-
-  #mobile-thumb {
-    display: none !important;
-  }
-
-  #pc-expando {
-    padding-left: 2px;
-  }
-
-  #text-post {
-    padding-left: 0px;
   }
 }
 
@@ -1638,21 +1582,12 @@ a#starlink > svg {
   flex: 0 0 100%;
 }
 
-#listing-block {
-  width: 93%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
+/*ALL NECESSARY FOR MOBILE VIEW*/
 @media (max-width: 767px) {
   #listing-block {
     width: 100%;
     /*    padding-left: 2vw;
     padding-right: 2vw;*/
-  }
-  #listing-mobile {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
   }
 
   .disco-thin {
@@ -1672,3 +1607,75 @@ a#starlink > svg {
   border-color: var(--mariner-dark);
   color: var(--mariner-dark);
 }
+
+/* qz3 =========================================================*/
+
+/*NEW PC ADJUSTMENTS ========= */
+
+@media (min-width: 767px) {
+  #mobile-votes {
+    display: none;
+  }
+  .vote-bar {
+    display: block;
+    flex: 0 0 5% !important;
+    max-width: 5% !important;
+    padding-left: 0vw !important;
+    padding-right: 1vw !important;
+  }
+
+  .disco-thin {
+    /*    flex: 0 0 59.667% !important;
+    max-width: 59.667% !important;*/
+    padding-left: 0px !important;
+    padding-right: 2px !important;
+  }
+
+  .disco-wide {
+    padding-left: 0px !important;
+    padding-right: 0vw !important;
+  }
+
+  #mobile-thumb {
+    display: none !important;
+  }
+
+  #pc-expando {
+    padding-left: 2px;
+    padding-right: 0px;
+  }
+
+  #listing-block {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+/*MAIN DISCO */
+
+#disco-column {
+  padding-right: 1vw;
+  padding-left: 1vw;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-color: var(--mariner-dark);
+  max-width: 65.7%;
+  background-color: #080022;
+  /*  background-color: rgba(0, 0, 32, 0.91);*/
+}
+
+#listing-mobile {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+/*
+#text-post {
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 0px;
+}*/

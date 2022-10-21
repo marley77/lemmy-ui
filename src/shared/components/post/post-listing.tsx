@@ -235,7 +235,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
     // IMAGE OR IFRAME POST
     return post.thumbnail_url || isImage(post.url) ? (
       <div class="d-block">
-        <div class="row">
+        <div class="row" id="listing-mobile">
           {!this.props.viewOnly && this.voteBar()}
           {/*          <div>
             {this.postTitleLine()}*/}
@@ -511,7 +511,6 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                   rel="noopener external"
-                  gesture="media"
                 ></iframe>
               </div>
             </div>

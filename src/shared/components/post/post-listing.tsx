@@ -275,7 +275,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
       </div>
     ) : (
       <div class="d-block">
-        <div class="row">
+        <div class="row" id="listing-mobile">
           {/* TEXT POST   ================ */}
           {!this.props.viewOnly && this.voteBar()}
           <div className="col-12" id="listing-block">

@@ -1151,6 +1151,7 @@ hr {
   /*  background-color: #070019 !important;
   border: 1px solid var(--mariner-med);*/
   border-radius: 0.25rem;
+  width: 100%;
 }
 
 details summary > *,
@@ -1646,12 +1647,15 @@ a#starlink > svg {
   }
 
   #listing-block {
-    width: 95%;
     display: flex;
+    flex: 0 0 95%;
     flex-wrap: wrap;
-    padding-left: 0px;
-    padding-right: 0px;
   }
+}
+
+#listing-block {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 /*MAIN DISCO */

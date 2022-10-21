@@ -1329,7 +1329,7 @@ img.youtube-thumb {
 #img-collapse {
   margin-top: -5px;
   position: absolute;
-  right: 10px;
+  right: 0px;
 }
 
 #dv-button {
@@ -1473,11 +1473,10 @@ img.youtube-thumb {
   }
   .vote-bar {
     display: block;
-  }
-
-  .vote-bar {
     flex: 0 0 7% !important;
     max-width: 7% !important;
+    padding-left: 1vw !important;
+    padding-right: 1vw !important;
   }
 
   .disco-thin {
@@ -1487,10 +1486,14 @@ img.youtube-thumb {
     padding-right: 2px !important;
   }
 
-  #text-post,
-  .disco-wide {
+  #text-post {
     flex: 0 0 92% !important;
     max-width: 92% !important;
+  }
+
+  .disco-wide {
+    padding-left: 0px;
+    padding-right: 1vw !important;
   }
 
   #mobile-thumb {
@@ -1639,6 +1642,8 @@ a#starlink > svg {
 @media (max-width: 767px) {
   #listing-block {
     width: 100%;
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
   .disco-thin {
     flex: 0 0 100% !important;

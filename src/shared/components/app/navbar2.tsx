@@ -415,7 +415,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                     ></path>
                   </svg>
                 </span>
-                CHAMPION{" "}
+                CHAMPION{" >"}
               </a>
               <br />
               <a href="//biglifeboost.quest/wisdom/tags/relationships/">
@@ -436,7 +436,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                     ></path>
                   </svg>
                 </span>
-                RELATIONSHIPS{" "}
+                RELATIONSHIPS{" >"}
               </a>
               <br />
               <br />
@@ -460,7 +460,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                       ></path>
                     </svg>
                   </span>
-                  VIDEOS{" "}
+                  VIDEOS{" >"}
                 </a>
                 <br />
                 <a href="//biglifeboost.quest/">
@@ -481,11 +481,11 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                       ></path>
                     </svg>
                   </span>
-                  COMMUNITY{" "}
+                  COMMUNITY{" >"}
                 </a>
                 <br />
                 <a href="//biglifeboost.quest/wisdom/all-boosts/">
-                  <span id="boosticon">✧</span>ALL BOOSTS{" "}
+                  <span id="boosticon">✧</span>ALL BOOSTS{" >"}
                 </a>
                 <br />
                 <span id="boosticon"> </span>

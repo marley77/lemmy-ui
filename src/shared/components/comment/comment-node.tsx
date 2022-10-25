@@ -164,7 +164,8 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
             class={`${!this.props.noIndent && cv.comment.parent_id && "ml-2"}`}
           >
             <div class="d-flex">
-              <span
+              {/*span or div in original?*/}
+              <div
                 class="d-flex flex-wrap align-items-center text-muted small"
                 id="node-title"
               >
@@ -208,34 +209,18 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                   </>
                 )}
 
-                {this.linkBtn(true)}
+                {/*deleted link buttons from here*/}
 
                 {/* This is an expanding spacer for mobile */}
-                <div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>
-                {showScores() && (
-                  <>
-                    <a
-                      className={`unselectable pointer ${this.scoreColor}`}
-                      onClick={linkEvent(node, this.handleCommentUpvote)}
-                      data-tippy-content={this.pointsTippy}
-                    >
-                      <span
-                        class="mr-1 font-weight-bold"
-                        aria-label={i18n.t("number_of_points", {
-                          count: this.state.score,
-                          formattedCount: this.state.score,
-                        })}
-                      >
-                        {numToSI(this.state.score)}
-                      </span>
-                    </a>
-                    <span className="mr-1">•</span>
-                  </>
-                )}
-                <span>
-                  <MomentTime data={cv.comment} />
-                </span>
-              </span>
+                {/*<div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>*/}
+                {/*moved vote score from here */}
+                <div class="dull">
+                  <span className="mr-1">•</span>
+                  <span>
+                    <MomentTime data={cv.comment} />
+                  </span>
+                </div>
+              </div>
               {/* COLLAPSE COMMENT - qz3 ========================================================= */}
               <span id="collapse-flex">
                 <button
@@ -277,7 +262,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                   />
                 )}
                 <div class="d-flex justify-content-between justify-content-lg-start flex-wrap text-muted font-weight-bold">
-                  {this.props.showContext && this.linkBtn()}
+                  {/*moved other link button from here*/}
                   {this.props.markable && (
                     <button
                       class="btn btn-link btn-animate text-muted"
@@ -323,6 +308,27 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                             </span>
                           )}
                       </button>
+                      {/*moved vote score to here*/}
+                      {/* {showScores() && (*/}
+                      {/*                  <>*/}
+                      <a
+                        className={`unselectable pointer ${this.scoreColor}`}
+                        onClick={linkEvent(node, this.handleCommentUpvote)}
+                        data-tippy-content={this.pointsTippy}
+                      >
+                        <span
+                          class="mr-1 font-weight-bold"
+                          aria-label={i18n.t("number_of_points", {
+                            count: this.state.score,
+                            formattedCount: this.state.score,
+                          })}
+                        >
+                          {numToSI(this.state.score)}
+                        </span>
+                      </a>
+
+                      {/*                  </>*/}
+                      {/*   )}*/}
                       {this.props.enableDownvotes && (
                         <button
                           className={`btn btn-link btn-animate ${
@@ -388,6 +394,10 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                         </button>
                       ) : (
                         <>
+                          {/*link button moved to here*/}
+                          {this.linkBtn(true)}
+                          {this.props.showContext && this.linkBtn()}
+                          {/*private message user*/}
                           {!this.myComment && (
                             <>
                               <button class="btn btn-link btn-animate">
@@ -439,6 +449,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                               }`}
                             />
                           </button>
+                          {/*edit comment*/}
                           {this.myComment && (
                             <>
                               <button

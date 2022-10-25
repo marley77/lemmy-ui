@@ -41,10 +41,8 @@ export class Spinner extends Component<SpinnerProps, any> {
 
   render() {
     return (
-      <Icon
-        icon="spinner"
-        classes={`spin ${this.props.large && "spinner-large"}`}
-      />
+      <Icon icon="spinner" classes={`${this.props.large && "spinner-large"}`} />
     );
+    // ^ was classes={`spin ${this.props.large && "spinner-large"}`}
   }
 }

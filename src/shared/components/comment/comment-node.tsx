@@ -212,7 +212,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                 {/*deleted link buttons from here*/}
 
                 {/* This is an expanding spacer for mobile */}
-                {/*<div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>*/}
+                <div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>
                 {/*moved vote score from here */}
                 <div class="dull">
                   <span className="mr-1">•</span>
@@ -261,7 +261,10 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                     )}
                   />
                 )}
-                <div class="d-flex justify-content-between justify-content-lg-start flex-wrap text-muted font-weight-bold">
+                <div
+                  class="d-flex justify-content-between justify-content-lg-start flex-wrap text-muted font-weight-bold"
+                  id="node-bottom-row"
+                >
                   {/*moved other link button from here*/}
                   {this.props.markable && (
                     <button
@@ -292,63 +295,69 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                   )}
                   {UserService.Instance.myUserInfo && !this.props.viewOnly && (
                     <>
-                      <button
-                        className={`btn btn-link btn-animate ${
-                          this.state.my_vote == 1 ? "text-info" : "text-muted"
-                        }`}
-                        onClick={linkEvent(node, this.handleCommentUpvote)}
-                        data-tippy-content={i18n.t("upvote")}
-                        aria-label={i18n.t("upvote")}
-                      >
-                        <Icon icon="arrow-up1" classes="icon-inline" />
-                        {showScores() &&
-                          this.state.upvotes !== this.state.score && (
-                            <span class="ml-1">
-                              {numToSI(this.state.upvotes)}
-                            </span>
-                          )}
-                      </button>
-                      {/*moved vote score to here*/}
-                      {/* {showScores() && (*/}
-                      {/*                  <>*/}
-                      <a
-                        className={`unselectable pointer ${this.scoreColor}`}
-                        onClick={linkEvent(node, this.handleCommentUpvote)}
-                        data-tippy-content={this.pointsTippy}
-                      >
-                        <span
-                          class="mr-1 font-weight-bold"
-                          aria-label={i18n.t("number_of_points", {
-                            count: this.state.score,
-                            formattedCount: this.state.score,
-                          })}
-                        >
-                          {numToSI(this.state.score)}
-                        </span>
-                      </a>
-
-                      {/*                  </>*/}
-                      {/*   )}*/}
-                      {this.props.enableDownvotes && (
+                      <div>
+                        {/* added for compact voting */}
                         <button
                           className={`btn btn-link btn-animate ${
-                            this.state.my_vote == -1
-                              ? "text-danger"
-                              : "text-muted"
+                            this.state.my_vote == 1 ? "text-info" : "text-muted"
                           }`}
-                          onClick={linkEvent(node, this.handleCommentDownvote)}
-                          data-tippy-content={i18n.t("downvote")}
-                          aria-label={i18n.t("downvote")}
+                          onClick={linkEvent(node, this.handleCommentUpvote)}
+                          data-tippy-content={i18n.t("upvote")}
+                          aria-label={i18n.t("upvote")}
                         >
-                          <Icon icon="arrow-down1" classes="icon-inline" />
+                          <Icon icon="arrow-up1" classes="icon-inline" />
                           {showScores() &&
                             this.state.upvotes !== this.state.score && (
                               <span class="ml-1">
-                                {numToSI(this.state.downvotes)}
+                                {numToSI(this.state.upvotes)}
                               </span>
                             )}
                         </button>
-                      )}
+                        {/*moved vote score to here*/}
+                        {/* {showScores() && (*/}
+                        {/*                  <>*/}
+                        <a
+                          className={`unselectable pointer ${this.scoreColor}`}
+                          onClick={linkEvent(node, this.handleCommentUpvote)}
+                          id="comment-score"
+                          data-tippy-content={this.pointsTippy}
+                        >
+                          <span
+                            class="mr-1 font-weight-bold"
+                            aria-label={i18n.t("number_of_points", {
+                              count: this.state.score,
+                              formattedCount: this.state.score,
+                            })}
+                          >
+                            {numToSI(this.state.score)}
+                          </span>
+                        </a>
+                        {/*                  </>*/}
+                        {/*   )}*/}
+                        {this.props.enableDownvotes && (
+                          <button
+                            className={`btn btn-link btn-animate ${
+                              this.state.my_vote == -1
+                                ? "text-danger"
+                                : "text-muted"
+                            }`}
+                            onClick={linkEvent(
+                              node,
+                              this.handleCommentDownvote
+                            )}
+                            data-tippy-content={i18n.t("downvote")}
+                            aria-label={i18n.t("downvote")}
+                          >
+                            <Icon icon="arrow-down1" classes="icon-inline" />
+                            {showScores() &&
+                              this.state.upvotes !== this.state.score && (
+                                <span class="ml-1">
+                                  {numToSI(this.state.downvotes)}
+                                </span>
+                              )}
+                          </button>
+                        )}
+                      </div>
                       <button
                         class="btn btn-link btn-animate text-muted"
                         onClick={linkEvent(this, this.handleReplyClick)}
@@ -396,7 +405,7 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                         <>
                           {/*link button moved to here*/}
                           {this.linkBtn(true)}
-                          {this.props.showContext && this.linkBtn()}
+                          {/*{this.props.showContext && this.linkBtn()}*/}
                           {/*private message user*/}
                           {!this.myComment && (
                             <>

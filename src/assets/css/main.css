@@ -141,6 +141,8 @@
   height: 2em;
 }
 
+/* removed spin animation vamoose
+
 .spin {
   animation: spins 2s linear infinite;
 }
@@ -152,7 +154,7 @@
   100% {
     transform: rotate(359deg);
   }
-}
+}*/
 
 .dropdown-content {
   position: absolute;
@@ -1684,6 +1686,15 @@ a#starlink > svg {
   padding-right: 0px;
 }*/
 
-input[name="search-btn"] {
+/*input[name="search-btn"] {
   color: var(--mariner-teal);
+}*/
+
+/*COMMENT NODE ==== */
+#comment-score {
+  font-size: 16px;
+}
+
+#node-bottom-row {
+  align-items: center;
 }

@@ -682,9 +682,9 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                     name="search-btn"
                     onClick={linkEvent(this, this.handleSearchBtn)}
                     class="px-1 btn btn-link"
-                    style="color: var(--gray)"
                     aria-label={i18n.t("search")}
                   >
+                    {/*removed style="color: var(--gray)" from there ^*/}
                     <Icon icon="search" />
                   </button>
                 </form>

@@ -343,10 +343,12 @@ export class Profile extends Component<any, ProfileState> {
           hideHot
           hideMostComments
         />
-        <a href={profileRss} rel={relTags} title="RSS">
+
+        {/*RSS VAMOOSE*/}
+        {/*        <a href={profileRss} rel={relTags} title="RSS">
           <Icon icon="rss" classes="text-muted small mx-2" />
         </a>
-        <link rel="alternate" type="application/atom+xml" href={profileRss} />
+        <link rel="alternate" type="application/atom+xml" href={profileRss} />*/}
       </div>
     );
   }

@@ -1683,3 +1683,7 @@ a#starlink > svg {
   flex-wrap: wrap;
   padding-right: 0px;
 }*/
+
+input[name="search-btn"] {
+  color: var(--mariner-teal);
+}

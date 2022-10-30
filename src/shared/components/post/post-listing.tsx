@@ -734,7 +734,7 @@ export class PostListing extends Component<PostListingProps, PostListingState> {
   createdLine() {
     let post_view = this.props.post_view;
     return (
-      <ul class="list-inline mb-1 text-muted small">
+      <ul class="list-inline mb-1 text-muted small" id="post-creator">
         <li className="list-inline-item" id="poster-line">
           <PersonListing person={post_view.creator} />
 

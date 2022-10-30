@@ -1368,11 +1368,6 @@ img.youtube-thumb {
   color: var(--mariner-dark) !important;
 }
 
-/*username and community in post listing */
-#poster-line {
-  font-size: 15px !important;
-}
-
 /*DID NOT WORK qz3 ========================================================= */
 
 /*TEST OPTION BUUTONS qz3 =========================================================*/
@@ -1653,6 +1648,10 @@ a#starlink > svg {
     flex: 0 0 95%;
     flex-wrap: wrap;
   }
+
+  #post-creator {
+    width: 100%;
+  }
 }
 
 #listing-block {
@@ -1697,4 +1696,17 @@ a#starlink > svg {
 
 #node-bottom-row {
   align-items: center;
+}
+
+/*username and community in post listing */
+#post-creator {
+  font-size: 15px !important;
+}
+
+/*TEST TO ELIMINATE MOBILE ZOOM*/
+input {
+  font-size: 16 px !important;
+}
+input:focus {
+  font-size: 16px !important;
 }

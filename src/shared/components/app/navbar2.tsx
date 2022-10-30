@@ -490,6 +490,17 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                 <br />
                 <span id="boosticon"> </span>
                 <br />
+                {/*TEST LOGOUT*/}
+                <li className="nav-item">
+                  <button
+                    className="nav-link btn btn-link"
+                    onClick={linkEvent(this, this.handleLogoutClick)}
+                    title="test"
+                  >
+                    <Icon icon="log-out" classes="mr-1" />
+                    {i18n.t("logout")}
+                  </button>
+                </li>
               </div>
             </div>
 

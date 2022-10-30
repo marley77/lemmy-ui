@@ -212,7 +212,8 @@ export class CommentNode extends Component<CommentNodeProps, CommentNodeState> {
                 {/*deleted link buttons from here*/}
 
                 {/* This is an expanding spacer for mobile */}
-                <div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>
+                {/*<div className="mr-lg-5 flex-grow-1 flex-lg-grow-0 unselectable pointer mx-2"></div>*/}
+
                 {/*moved vote score from here */}
                 <div class="dull">
                   <span className="mr-1">•</span>

@@ -464,10 +464,6 @@ div.d-flex.justify-content-between.justify-content-lg-start.flex-wrap.text-muted
   appearance: button !important;}
 */
 
-button {
-  font-size: 16px !important;
-}
-
 /*PADDING ABOVE MAIN APP === temporary until header image*/
 #root > div > div.mt-4.p-0.fl-1 {
   margin-top: 45px !important;
@@ -1356,6 +1352,7 @@ img.youtube-thumb {
 .dull > span,
 #post-link {
   color: var(--mariner-dark) !important;
+  font-size: 0.8rem;
 }
 
 /*DID NOT WORK qz3 ========================================================= */
@@ -1716,4 +1713,9 @@ input {
 }
 input:focus {
   font-size: 16px !important;
+}
+
+button,
+.btn {
+  font-size: 1.33px !important;
 }

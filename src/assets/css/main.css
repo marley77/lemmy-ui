@@ -699,7 +699,7 @@ h2.post-card-title {
 }
 #deskmenu a {
   font-family: Verdana, Geneva, sans-serif !important;
-  color: $dablack !important;
+  color: var(--title-teal) !important;
   font-size: 15px;
   width: auto;
   min-width: 100px;
@@ -1236,7 +1236,7 @@ select,
 
 /* NAV TITLE */
 a#dm-title {
-  color: var(--title-teal) !important;
+  color: $dablack !important;
 }
 
 /*SCROLLBAR*/

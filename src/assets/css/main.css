@@ -537,9 +537,15 @@ svg {
 
 /*SIDEBAR =========================================================*/
 
-/*was 12 changed to 16 for V3*/
+/* BASE FONT - was 12 changed to 16 for V3*/
 html {
   font-size: 16px;
+}
+
+@media (min-width: 767px) {
+  html {
+    font-size: 12px;
+  }
 }
 
 .post-card-excerpt p,
@@ -892,10 +898,6 @@ h2.post-card-title {
 }
 */
 
-#save-star > .icon {
-  font-size: 20px;
-}
-
 #disco-area {
   margin-right: 0px;
   overflow-x: hidden !important;
@@ -1215,19 +1217,6 @@ details[open] > summary::before {
     border-radius: .25rem;
 }
 */
-
-/*ALL BUTTON FONT*/
-label.btn,
-select,
-#page-buttons > .btn {
-  font-size: 14px !important;
-  font-family: Verdana, Geneva, sans-serif !important;
-  /*  font-size: 1.5rem !important;*/
-  font-weight: 300 !important;
-  color: #b9f2ff !important;
-  padding-top: 0.2rem !important;
-  padding-bottom: 0.2rem !important;
-}
 
 /*POST LISTING visited*/
 .post-title > h5 > a:visited {
@@ -1690,9 +1679,26 @@ a#starlink > svg {
   color: var(--mariner-teal);
 }*/
 
+#save-star > .icon {
+  font-size: 1.67rem;
+}
+
+/*ALL BUTTON FONT*/
+label.btn,
+select,
+#page-buttons > .btn {
+  font-size: 1.2rem !important;
+  font-family: Verdana, Geneva, sans-serif !important;
+  /*  font-size: 1.5rem !important;*/
+  font-weight: 300 !important;
+  color: #b9f2ff !important;
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
 /*COMMENT NODE ==== */
 #comment-score {
-  font-size: 1rem;
+  font-size: 1.33rem;
 }
 
 #node-bottom-row {
@@ -1701,14 +1707,13 @@ a#starlink > svg {
 
 /*username and community in post listing */
 #post-creator {
-  font-size: 1.3rem !important;
+  font-size: 1.33rem !important;
 }
 
-/*TEST TO ELIMINATE MOBILE ZOOM
+/*TEST TO ELIMINATE MOBILE ZOOM*/
 input {
-  font-size: 16 px !important;
+  font-size: 16px !important;
 }
 input:focus {
   font-size: 16px !important;
 }
-*/

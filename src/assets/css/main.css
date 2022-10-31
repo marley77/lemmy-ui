@@ -537,8 +537,9 @@ svg {
 
 /*SIDEBAR =========================================================*/
 
+/*was 12 changed to 16 for V3*/
 html {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .post-card-excerpt p,
@@ -1691,7 +1692,7 @@ a#starlink > svg {
 
 /*COMMENT NODE ==== */
 #comment-score {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 #node-bottom-row {
@@ -1700,13 +1701,14 @@ a#starlink > svg {
 
 /*username and community in post listing */
 #post-creator {
-  font-size: 15px !important;
+  font-size: 1.3rem !important;
 }
 
-/*TEST TO ELIMINATE MOBILE ZOOM*/
+/*TEST TO ELIMINATE MOBILE ZOOM
 input {
   font-size: 16 px !important;
 }
 input:focus {
   font-size: 16px !important;
 }
+*/

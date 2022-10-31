@@ -699,7 +699,7 @@ h2.post-card-title {
 }
 #deskmenu a {
   font-family: Verdana, Geneva, sans-serif !important;
-  color: var(--title-teal) !important;
+  color: $dablack !important;
   font-size: 15px;
   width: auto;
   min-width: 100px;

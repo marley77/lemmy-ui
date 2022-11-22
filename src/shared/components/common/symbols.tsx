@@ -1,4 +1,10 @@
 export const SYMBOLS = (
+    <div id="test">
+      <p>hiiiiiiiiiiii</p>
+        <div>
+          <p>hiiiiiiiiiiii</p>
+        </div>
+    </div>
   <svg
     aria-hidden="true"
     style={{

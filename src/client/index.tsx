@@ -7,11 +7,17 @@ const site = window.isoData.site_res;
 initializeSite(site);
 
 const wrapper = (
-<div><p>hiiiiiiiiiiii</p></div>
-  <BrowserRouter>
-    <App siteRes={window.isoData.site_res} />
-  </BrowserRouter>
-<div><p>hiiiiiiiiiiii</p></div>
+	<div>
+		<div>
+			<p>hiiiiiiiiiiii</p>
+		</div>
+		<BrowserRouter>
+			<App siteRes={window.isoData.site_res} />
+		</BrowserRouter>
+		<div>
+			<p>hiiiiiiiiiiii</p>
+		</div>
+	</div>
 );
 
 hydrate(wrapper, document.getElementById("root"));

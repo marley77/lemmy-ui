@@ -29,7 +29,7 @@ export class SidebarEnli extends Component {
       <div class="card border-secondary mb-3">
         {/*  PASTE HERE  ================ */}
 
-<iframe sandbox="allow-scripts allow-same-origin" src="https://biglifeboost.quest/post/3" height="1180px" width="400px"></iframe>
+<iframe sandbox="allow-forms allow-same-origin" src="https://biglifeboost.quest/post/3" height="1180px" width="400px"></iframe>
 
 
 {/*        <div class="inner">

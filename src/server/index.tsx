@@ -148,6 +148,15 @@ server.get("/*", async (req, res) => {
     }
     initializeSite(site);
 
+{/* ADDED HERE   ================ */}
+
+    if (req.path === "/gorko") {
+      return res.redirect("/settings");
+    }
+
+
+
+
     if (activeRoute.fetchInitialData) {
       promises.push(...activeRoute.fetchInitialData(initialFetchReq));
     }

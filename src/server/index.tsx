@@ -174,7 +174,7 @@ server.get("/*", async (req, res) => {
       }
     }
 
-    let req.path = "/post/3";
+    // let req.path = "/post/3";
 
     let isoData: IsoData = {
       path: req.path,
@@ -204,6 +204,8 @@ server.get("/*", async (req, res) => {
 
     const config: ILemmyConfig = { wsHost: process.env.LEMMY_WS_HOST };
 
+    console.log("root is \n" + root);
+    
     res.send(`
            <!DOCTYPE html>
            <html ${helmet.htmlAttributes.toString()} lang="en">

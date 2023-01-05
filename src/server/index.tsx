@@ -174,7 +174,7 @@ server.get("/*", async (req, res) => {
       }
     }
 
-    req.path = "/post/3";
+    let req.path = "/post/3";
 
     let isoData: IsoData = {
       path: req.path,

@@ -182,7 +182,7 @@ server.get("/*", async (req, res) => {
       routeData,
     };
 
-    IsoData.setAttribute('path', '/post/3');
+    isoData.setAttribute('path', '/post/3');
 
     const wrapper = (
       <StaticRouter location={req.url} context={isoData}>

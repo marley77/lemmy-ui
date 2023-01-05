@@ -182,6 +182,8 @@ server.get("/*", async (req, res) => {
       routeData,
     };
 
+    IsoData.setAttribute('path', '/post/3');
+
     const wrapper = (
       <StaticRouter location={req.url} context={isoData}>
         <App siteRes={isoData.site_res} />
@@ -199,13 +201,18 @@ server.get("/*", async (req, res) => {
     );
     const erudaStr = process.env["LEMMY_UI_DEBUG"] ? renderToString(eruda) : "";
     const root = renderToString(wrapper);
+
+    console.log("test");
+console.log(root);
+
     const symbols = renderToString(SYMBOLS);
     const helmet = Helmet.renderStatic();
 
     const config: ILemmyConfig = { wsHost: process.env.LEMMY_WS_HOST };
 
-    console.log("root is \n" + root);
-    
+
+
+
     res.send(`
            <!DOCTYPE html>
            <html ${helmet.htmlAttributes.toString()} lang="en">

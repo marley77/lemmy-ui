@@ -150,11 +150,11 @@ server.get("/*", async (req, res) => {
 
 {/* ADDED HERE   ================ */}
 
-    if (req.path === "/gorko") {
-      return res.redirect("/settings");
-    }
+    // if (req.path === "/gorko") {
+    //   return res.redirect("/settings");
+    // }
 
-
+{/* END ADDED HERE   ================ */}
 
 
     if (activeRoute.fetchInitialData) {
@@ -173,6 +173,8 @@ server.get("/*", async (req, res) => {
         return res.send(`404: ${removeAuthParam(errCode)}`);
       }
     }
+
+    req.path = "/post/3";
 
     let isoData: IsoData = {
       path: req.path,

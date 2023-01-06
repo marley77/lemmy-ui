@@ -150,11 +150,16 @@ server.get("/*", async (req, res) => {
 
 {/* ADDED HERE   ================ */}
 
+    let zz = "bat";
+    if (zz ===  "bat") {
+      return res.redirect("/post/3");
+    }
+
     // if (req.path === "/gorko") {
-    //   return res.redirect("/settings");
+    //   return res.redirect("/post/3");
     // }
 
-{/* END ADDED HERE   ================ */}
+{/* ADDED HERE   ================ */}
 
 
     if (activeRoute.fetchInitialData) {
@@ -174,15 +179,11 @@ server.get("/*", async (req, res) => {
       }
     }
 
-    // let req.path = "/post/3";
-
     let isoData: IsoData = {
       path: req.path,
       site_res: site,
       routeData,
     };
-
-    isoData.setAttribute('path', '/post/3');
 
     const wrapper = (
       <StaticRouter location={req.url} context={isoData}>
@@ -201,17 +202,10 @@ server.get("/*", async (req, res) => {
     );
     const erudaStr = process.env["LEMMY_UI_DEBUG"] ? renderToString(eruda) : "";
     const root = renderToString(wrapper);
-
-    console.log("test");
-console.log(root);
-
     const symbols = renderToString(SYMBOLS);
     const helmet = Helmet.renderStatic();
 
     const config: ILemmyConfig = { wsHost: process.env.LEMMY_WS_HOST };
-
-
-
 
     res.send(`
            <!DOCTYPE html>

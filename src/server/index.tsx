@@ -150,10 +150,10 @@ server.get("/*", async (req, res) => {
 
 {/* ADDED HERE   ================ */}
 
-    let zz = "bat";
-    if (zz ===  "bat") {
-      return res.redirect("/post/3");
-    }
+    // let zz = "bat";
+    // if (zz ===  "bat") {
+    //   return res.redirect("/post/3");
+    // }
 
     // if (req.path === "/gorko") {
     //   return res.redirect("/post/3");

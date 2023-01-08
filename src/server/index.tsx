@@ -31,7 +31,7 @@ if (!process.env["LEMMY_UI_DISABLE_CSP"]) {
   server.use(function (_req, res, next) {
     res.setHeader(
       "Content-Security-Policy",
-      `default-src 'none'; connect-src *; img-src * data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; form-action 'self'; base-uri 'self'`
+      `frame-ancestors 'self' https://biglifeboost.com https://www.biglifeboost.com https://www.biglifeboost.com/pm2 https://biglifeboost.com/pm2; default-src 'none'; connect-src *; img-src * data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; form-action 'self'; base-uri 'self'`
     );
     next();
   });

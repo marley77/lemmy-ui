@@ -3,7 +3,7 @@ export const SYMBOLS = (
     <div id="test">
       <p>hiiiiiiiiiiii</p>
       <div>
-        <p>hiiiiiiiiiiii</p>
+        <span></span>
       </div>
     </div>
     <svg

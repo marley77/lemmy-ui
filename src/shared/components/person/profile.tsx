@@ -498,7 +498,8 @@ export class Profile extends Component<any, ProfileState> {
                     formattedCount: numToSI(pv.counts.comment_count),
                   })}
                 </li>
-                <li className="list-inline-item badge badge-light">
+                {/*ATTEMPTS at post / comment score totals*/}
+                {/* <li className="list-inline-item badge badge-light">
                   {i18n.t("number_of_comment_likes", {
                     count: pv.counts.comment_score,
                     formattedCount: numToSI(pv.counts.comment_score),
@@ -509,10 +510,14 @@ export class Profile extends Component<any, ProfileState> {
                     count: pv.counts.post_score,
                     formattedCount: numToSI(pv.counts.post_score),
                   })}
+                </li>*/}
+                <li className="list-inline-item badge badge-light">
+                  {pv.counts.post_score} Post Likes
                 </li>
-                  <li className="list-inline-item badge badge-light">
-                  {pv.counts.post_score} post likes
+                <li className="list-inline-item badge badge-light">
+                  {pv.counts.comment_score} Comment Likes
                 </li>
+
               </ul>
             </div>
             <div class="text-muted dull">

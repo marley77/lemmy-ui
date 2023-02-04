@@ -499,16 +499,19 @@ export class Profile extends Component<any, ProfileState> {
                   })}
                 </li>
                 <li className="list-inline-item badge badge-light">
-                  {i18n.t("comment_likes", {
+                  {i18n.t("number_of_comment_likes", {
                     count: pv.counts.comment_score,
                     formattedCount: numToSI(pv.counts.comment_score),
                   })}
                 </li>
                 <li className="list-inline-item badge badge-light">
-                  {i18n.t("post_likes", {
+                  {i18n.t("number_of_post_likes", {
                     count: pv.counts.post_score,
                     formattedCount: numToSI(pv.counts.post_score),
                   })}
+                </li>
+                  <li className="list-inline-item badge badge-light">
+                  {pv.counts.post_score} post likes
                 </li>
               </ul>
             </div>

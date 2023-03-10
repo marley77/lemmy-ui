@@ -34,7 +34,7 @@ export const SYMBOLS = (
 
     <div id="mobile-nav-block">
       <p>
-        All the way<br/>
+        All the way <br/>
         Total devotion<br/>
         Bravery and strength<br/>
         Honor and leadership<br/>

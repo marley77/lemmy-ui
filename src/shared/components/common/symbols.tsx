@@ -4,7 +4,7 @@ export const SYMBOLS = (
         <div class="newmenu" style="cursor: pointer;"> 
 
       
-<a href="https://vibe.biglifeboost.com/" id="profie"><img id="avi" src="//biglifeboost.quest/img/bzwiz.png"></a>
+<a href="https://vibe.biglifeboost.com/" id="profie"><img id="avi" src="/src/assets/images/boostbeach5.jpg"></a>
 
 
 

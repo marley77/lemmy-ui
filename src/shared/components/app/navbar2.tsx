@@ -185,7 +185,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
 
   // THE RENDER - qz3 =========================================================
   render() {
-    return this.navbar();
+    //return this.navbar();
   }
 
   // TODO class active corresponding to current page

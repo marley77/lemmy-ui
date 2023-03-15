@@ -2,9 +2,19 @@
 
 :root {
 
+
+  --electric-blue: #6288db;
+  --translucent-navy:  rgba(2,6,8,.81);/*LEFT BAR AND RIGHT BAR BG was 2,6,8,.81*/
+  --seminole: #100200;  /* the WAY background was midnightblue*/
+  --new-dolphin: #8fc79e; /* all links */
+  --hot-orange: #e1a49b; /*was #ffbcbc;*/ 
+  --light-gold: #ede8ce; /*nav top gradient*/
+  --mariner-dark: #04222e; /*was 444*/
+
+
+
   --mariner-light: #00c5db; /*was 888*/
   --mariner-med: #007885; 
-  --mariner-dark: #04222e; /*was 444*/
   --mariner-teal: #1a8f9d; /*new*/
   --seafoam: #bbf2d2;
   --title-teal: #6ae4c8; /*all titles*/

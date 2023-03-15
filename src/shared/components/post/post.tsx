@@ -304,7 +304,7 @@ export class Post extends Component<any, PostState> {
             </h5>
           ) : (
             <div class="row" id="disco-area">
-              <div class="col-12 col-md-8 mb-3" id="disco-column">
+              <div class="col-12 col-md-8 mb-3" id="content-wrapper">
                 <HtmlTags
                   title={this.documentTitle}
                   path={this.context.router.route.match.url}
@@ -351,7 +351,7 @@ export class Post extends Component<any, PostState> {
                 {this.state.commentViewType == CommentViewType.Chat &&
                   this.commentsFlat()}
               </div>
-              <div class="d-none d-md-block col-md-4 sidebar-column">
+              <div class="d-none d-md-block col-md-4 sidebar-column" id="sidebar">
                 {this.sidebar()}
               </div>
             </div>

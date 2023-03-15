@@ -257,8 +257,8 @@ export class Community extends Component<any, State> {
               />
 
               <div class="row" id="disco-area">
-                <div class="col-12 col-md-8" id="disco-column">
-                  {/* old sidebar, old mobile expand on top 
+                <div class="col-12 col-md-8" id="content-wrapper">
+ 
         
                 {this.communityInfo()}
                 <div class="d-block d-md-none">
@@ -305,7 +305,7 @@ export class Community extends Component<any, State> {
                     onChange={this.handlePageChange}
                   />
                 </div>
-                <div class="d-none d-md-block col-md-4 sidebar-column">
+                <div class="d-none d-md-block col-md-4 sidebar-column" id="sidebar">
                   {/* SIDEBAR TITLE    ================           */}
                   <div class="mb-3">
                     <span id="tab-title">

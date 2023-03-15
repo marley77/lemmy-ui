@@ -285,12 +285,12 @@ export class Home extends Component<any, HomeState> {
           />
           {this.state.siteRes.site_view?.site && (
             <div class="row" id="disco-area">
-              <main role="main" class="col-12 col-md-8" id="disco-column">
+              <main role="main" class="col-12 col-md-8" id="content-wrapper">
                 {/* qz3 cut THEIR mobile view =========================================================
                 <div class="d-block d-md-none">{this.mobileView()}</div> */}
                 {this.posts()}
               </main>
-              <aside class="d-none d-md-block col-md-4 sidebar-column">
+              <aside class="d-none d-md-block col-md-4 sidebar-column" id="sidebar">
                 {this.mySidebar()}
               </aside>
             </div>

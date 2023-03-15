@@ -233,7 +233,7 @@ export class Profile extends Component<any, ProfileState> {
           </h5>
         ) : (
           <div class="row">
-            <div class="col-12 col-md-8" id="disco-column">
+            <div class="col-12 col-md-8" id="content-wrapper">
               <>
                 <HtmlTags
                   title={this.documentTitle}

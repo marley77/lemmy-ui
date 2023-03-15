@@ -1,3 +1,5 @@
+
+
 .navbar-toggler {
   border: 0px;
 }
@@ -941,9 +943,8 @@ NEW teal from hugo title
 #007885; - medium Mariner BUTTONS
 #081b20; - very dark mariner
 
-/*#disco-column > div.mb-3 > span.mr-3 > div > label.pointer.btn.btn-outline-secondary.active*/
 
-/*NEW LOADER CSS  - from https://codepen.io/aurer/pen/ZEJxpO */
+#content-wrapper > div.mb-3 > span.mr-3 > div > label.pointer.btn.btn-outline-secondary.active
 
 .loader {
   margin: 0 0 2em;
@@ -1027,7 +1028,7 @@ hr {
   top: auto;
 }
 
-.sidebar-column {
+#sidebar {
   border-right: 1px solid;
   border-left: 1px solid;
   border-color: var(--mariner-dark);
@@ -1099,7 +1100,7 @@ hr {
 }
 
 /*
-#disco-column {
+#content-wrapper {
     overflow-x: hidden;
     z-index: 99 !important;
     overscroll-behavior: contain;
@@ -1107,13 +1108,13 @@ hr {
     overflow-y: scroll;
   }
 
-#disco-column::-webkit-scrollbar {
+#content-wrapper::-webkit-scrollbar {
     display: none;
   }
 */
 
 /*THE MASTER SIDE COLUMN*/
-.sidebar-column {
+#sidebar {
   position: fixed !important;
   top: 49px;
   right: 1vw;
@@ -1386,7 +1387,7 @@ img.youtube-thumb {
     display: none;
   }
 
-  .sidebar-column {
+  #sidebar {
     max-width: 100% !important;
     width: 98vw !important;
     display: block !important;
@@ -1409,7 +1410,7 @@ img.youtube-thumb {
     padding-right: 1vw;
   }
 
-  #disco-column {
+  #content-wrapper {
     max-width: 100% !important;
     width: 98vw !important;
     height: 100% !important;
@@ -1650,7 +1651,7 @@ a#starlink > svg {
 
 /*MAIN DISCO */
 
-#disco-column {
+#content-wrapper {
   padding-right: 1vw;
   padding-left: 1vw;
   border-right: 1px solid;
@@ -1733,11 +1734,14 @@ button,
 
   html{
     /*background: url(/img/tn-hills-scaled.jpg);*/
-    background-image: url(/src/assets/images/boostbeach5.jpg);
+
+    background-color: var(--seminole);
+
+/*    background-image: url(/src/assets/images/boostbeach5.jpg);
     background-position: left top;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed;*/
     /*width: 100vw !important;*/
 
   /*  background-image: url(/img/tn-hills-scaled.jpg);

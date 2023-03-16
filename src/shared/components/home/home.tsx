@@ -284,7 +284,8 @@ export class Home extends Component<any, HomeState> {
             path={this.context.router.route.match.url}
           />
           {this.state.siteRes.site_view?.site && (
-            <div>     <!-- <div class="row" id="disco-area">  -->
+            <div>     
+{/*<div class="row" id="disco-area">*/}
               <main role="main" class="col-12 col-md-8" id="content-wrapper">
                 {/* qz3 cut THEIR mobile view =========================================================
                 <div class="d-block d-md-none">{this.mobileView()}</div> */}

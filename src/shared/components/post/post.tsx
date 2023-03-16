@@ -303,7 +303,7 @@ export class Post extends Component<any, PostState> {
               <Spinner large />
             </h5>
           ) : (
-            <div class="row" id="disco-area">
+            {/*<div class="row" id="disco-area">*/} <div>
               <div class="col-12 col-md-8 mb-3" id="content-wrapper">
                 <HtmlTags
                   title={this.documentTitle}

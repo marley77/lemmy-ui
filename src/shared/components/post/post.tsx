@@ -295,7 +295,7 @@ export class Post extends Component<any, PostState> {
     return (
       <div>
         {/*  ^wrapper div  -- header image   ================ */}
-        <TopImg />
+        {/* <TopImg /> */}
 
         <div class="container">
           {this.state.loading ? (

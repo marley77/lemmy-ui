@@ -276,7 +276,7 @@ export class Home extends Component<any, HomeState> {
     return (
       <div>
         {/*  ^wrapper div  -- header image module   ================ */}
-        <TopImg />
+        {/* <TopImg /> */}
 
         <div class="container">
           <HtmlTags

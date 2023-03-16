@@ -241,7 +241,7 @@ export class Community extends Component<any, State> {
     return (
       <div>
         {/*  ^wrapper div  -- header image   ================ */}
-        <TopImg />
+        {/* <TopImg /> */}
         <div class="container">
           {this.state.communityLoading ? (
             <h5>

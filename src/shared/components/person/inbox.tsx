@@ -149,8 +149,8 @@ export class Inbox extends Component<any, InboxState> {
             <Spinner large />
           </h5>
         ) : (
-          <div class="row">
-            <div class="col-12">
+          <div id="full">
+            <div id="content-wrapper">
               <HtmlTags
                 title={this.documentTitle}
                 path={this.context.router.route.match.url}

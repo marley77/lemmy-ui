@@ -232,7 +232,7 @@ export class Profile extends Component<any, ProfileState> {
             <Spinner large />
           </h5>
         ) : (
-          <div class="row">
+          <div id="full">
             <div class="col-12 col-md-8" id="content-wrapper">
               <>
                 <HtmlTags
@@ -261,7 +261,7 @@ export class Profile extends Component<any, ProfileState> {
             </div>
 
             {!this.state.loading && (
-              <div class="col-12 col-md-4">
+              <div class="col-12 col-md-4" id="sidebar">
                 {this.moderates()}
                 {this.isCurrentUser && this.follows()}
               </div>

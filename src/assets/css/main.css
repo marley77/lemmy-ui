@@ -1216,6 +1216,6 @@ svg {
 
 
  /*NEEDED TO LOCK IN THE NAV SPACING*/
-.newmenu {
+.newmenu, #dabell, #notif {
   box-sizing: unset !important;
 }

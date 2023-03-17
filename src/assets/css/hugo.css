@@ -748,7 +748,7 @@ containers enclosed: full > content-wrapper and sidebar > main and sidebar-info*
   display: flex; 
   justify-content: space-evenly;
   margin-top: 45px;
-  font-family: Verdana,Geneva,sans-serif; font-size: 1.3rem; line-height: 1.7rem; font-weight: 300; color: #b9f2ff; white-space: margin-bottom: .8rem;
+  font-family: Verdana,Geneva,sans-serif; font-size: 1.3rem; line-height: 1.7rem; font-weight: 300; color: #b9f2ff; margin-bottom: .8rem;
   /*background-color: var(--seminole);*/
 }
 

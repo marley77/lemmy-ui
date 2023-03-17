@@ -2,6 +2,12 @@
 
 :root {
 
+/*  --sidebar-pop: #04222e; /*was 8f9fdb*/*/
+  --dark-green: #021f07;
+  --fun-green: #79ff46; /*was #90ff65*/ /*was var(--new-dolphin)*/
+
+
+
 
   --electric-blue: #6288db;
   --translucent-navy:  rgba(2,6,8,.81);/*LEFT BAR AND RIGHT BAR BG was 2,6,8,.81*/

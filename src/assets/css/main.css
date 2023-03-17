@@ -568,10 +568,10 @@ NEW teal from hugo title
   padding-left: 5%;
 }
 
-div,
+/*div,
 span {
   border-color: var(--mariner-teal) !important;
-}
+}*/
 
 hr {
   background-color: var(--mariner-teal) !important;

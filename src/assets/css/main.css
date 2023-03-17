@@ -1140,10 +1140,13 @@ button,
   max-width: 100vw !important;
 }
 
-.container {
+/*temp fix for top border*/
+.container {margin-top: -1px;}
+
+/*.container {
   position: relative;
   top: auto;
-}
+}*/
 
 
 

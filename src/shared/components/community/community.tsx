@@ -256,7 +256,7 @@ export class Community extends Component<any, State> {
                 image={cv.community.icon}
               />
 
-              <div>     
+              <div id="full">     
 {/*<div class="row" id="disco-area">*/}
                 <div class="col-12 col-md-8" id="content-wrapper">
                    {/* old sidebar, old mobile expand on top

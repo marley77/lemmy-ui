@@ -1153,6 +1153,6 @@ button,
 
 
  /*NEEDED TO LOCK IN THE NAV SPACING*/
-.newmenu, #dabell, #notif {
-  box-sizing: unset !important;
+.newmenu, #dabell, #notif, #avi {
+  box-sizing: content-box !important;
 }

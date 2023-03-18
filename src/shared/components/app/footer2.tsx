@@ -60,54 +60,54 @@ function hotboost() {
 // <!-- ON PAGE LOAD ====== SCROLLBAR, YOUTUBE -->
 
 
-// window.onload = function() {
+window.onload = function() {
 
-//   //SCROLLBAR
-//   const y = document.getElementsByClassName("pagination")[0] || false;
-//   if (y) {
-//     const x = document.getElementsByClassName("pagination")[0].clientHeight;
-//     window.onscroll = function() {myFunction(x)};
-//   } else {
-//     const x = 0;
-//     window.onscroll = function() {myFunction(x)};
-//   }
+  //SCROLLBAR
+  const y = document.getElementsByClassName("pagination")[0] || false;
+  if (y) {
+    const x = document.getElementsByClassName("pagination")[0].clientHeight;
+    window.onscroll = function() {myFunction(x)};
+  } else {
+    const x = 0;
+    window.onscroll = function() {myFunction(x)};
+  }
 
-//   function myFunction(x) {
-//     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-//     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight - x;
-//     let scrolled = (winScroll / height) * 100;
-//     document.getElementById("myBar").style.width = scrolled + "%";
-//     /* console.log(x, winScroll, height, scrolled); */ 
-//   }
+  function myFunction(x) {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight - x;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+    /* console.log(x, winScroll, height, scrolled); */ 
+  }
 
 
   
 
-//   //YOUTUBE
-//   (function() {
-//     console.log("yes youtube should go");
-//         var v = document.getElementsByClassName("youtube-player");
-//         for (var n = 0; n < v.length; n++) {
-//             var p = document.createElement("div");
-//             p.innerHTML = thumbnailYT(v[n].dataset.id);
-//             p.onclick = iframeYT;
-//             v[n].appendChild(p);
-//         }
-//     })();
+  // //YOUTUBE
+  // (function() {
+  //   console.log("yes youtube should go");
+  //       var v = document.getElementsByClassName("youtube-player");
+  //       for (var n = 0; n < v.length; n++) {
+  //           var p = document.createElement("div");
+  //           p.innerHTML = thumbnailYT(v[n].dataset.id);
+  //           p.onclick = iframeYT;
+  //           v[n].appendChild(p);
+  //       }
+  //   })();
      
-//     function thumbnailYT(id) {
-//         return '<img class="youtube-thumb" loading="lazy" src="//i.ytimg.com/vi/' + id + '/hqdefault.jpg"><div class="play-button"></div>';
-//     }
+  //   function thumbnailYT(id) {
+  //       return '<img class="youtube-thumb" loading="lazy" src="//i.ytimg.com/vi/' + id + '/hqdefault.jpg"><div class="play-button"></div>';
+  //   }
      
-//     function iframeYT() {
-//         var iframe = document.createElement("iframe");
-//         iframe.setAttribute("src", "//www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1&autohide=2&border=0&wmode=opaque&showinfo=0&rel=0");
-//         iframe.setAttribute("frameborder", "0");
-//         iframe.setAttribute("id", "youtube-iframe");
-//         this.parentNode.replaceChild(iframe, this);
-//     }
+  //   function iframeYT() {
+  //       var iframe = document.createElement("iframe");
+  //       iframe.setAttribute("src", "//www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1&autohide=2&border=0&wmode=opaque&showinfo=0&rel=0");
+  //       iframe.setAttribute("frameborder", "0");
+  //       iframe.setAttribute("id", "youtube-iframe");
+  //       this.parentNode.replaceChild(iframe, this);
+  //   }
 
-// }
+}
 
 
     return (

@@ -38,13 +38,13 @@ export class Theme extends Component<Props> {
     } else {
       return (
         <Helmet>
-          <link
+{/*          <link
             rel="stylesheet"
             type="text/css"
             href="/css/themes/litely.css"
             id="default-light"
             media="(prefers-color-scheme: light)"
-          />
+          />*/}
           <link
             rel="stylesheet"
             type="text/css"

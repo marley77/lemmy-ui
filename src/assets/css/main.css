@@ -497,6 +497,7 @@ h5 {
 #expander-link {
   margin-bottom: 0px;
   display: flex !important;
+  justify-content: end;
   /*  flex-direction: row;
   overflow:hidden;
   flex: 1; 

@@ -42,6 +42,16 @@ function boostmenu() {
   };
 }
 
+
+// SET HOTBOOST for top menu
+(function() {
+  var zz = document.getElementById("top-astro");
+  zz.onclick = boostmenu;
+  console.log("added boostmenu");
+})();
+
+
+
 {/*  NEW ADD FEB 22  ================ */}
 
 
@@ -57,28 +67,28 @@ function hotboost() {
 
 
 
-// <!-- ON PAGE LOAD ====== SCROLLBAR, YOUTUBE -->
+// // <!-- ON PAGE LOAD ====== SCROLLBAR, YOUTUBE -->
 
 
-window.onload = function() {
+// window.onload = function() {
 
-  //SCROLLBAR
-  const y = document.getElementsByClassName("pagination")[0] || false;
-  if (y) {
-    const x = document.getElementsByClassName("pagination")[0].clientHeight;
-    window.onscroll = function() {myFunction(x)};
-  } else {
-    const x = 0;
-    window.onscroll = function() {myFunction(x)};
-  }
+//   //SCROLLBAR
+//   const y = document.getElementsByClassName("pagination")[0] || false;
+//   if (y) {
+//     const x = document.getElementsByClassName("pagination")[0].clientHeight;
+//     window.onscroll = function() {myFunction(x)};
+//   } else {
+//     const x = 0;
+//     window.onscroll = function() {myFunction(x)};
+//   }
 
-  function myFunction(x) {
-    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight - x;
-    let scrolled = (winScroll / height) * 100;
-    document.getElementById("myBar").style.width = scrolled + "%";
-    /* console.log(x, winScroll, height, scrolled); */ 
-  }
+//   function myFunction(x) {
+//     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+//     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight - x;
+//     let scrolled = (winScroll / height) * 100;
+//     document.getElementById("myBar").style.width = scrolled + "%";
+//     /* console.log(x, winScroll, height, scrolled); */ 
+//   }
 
 
   
@@ -107,7 +117,7 @@ window.onload = function() {
   //       this.parentNode.replaceChild(iframe, this);
   //   }
 
-}
+// }
 
 
     return (

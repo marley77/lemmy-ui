@@ -84,8 +84,10 @@ export class Login extends Component<any, State> {
           title={this.documentTitle}
           path={this.context.router.route.match.url}
         />
-        <div class="row">
-          <div class="col-12 col-lg-6 offset-lg-3">{this.loginForm()}</div>
+        <div id="full">
+          <div class="col-12 col-lg-6 offset-lg-3" id="content-wrapper">
+          	{this.loginForm()}
+          </div>
         </div>
       </div>
     );

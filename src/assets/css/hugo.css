@@ -41,11 +41,7 @@ containers enclosed: full > content-wrapper and sidebar > main and sidebar-info*
   display: flex; 
   justify-content: space-evenly;
   margin-top: 45px;
-  font-family: Verdana,Geneva,sans-serif; 
-  font-size: 1.3rem; 
-  line-height: 1.7rem; 
-  font-weight: 300; color: #b9f2ff; 
-  margin-bottom: .8rem;
+  font-family: Verdana,Geneva,sans-serif; font-size: 1.3rem; line-height: 1.7rem; font-weight: 300; color: #b9f2ff; margin-bottom: .8rem;
   /*background-color: var(--seminole);*/
 }
 
@@ -403,39 +399,6 @@ p#spacer{background: var(--seminole);
 
 
 
-/* CASTLE NEW ADD FEB 22 {/*    ================ */
-
-  /* The progress container (grey background) */
-.progress-container {
-  width: 100%;
-  height: 0px;
-  background: #ccc;
-  position: absolute;
-  bottom: 0;
-  z-index: 9990;
-}
-
-/* The progress bar (scroll indicator) */
-.progress-bar {
-  height: 18px;
-  background: linear-gradient(to right, #4fe0ab , var(--hot-orange)); /*was #26a8ed*/
-  width: 0%;
-    position: fixed;
-  bottom: 0px; /*47px*/
-  z-index: 9991;
-}
-
-/* youtube lazyload */
-   .youtube-container { display: block; width: 1px; min-width: 100%; border-style: solid; border-width: 1px; border-color: #cdf7e0;} /* max-width defines the player size*/
-    .youtube-player { display: block; /* assuming that the video has a 16:9 ratio */ padding-bottom: 56.25%; overflow: hidden; position: relative; width: 100%; height: 100%; cursor: pointer; display: block; }
-    img.youtube-thumb { bottom: 0; display: block; left: 0; margin: auto; max-width: 100%; width: 100%; position: absolute; right: 0; top: 0; height: auto }
-    div.play-button { height: 72px; width: 72px; left: 50%; top: 50%; margin-left: -36px; margin-top: -36px; position: absolute; background: url("https://4.bp.blogspot.com/-Me01YYEE7nU/Vx_UViCgJkI/AAAAAAAABe0/IDEvL5vov8gq5qwLELNEcwKVzcLKaLJbwCLcB/s1600/TxzC70f.png") no-repeat; }
-    #youtube-iframe { width: 1px; min-width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
-/* ^^^ set youtube-frame width back to 100% if that doesnt work */
-
-
-
-
 
 
 
@@ -447,41 +410,6 @@ p#spacer{background: var(--seminole);
 }*/
 
 
-
-
-
-/*COMMENTS POP - nested comments import {/*    ================ */
-
-.cBox-1 {padding-left: 0px;}
-.cBox-2 {
-  margin-left: 3px;
-  border-left: 2px solid red !important;
-}
-.cBox-3 {
-  margin-left: 6px;
-  border-left: 2px solid blue !important;
-}
-.cBox-4 {
-  margin-left: 9px;
-  border-left: 2px solid green !important;
-}
-.cBox-5 {
-  margin-left: 12px;
-  border-left: 2px solid yellow !important;
-}
-.cBox-6 {
-  margin-left: 15px;
-  border-left: 2px solid purple !important;
-}
-
-/*other user comment image*/
-.avi {height: 44px;}
-
-.collapser {position: absolute;right: 31%;}
-.bottomRow {padding-left: 1%; }
-.bottomRow > span {padding-left: 3%; }
-
-/*END COMMENTS POP - comment import*/
 
 
 
@@ -686,3 +614,196 @@ containers enclosed: full > content-wrapper and sidebar > main and sidebar-info*
 
   .listing-image {padding-bottom: .5vh;}
 }
+
+
+
+
+
+
+/* CASTLE NEW ADD FEB 22 {/*    ================ */
+
+  /* The progress container (grey background) */
+.progress-container {
+  width: 100%;
+  height: 0px;
+  background: #ccc;
+  position: absolute;
+  bottom: 0;
+  z-index: 9990;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 18px;
+  background: linear-gradient(to right, #4fe0ab , var(--hot-orange)); /*was #26a8ed*/
+  width: 0%;
+    position: fixed;
+  bottom: 0px; /*47px*/
+  z-index: 9991;
+}
+
+/* youtube lazyload */
+   .youtube-container { display: block; width: 1px; min-width: 100%; border-style: solid; border-width: 1px; border-color: #cdf7e0;} /* max-width defines the player size*/
+    .youtube-player { display: block; /* assuming that the video has a 16:9 ratio */ padding-bottom: 56.25%; overflow: hidden; position: relative; width: 100%; height: 100%; cursor: pointer; display: block; }
+    img.youtube-thumb { bottom: 0; display: block; left: 0; margin: auto; max-width: 100%; width: 100%; position: absolute; right: 0; top: 0; height: auto }
+    div.play-button { height: 72px; width: 72px; left: 50%; top: 50%; margin-left: -36px; margin-top: -36px; position: absolute; background: url("https://4.bp.blogspot.com/-Me01YYEE7nU/Vx_UViCgJkI/AAAAAAAABe0/IDEvL5vov8gq5qwLELNEcwKVzcLKaLJbwCLcB/s1600/TxzC70f.png") no-repeat; }
+    #youtube-iframe { width: 1px; min-width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+/* ^^^ set youtube-frame width back to 100% if that doesnt work */
+
+
+/* DESKTOP =============== MOBILE NAV ICON CUSTOM FOOTER */
+
+@media(min-width: 767px) { 
+    .mobile-app-icon-bar {display:none !important;} 
+}
+
+
+/* MOBILE NAV ICON CUSTOM FOOTER */
+
+@media(max-width: 767px) { 
+
+  /* The progress bar (scroll indicator) */
+  .progress-bar {
+    bottom: 46px;
+    height: 8px;
+  }
+
+  .mobile-app-icon-bar{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 47px;
+    z-index: 9;
+    background: var(--translucent-navy) !important;
+    /*padding-bottom: 10px !important;*/
+  }
+
+  .mobile-app-icon-bar button {
+    padding: 5px !important;
+    cursor: pointer;
+  }
+
+  .buttonstyle.active{
+   color: #002998 !important;
+  }
+
+  .buttonstyle svg {
+      /*font-size: 32px;*/
+      color: #c3f7c3;
+  }
+
+  .buttonstyle{
+  width:20%;
+  height: 47px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--translucent-navy) !important;
+  border: none;
+  margin-top: 0px;
+      border-bottom-width: 0px; border-right-width: 0px; border-left-width: 0px; 
+      border-top-width: 1px; border-color: #cdf7e0; border-style: solid; 
+  }
+
+  .mobile-app-icon-bar button svg,
+  .mobile-app-icon-bar button i,
+  .mobile-app-icon-bar button img {}
+  /* END MOBILE ICON BAR */
+
+
+
+  /* GEM GLISTEN other glow color more teal is #4fe0ab*/
+
+  .mobile-app-icon-bar button .fa-gem {color: #26a8ed ;}
+
+  .fa-gem {
+    -webkit-animation: glowing 3s infinite alternate;
+    -moz-animation: glowing 3s infinite alternate;
+    -ms-animation: glowing 3s infinite alternate;
+    animation: glowing 3s infinite alternate;
+  }
+
+  @keyframes glowing {to {color: #68e9ba;}}
+  @-webkit-keyframes glowing {to {color: #68e9ba;}}
+  @-moz-keyframes glowing {to {color: #68e9ba;}}
+  @-o-keyframes glowing {to {color: #68e9ba;}}
+
+
+
+
+  /* HOT BOOST - mobile */
+  #bm-wrap2 {display: none;     
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    width: 100vw;
+    margin: auto;
+    overflow-x: hidden; 
+    overflow-y: auto;
+    height: 80vh;
+    border-style: solid; border-left-width: 0px; border-right-width: 0px; border-top-width: 1px; border-color: #cdf7e0; 
+  } 
+
+}
+
+
+
+
+
+
+/*NEW FOR JS CLIENT DISPLAY
+qz3 ======================================================*/
+
+/*COMMENTS POP - nested comments import {/*    ================ */
+
+.cBox-1 {padding-left: 0px;}
+.cBox-2 {
+  margin-left: 3px;
+  border-left: 2px solid red !important;
+}
+.cBox-3 {
+  margin-left: 6px;
+  border-left: 2px solid blue !important;
+}
+.cBox-4 {
+  margin-left: 9px;
+  border-left: 2px solid green !important;
+}
+.cBox-5 {
+  margin-left: 12px;
+  border-left: 2px solid yellow !important;
+}
+.cBox-6 {
+  margin-left: 15px;
+  border-left: 2px solid purple !important;
+}
+
+/*other user comment image*/
+.avi {height: 44px;}
+
+.collapser {position: absolute;right: 31%;}
+.bottomRow {padding-left: 1%; }
+.bottomRow > span {padding-left: 3%; }
+
+/*END COMMENTS POP - comment import*/
+
+
+
+/*NEW FOR dBOX DISCUSSION DISPLAY
+qz3 =========================================================*/
+
+.discoTitle, .thumb { display: block;}
+
+.thumb {width: 100%;}
+
+#sidebar-info {overflow-x: hidden;
+overflow-y: scroll; height: 74vh; width: 26%;}

@@ -3,7 +3,7 @@ import { NavLink } from "inferno-router";
 import { GetSiteResponse } from "lemmy-js-client";
 import { sideChamp } from "sidebar-champ-pull";
 
-const sider = renderToString(side-champ);
+const sider = renderToString(sideChamp);
 
 
 // import { i18n } from "../../i18next";
@@ -34,7 +34,7 @@ export class SidebarChamp extends Component {
       <div class="card border-secondary mb-3">
         {/*  PASTE HERE  ================ */}
 
-        `${sider}`
+        ${sider}
 
 
         {/* END PASTE   ================ */}

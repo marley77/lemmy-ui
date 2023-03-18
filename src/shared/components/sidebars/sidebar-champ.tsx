@@ -1,7 +1,7 @@
 import { Component } from "inferno";
 import { NavLink } from "inferno-router";
 import { GetSiteResponse } from "lemmy-js-client";
-import { side-champ } from "sidebar-champ-pull";
+import { sideChamp } from "sidebar-champ-pull";
 
 const sider = renderToString(side-champ);
 

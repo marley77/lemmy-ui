@@ -1,4 +1,4 @@
-export const side-champ = (
+export const sideChamp = (
 
         <div class="inner">
           <div class="post-feed">

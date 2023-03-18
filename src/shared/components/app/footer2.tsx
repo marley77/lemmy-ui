@@ -45,7 +45,7 @@ function boostmenu() {
 
 // SET HOTBOOST for top menu
 (function() {
-  var zz = document.getElementById("top-astro");
+  var zz = document.getElementById("topastro");
   zz.onclick = boostmenu;
   console.log("added boostmenu");
 })();

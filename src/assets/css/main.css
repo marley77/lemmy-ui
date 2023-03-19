@@ -841,9 +841,9 @@ img.youtube-thumb {
   }
 
   /*no scrollbar*/
-  ::-webkit-scrollbar {
+/*  ::-webkit-scrollbar {
     display: none;
-  }
+  }*/
 
 /*  #sidebar {
     max-width: 100% !important;

@@ -43,16 +43,14 @@ function boostmenu() {
 }
 
 
-// SET HOTBOOST for top menu
-(function() {
-  var zz = document.getElementById("topastro");
-  zz.onclick = boostmenu;
-  console.log("added boostmenu");
-})();
+// // SET BOOSTMENU for top menu
+// (function() {
+//   var zz = document.getElementById("topastro");
+//   zz.onclick = boostmenu;
+//   console.log("added boostmenu");
+// })();
 
 
-
-{/*  NEW ADD FEB 22  ================ */}
 
 
 // HOT BOOST

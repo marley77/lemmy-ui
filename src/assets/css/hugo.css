@@ -807,3 +807,20 @@ qz3 =========================================================*/
 
 #sidebar-info {overflow-x: hidden;
 overflow-y: scroll; height: 74vh; width: 26%;}
+
+
+
+
+@media (max-width: 767px) {
+
+/*  .inner {
+    height: 100% !important;
+    overscroll-behavior: auto;
+  }*/
+
+  /*no scrollbar*/
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+}

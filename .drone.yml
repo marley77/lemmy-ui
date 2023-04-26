@@ -1,9 +1,9 @@
 kind: pipeline
-name: arm64
+name: amd64
 
 platform:
   os: linux
-  arch: arm64
+  arch: amd64
 
 steps:
   - name: fetch git submodules
@@ -24,7 +24,7 @@ steps:
       dockerfile: Dockerfile
       repo: qz77/ui3
       # auto_tag: true
-      auto_tag_suffix: linux-arm64
+      auto_tag_suffix: linux-amd64
       username:
         from_secret: docker_username
       password:

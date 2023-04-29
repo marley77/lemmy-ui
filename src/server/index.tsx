@@ -200,6 +200,9 @@ server.get("/*", async (req, res) => {
            <script>window.isoData = ${serialize(isoData)}</script>
            <script>window.lemmyConfig = ${serialize(config)}</script>
 
+           <!-- Added for grow -->
+           <script defer data-domain="biglife.quest" src="https://grow.biglife.quest/js/script.js"></script>
+
            <!-- A remote debugging utility for mobile -->
            ${erudaStr}
 
